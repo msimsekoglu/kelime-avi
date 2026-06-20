@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Kelime Avı — İngilizce Kelime Keşfi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --panel:rgba(28,12,52,.62);--panel-line:rgba(255,255,255,.10);
+    --tile:#f6e8c8;--tile-ink:#2a1640;--gold:#ffc24b;--gold-deep:#d99a22;
+    --cyan:#7ef0ff;--cyan-deep:#33b9d6;--mint:#47e0a1;--coral:#ff5d73;--pink:#ff5ea8;
+    --text:#f7eefc;--text-dim:#cbb3e6;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;height:100%;}
+  body{font-family:'Nunito',system-ui,sans-serif;color:var(--text);
+    background:radial-gradient(120% 80% at 80% -10%, rgba(255,94,168,.45), transparent 55%),
+      radial-gradient(100% 90% at 10% 110%, rgba(126,240,255,.10), transparent 50%),
+      linear-gradient(155deg,#2f0f57 0%,#6a1574 48%,#aa1f6c 100%);
+    background-attachment:fixed;overflow:hidden;display:flex;flex-direction:column;height:100dvh;user-select:none;}
+  .sky{position:fixed;inset:0;pointer-events:none;z-index:0;}
+  .sky b{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.5;animation:tw 4s ease-in-out infinite;}
+  @keyframes tw{0%,100%{opacity:.12;}50%{opacity:.65;}}
+  .wrap{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;max-width:520px;margin:0 auto;width:100%;}
+  header{display:flex;align-items:center;justify-content:space-between;padding:11px 14px 6px;gap:8px;}
+  .hleft{display:flex;align-items:center;gap:10px;}
+  .iconbtn{background:var(--panel);border:1px solid var(--panel-line);border-radius:12px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);}
+  .iconbtn svg{width:20px;height:20px;}
+  .brand h1{font-family:'Fredoka',sans-serif;font-weight:600;font-size:19px;margin:0;}
+  .brand h1 span{color:var(--gold);}
+  .brand small{color:var(--text-dim);font-size:11px;font-weight:700;display:block;margin-top:1px;}
+  .stats{display:flex;gap:7px;}
+  .pill{background:var(--panel);border:1px solid var(--panel-line);border-radius:999px;padding:6px 11px;font-family:'Fredoka',sans-serif;font-size:14px;display:flex;align-items:center;gap:5px;backdrop-filter:blur(6px);}
+  .pill .lab{color:var(--text-dim);font-size:10px;font-weight:700;font-family:'Nunito';}
+  .pill .coin{color:var(--gold);font-size:11px;}
+  .board{flex:1 1 auto;overflow-y:auto;padding:6px 16px 4px;}
+  .board::-webkit-scrollbar{width:5px;}.board::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:9px;}
+  .row{display:flex;align-items:center;gap:10px;margin:8px 0;}
+  .clue{flex:0 0 40%;text-align:right;font-size:13px;color:var(--text-dim);font-weight:700;line-height:1.15;}
+  .clue.wait{opacity:.55;font-style:italic;}
+  .row.done .clue{color:var(--mint);cursor:pointer;}
+  .row.done .clue::after{content:" ⓘ";color:var(--cyan);font-weight:800;}
+  .boxes{display:flex;gap:5px;flex-wrap:wrap;}
+  .box{width:29px;height:33px;border-radius:8px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.16);
+    display:flex;align-items:center;justify-content:center;font-family:'Fredoka',sans-serif;font-weight:600;font-size:17px;color:transparent;
+    transition:transform .18s,background .25s,color .25s,border-color .25s;}
+  .box.filled{background:var(--mint);border-color:var(--mint);color:#0c3a2a;animation:pop .35s ease;cursor:pointer;}
+  .box.hint{background:rgba(255,194,75,.18);border-color:var(--gold);color:var(--gold);}
+  @keyframes pop{0%{transform:scale(.4);}60%{transform:scale(1.15);}100%{transform:scale(1);}}
+  .forming{height:44px;display:flex;align-items:center;justify-content:center;gap:6px;}
+  .forming .chip{min-width:28px;height:36px;padding:0 8px;border-radius:9px;background:var(--cyan);color:#08303a;
+    font-family:'Fredoka',sans-serif;font-weight:600;font-size:21px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 var(--cyan-deep);}
+  .forming.bad .chip{background:var(--coral);color:#fff;box-shadow:0 4px 0 #c33;animation:shake .4s;}
+  @keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-7px);}75%{transform:translateX(7px);}}
+  .wheelzone{position:relative;display:flex;justify-content:center;padding:2px 0 8px;flex:0 0 auto;}
+  .wheel{position:relative;touch-action:none;}
+  .wheel svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+  .wheel .disc{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 35%,#2b1a55,#150d31);
+    border:2px solid rgba(126,240,255,.32);z-index:0;box-shadow:inset 0 2px 22px rgba(0,0,0,.5),0 0 26px rgba(126,240,255,.10);}
+  .letter{position:absolute;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;
+    background:linear-gradient(180deg,#fdf3da,var(--tile));color:var(--tile-ink);font-family:'Fredoka',sans-serif;font-weight:600;font-size:25px;
+    display:flex;align-items:center;justify-content:center;z-index:2;box-shadow:0 4px 0 #c9b485,0 6px 12px rgba(0,0,0,.35);transition:transform .12s;}
+  .letter.sel{background:linear-gradient(180deg,#aef7ff,var(--cyan));color:#063038;box-shadow:0 0 0 4px rgba(126,240,255,.35),0 4px 0 var(--cyan-deep);transform:scale(1.07);}
+  .controls{display:flex;justify-content:center;gap:12px;padding:0 16px 14px;flex:0 0 auto;}
+  .btn{background:var(--panel);border:1px solid var(--panel-line);color:var(--text);border-radius:14px;padding:11px 16px;
+    font-family:'Nunito';font-weight:800;font-size:14px;display:flex;align-items:center;gap:7px;cursor:pointer;transition:transform .1s,background .15s;backdrop-filter:blur(6px);}
+  .btn:active{transform:scale(.94);}
+  .btn.gold{background:var(--gold);color:#3a2607;border-color:var(--gold-deep);}
+  .btn.ghost{background:transparent;}
+  .btn svg{width:18px;height:18px;}
+  .overlay{position:fixed;inset:0;z-index:20;background:rgba(20,6,40,.84);backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;padding:24px;}
+  .overlay.show{display:flex;animation:fade .3s;}
+  @keyframes fade{from{opacity:0;}to{opacity:1;}}
+  .card{background:linear-gradient(180deg,#2a123f,#1c0d33);border:1px solid var(--panel-line);border-radius:22px;padding:26px 24px;text-align:center;max-width:360px;width:100%;}
+  .card .big{font-family:'Fredoka',sans-serif;font-size:46px;line-height:1;margin-bottom:6px;}
+  .card h2{font-family:'Fredoka',sans-serif;font-weight:600;margin:0 0 6px;font-size:23px;}
+  .card p{color:var(--text-dim);margin:0 0 16px;font-size:14px;line-height:1.55;}
+  .menuBtns{display:flex;flex-direction:column;gap:10px;}
+  .card .recap{text-align:left;background:rgba(255,255,255,.05);border-radius:14px;padding:10px 14px;margin-bottom:18px;max-height:220px;overflow:auto;}
+  .card .recap div{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px dashed rgba(255,255,255,.12);}
+  .card .recap div:last-child{border:0;}
+  .card .recap b{color:var(--gold);font-family:'Fredoka';font-weight:500;}
+  .card .recap .en{color:var(--text);font-weight:800;}
+  .full{width:100%;justify-content:center;font-size:16px;padding:14px;}
+  .intro p{font-size:14px;line-height:1.65;color:var(--text-dim);text-align:left;}
+  .intro p b{color:var(--gold);}
+  .detail .word{font-family:'Fredoka',sans-serif;font-size:36px;font-weight:600;color:var(--cyan);letter-spacing:1px;}
+  .detail .tr{color:var(--pink);font-weight:800;font-size:16px;margin-bottom:14px;}
+  .detail .blk{text-align:left;background:rgba(255,255,255,.05);border-radius:12px;padding:11px 14px;margin-bottom:10px;}
+  .detail .blk .k{font-size:11px;font-weight:800;letter-spacing:.6px;color:var(--text-dim);text-transform:uppercase;margin-bottom:3px;}
+  .detail .blk .v{font-size:14px;line-height:1.5;color:var(--text);}
+  .detail .blk .v.ex{font-style:italic;color:#e9def4;}
+  .toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);z-index:30;
+    background:var(--gold);color:#3a2607;font-weight:800;font-size:14px;padding:9px 16px;border-radius:999px;opacity:0;transition:.3s;box-shadow:0 6px 18px rgba(0,0,0,.3);}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  .switch{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.05);border-radius:12px;padding:11px 14px;font-weight:700;font-size:14px;}
+  .switch b{width:46px;height:26px;border-radius:999px;background:#5a3a78;position:relative;transition:.2s;cursor:pointer;}
+  .switch b.on{background:var(--mint);}
+  .switch b::after{content:"";position:absolute;width:20px;height:20px;border-radius:50%;background:#fff;top:3px;left:3px;transition:.2s;}
+  .switch b.on::after{left:23px;}
+</style>
+</head>
+<body>
+<div class="sky" id="sky"></div>
+<div class="wrap">
+  <header>
+    <div class="hleft">
+      <div class="iconbtn" id="menuBtn" title="Menü">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </div>
+      <div class="brand"><h1>Kelime <span>Avı</span></h1><small id="levelLabel">Bölüm 1</small></div>
+    </div>
+    <div class="stats">
+      <div class="pill"><span class="lab">Bulunan</span><span id="foundCount">0/0</span></div>
+      <div class="pill"><span class="coin">●</span><span id="coins">0</span></div>
+    </div>
+  </header>
+  <div class="board" id="board"></div>
+  <div class="forming" id="forming"></div>
+  <div class="wheelzone"><div class="wheel" id="wheel">
+    <div class="disc"></div>
+    <svg id="line" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline id="poly" points="" fill="none" stroke="rgba(126,240,255,.95)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div></div>
+  <div class="controls">
+    <button class="btn" id="shuffleBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg>Karıştır</button>
+    <button class="btn gold" id="hintBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2Z"/></svg>İpucu (15)</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<!-- MENÜ / BAŞLANGIÇ -->
+<div class="overlay show" id="menuOverlay"><div class="card">
+  <div class="big">🔭</div><h2>Kelime <span style="color:var(--gold)">Avı</span></h2>
+  <p>Oxford 3000 + VOA tabanlı kelime kütüphanesiyle İngilizce öğren.</p>
+  <div class="menuBtns">
+    <button class="btn gold full" id="contBtn">Devam Et</button>
+    <button class="btn full" id="newBtn">Yeni Oyun</button>
+    <button class="btn ghost full" id="helpBtn">Nasıl Oynanır?</button>
+    <div class="switch">Ses <b id="soundTog" class="on"></b></div>
+  </div>
+</div></div>
+
+<!-- NASIL OYNANIR -->
+<div class="overlay" id="helpOverlay"><div class="card intro">
+  <div class="big">🎯</div><h2>Nasıl Oynanır?</h2>
+  <p style="margin-bottom:18px">
+    • Her satırda <b>Türkçe ipucu</b> var, kutular boş.<br>
+    • Alttaki <b>harf çemberinde</b> parmağını sürükleyip kelimeyi yaz.<br>
+    • Listede olmayan ama harflerden çıkan gerçek kelimeler <b>bonus</b> jeton verir.<br>
+    • Bulduğun kelimeye dokun → <b>tanım</b>, örnek cümle, telaffuz (Oku).<br>
+    • İlerlemen otomatik kaydedilir; menüden çıkıp <b>Devam Et</b> ile dönersin.
+  </p>
+  <button class="btn gold full" id="helpClose">Anladım</button>
+</div></div>
+
+<!-- BÖLÜM TAMAM -->
+<div class="overlay" id="winOverlay"><div class="card">
+  <div class="big">⭐</div><h2 id="winTitle">Bölüm Tamamlandı!</h2><p id="winSub">Bu bölümün kelimeleri:</p>
+  <div class="recap" id="winRecap"></div>
+  <button class="btn gold full" id="nextBtn">Sonraki Bölüm</button>
+</div></div>
+
+<!-- KELİME DETAYI -->
+<div class="overlay" id="detailOverlay"><div class="card detail">
+  <div class="word" id="dWord"></div><div class="tr" id="dTr"></div>
+  <div class="blk"><div class="k">Tanım (İngilizce)</div><div class="v" id="dDef"></div></div>
+  <div class="blk"><div class="k">Örnek Cümle</div><div class="v ex" id="dEx"></div></div>
+  <button class="btn full" id="speakBtn" style="margin-bottom:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a9 9 0 0 1 0 14"/></svg>Oku</button>
+  <button class="btn gold full" id="detailClose">Kapat</button>
+</div></div>
+
+<script>
+
+const LIB={"A1": "about above across action activity actor actress add address adult advice afraid after afternoon again age ago agree air airport all also always amazing and angry animal another answer ant anuary any anyone anything apartment apple arch area arm around arrive art artist ask aturday aunt away awesome baby back bad bag ball banana band bank bar baseball basketball bat bath bathroom beach beautiful because become bed bedroom beer before begin beginning behind believe below best better between bicycle big bike bill bird birthday black blog blond blue boat body book boot bored boring born both bottle box boy boyfriend bread break breakfast bring brother brown build building bus business busy but butter buy bye cafe cake call camera cannot capital car card career carrot carry cat cent center chair change chart cheap check cheese chicken child chocolate choose city class classroom clean climb clock clothes club coat coffee cold college color come common company compare complete computer concert conversation cook cooking cool correct cost could country course cousin cow cream create ctober culture cup customer cut dad dance dancer dancing dangerous dark date daughter day dear decide delicious describe description design desk detail dialogue dictionary die diet difference different difficult dinner dirty discuss dish doctor dog dollar door down downstairs draw dress drink drive driver during each ear early east easy eat ebruary ecember ednesday egg eight eighteen eighty elephant eleven else email end enjoy enough eptember euro even evening event ever every everybody everyone everything exam example excited exciting exercise expensive explain extra eye face fact fall false family famous fantastic far farm farmer fast fat father favorite feel feeling festival few fifteen fifth fifty fill final find fine finish fire first fish five flight floor flower fly follow food foot football for forget form forty four fourteen fourth fox free friend friendly from front fruit full fun funny future game garden geography get girl girlfriend give glass good goodbye grandfather grandmother grandparent gray great green group grow guess guitar gym hair half hand happen happy hard hat hate have head health healthy hear hello help hen her here hey high him his history hobby home homework hope horse hospital hot hotel hour house how however hundred hungry hursday husband ice idea imagine important improve include information interest interested interesting internet interview into introduce island its jacket jeans job join juice just keep key kind kitchen know land language large late later laugh learn leave left leg lesson let letter library life light like line lion list listen little local look lose lot love lunch machine magazine main make mall man many market married maybe meal mean meaning meat meet meeting member menu message meter midnight mile milk million miss mistake model modern mom moment money month more morning most mother mountain mouse mouth move movie much museum music must name natural near need negative neighbor neighborhood never new news newspaper next nice night nine nineteen ninety nobody north nose not note nothing now nurse object ocean off office often old once onday one onion online only open opinion opposite orange order other our out outside ovember over owl own page paint painting pair pants paper paragraph parent park part partner party passport past pay pen pencil people pepper perfect period person personal phone photo photograph phrase piano picture piece pig pink place plan plane plant play player please point police policeman pool poor popular positive possible post potato pound practice prefer prepare present pretty price pril probably problem product program project purple put quarter question quick quickly quiet quite radio rain rat read reader reading ready real really reason red relax remember repeat report restaurant result return rice rich riday ride right river road room routine rule run sad salad salt same sandwich say school science scientist section see sell send sentence seven seventeen seventy share she sheep shirt shoe shop shopping short should show shower sick similar sing singer sister sit situation six sixteen sixty skill skirt sleep slow small smart snake snow some somebody someone something sometimes son song soon sorry sound soup south space speak special spell spelling spend sport spring stand star start statement station stay still stop store story street strong student study style subject success sugar summer sun supermarket sure sweater swim swimming table take talk tall taxi tea teach teacher team teenager telephone television tell ten tennis terrible test text than thank thanks that the theater their them then there they thing think third thirsty thirteen thirty this thousand three through ticket time tired title today together toilet tomato tomorrow tonight too tooth topic tourist town traffic train travel tree trip truck true try turn twelve twenty twice two type uesday ugust uly umbrella uncle unday under understand une university until upstairs use useful usually vacation vegetable very video visit visitor wait waiter wake walk wall want warm wash watch water way wear weather website week weekend welcome well west what when where which white who why wife will win window wine winter with without woman wonderful word work worker world would write writer writing wrong yard yeah year yellow yes yesterday you young your yourself", "A2": "ability able accept accident according achieve act active actually advantage adventure advertise advertisement advertising affect against airline alive allow almost alone along already alternative although among amount analyze ancient ankle anybody anymore anyway anywhere app appear appearance apply architect architecture argue argument army arrange arrangement asleep assistant athlete attack attend attention attractive audience author available average avocado avoid award awful background badly bagel based bean bear beat beef behave behavior belong belt benefit billion biology birth bit blank block blood blow board boil bone borrow boss bottom bowl brain bridge bright brilliant broken browser brunch brush burger burn businessman button camp camping campus candy care careful carefully carpet cartoon case cash catch cause celebrate celebrity cell century certain certainly chance character charger charity chat chef chemistry chip choice church cigarette circle classical clear clearly clerk climate closed closet clothing cloud coach coast code colleague collect column comedy comfortable comment communicate community compete competition complain completely condition conference connect connected consider contain context continent continue control cookie copy corner correctly count couple cover crazy creative credit crime criminal cross crowd crowded cry cupcake curly cycle daily danger data dead deal death decision deep definitely degree dentist department depend desert designer dessert destroy detective develop device diary differently digital direct direction director disagree disappear disaster discover discovery discussion disease distance divorced document double download downtown drama drawing dream driving drone drop drug dry earn earth easily education effect either electric electrical electricity electronic elevator emoji employ employee employer empty ending energy engine engineer enormous enter environment equipment error especially essay everyday everywhere evidence exact exactly excellent except exist expect experience experiment expert explanation express expression extreme extremely factor factory fail fair fan farming fashion fear feature feed female fever fiction field fight figure film finally finger fishing fit fix flat flu flying focus following foreign forest fork formal fortunately forward fresh frog furniture further gadget gallery gap garbage gas gate general gift goal god gold golf government grass greet grocery ground guest guide gun guy habit hall happily hashtag headache heart heat heavy height helpful hero hers herself hide hill himself hit hockey hold hole holiday hoodie huge human hurt ideal identify ill illness image immediately impossible included including increase incredible independent individual industry informal injury insect inside instead instruction instructor instrument intelligent international introduction invent invention invitation invite involve item itself jam jazz jewelry joke journalist jump kid kill kilometer king knee knife knock knowledge lab lady lake lamp laptop latte laughter law lawyer lazy leader learning least lecture lemon lend less level lifestyle lift likely link listener lock lost loud loudly low luck lucky mail major male manage manager manner mark marry material math mathematics matter may mayor media medical medicine meme memory mention metal method middle might mind mine mirror missing monkey moon mostly motorcycle movement musical musician myself narrow national nature nearly necessary neck neither nervous network noise noisy none noodle normal normally notice novel nowhere nut offer officer oil onto opportunity option ordinary organization organize original ourselves oven overseas owner pack pain painter palace parking particular pass passenger pasta patient pattern peace penny per percent perform perhaps permission personality pet physical physics pick pilot pizza planet plastic plate platform playlist pleased pocket podcast polite pollution pop popcorn population position possession possibility poster power predict president prevent print printer prison prize process produce professional professor profile progress promise pronounce protect provide public publish pull purpose push quality quantity queen quietly race railroad raise rate rather reach react realize receive recent recently reception recipe recognize recommend record recording recycle reduce refer refrigerator region regular relationship remove repair replace reply reporter request research researcher respond response rest review rise rock role roof round route rude runner running sadly safe sail sailing salary sale sauce save scared scary scene schedule score screen sea search season seat secret secretary seem selfie sense separate series serious serve service several shake shape sheet ship shoulder shout shut side sign silver simple since singing single sir site size ski skiing skin sky slowly smartphone smell smile smoke smoking smoothie snack sneaker soap soccer social society sock soft soldier solution solve somewhere sort source speaker specific speech speed spider spoon square stage stair stamp state steal step stomach stone storm stove straight strange strategy stress structure stupid subway succeed successful such suddenly suggest suggestion suit support suppose surprise surprised surprising survey sushi sweet symbol system tablet taco target task taste teaching technology teenage temperature term themselves thick thief thin thinking thought throw tie tip tool top touch tour tourism toward towel tower toy track tradition traditional training transportation trash traveler trouble twin typical underground understanding unfortunately unhappy uniform unit united unusual used user usual valley variety vehicle view village virus vlog voice waffle war washing wave weak web wedding weight wet wheel while whole whose wide wild winner wish wood wooden working worried worry worse worst wow yet yoga yours zero", "B1": "absolutely academic access account achievement addition administration admire admit advanced advise afford agent agreement ahead aim alarm album alcohol alcoholic amazed ambition analysis announce announcement annoy annoyed annoying apart apologize application appointment appreciate approximately arrest arrival assignment assist atmosphere attach attitude attract attraction authority automatic automatically aware backward bake balance ban base basic basis battery battle beauty bee belief bell bend bite bomb border bother branch brand brave breath breathe breathing bride bubble bury cable calm campaign candidate cap captain careless category ceiling celebration central ceremony chain challenge champion channel chapter charge cheat cheerful chemical chest childhood claim clause clever click client cloth clue coal coin collection colored combine commercial commit communication comparison competitive competitor complaint complex concentrate conclude conclusion confident confirm confuse confused connection consequence consist consume consumer contact container continuous contrast convenient convince corn costume cotton countryside court covered cruel cultural cupboard currency current currently curtain custom damage decade define definition deliver departure despite destination determine determined development diagram diamond difficulty directly dirt disadvantage disappointed disappointing discount dislike district divide documentary donate doubt dressed drum drunk due dust duty earthquake eastern economic economy edge editor educate educated educational effective effectively effort election element embarrassed embarrassing emergency emotion employment encourage enemy engaged engineering entertain entertainment entrance entry environmental episode equal equally escape essential eventually examine exchange excitement exhibition exit expand expected experienced explode explore explosion export fairly familiar fancy fascinating fashionable fasten favor federal fence fighting file financial fitness fixed flag flood flour flow fold folk force forever frame freeze frequently friendship frighten frightened frightening frozen fry fuel function fur garage gather generally generation generous gentle gentleman ghost giant glad global glove grade graduate grain grateful growth guard guilty hang happiness hardly headline heating heavily helicopter highlight highly highway hire historic historical honest horrible horror host hunt hurricane hurry identity ignore illegal imaginary immediate immigrant impact import importance impression impressive improvement incredibly indeed indicate indirect indoor indoors influence ingredient injure injured innocent intelligence intend intention invest investigate involved iron issue journal journey judge keyboard kick killing kiss label laboratory lack latest lay layer leading leaf leather legal leisure length limit lip liquid literature living locate located location lonely loss luxury mad magic mainly management marketing marriage meanwhile measure medium mental mess mild mix mixture mood mud murder muscle mystery nail narrative nation native naturally neat necessarily needle net nor northern nuclear obvious obviously occasion occur odd official operation organized organizer originally ought ours outdoor outdoors package painful pale pan participate particularly passion path payment peaceful percentage perfectly performance personally persuade photographer photography pin pipe planning pleasant pleasure plenty plot poem poet poetry poison poisonous policy political politician politics port portrait possibly pot pour poverty powder powerful practical pray prayer prediction prepared presentation press pressure pretend previous previously priest primary prince princess principal printing prisoner private producer production profession profit promote proper properly property protest proud prove punish punishment qualification qualified qualify quit quotation quote racing range rare rarely reaction reality receipt recommendation reference reflect regularly reject relate related relation relative relaxed relaxing release reliable religion religious remain remind remote rent repeated represent require reservation resource respect responsibility responsible retire retired revise risk robot roll romantic rope rough royal safety sailor sample sand scan scientific script sculpture secondary security seed sensible seriously servant set setting sex sexual sharp shelf shell shift shine shiny shoot shy sight signal silent silly similarity similarly simply sink slave slice slightly smooth software soil solid southern specifically spending spicy spirit spoken spot spread stadium staff standard statistic statue stick stranger strength string strongly studio stuff substance successfully sudden suffer suitable summarize summary supply supporter surely surface survive switch symptom tail talent talented tape tax technical technique tend tent theirs theme theory therefore though throat throughout tight till tiny tire toe ton tongue total totally trade trainer translate translation transport treat treatment trend trick truth tube typically ugly unable uncomfortable underwear unemployed unemployment unfair union unless unlike unlikely unnecessary unpleasant update upon upset valuable value various version victim viewer violent volunteer vote warn warning waste weapon weigh western whatever whenever whether wing within wonder wool worldwide worth written youth", "B2": "abandon abroad absolute acceptable accompany accurate accuse acknowledge acquire actual adapt additional adopt advance affair afterward agency agenda aggression aggressive aid aircraft alter ambassador ammunition anarchy anger angle anniversary annual anxious apparent apparently appeal approach appropriate approval approve arise armed arms artificial artillery artistic ashamed aside aspect assess assessment associate associated association assume attempt attorney bacteria ballot barrier basically beg being bent bet beyond bitter blame blind bond breast brief broad broadcast budget bullet bunch bush calculate cancel cancer capable capacity capture cast ceasefire chairman characteristic chief circumstance cite citizen civil classic closely coalition collapse combination comfort command commission commitment committee commonly complicated component concentration concept concern concerned conduct confidence conflict confusing congress conscious conservative consideration consistent constant constantly construct construction contemporary contest contract contribute contribution convert convinced core corporate council county courage crash creation creature crew crisis criterion critic critical criticism criticize crop crucial cure curfew curve curved debate debt decent declare decline decorate decoration decrease deeply defeat defend defense delay deliberate deliberately delivery demand demonstrate deny deploy depressed depressing depth deserve desire desperate detailed detect dictator dig diplomat disarm discipline dishonest disk dismiss display dissident distribute distribution division domestic dominate downward dozen draft drag dramatic edit edition efficient elderly elect elsewhere embassy emerge emotional emphasis emphasize enable encounter engage enhance ensure enthusiasm enthusiastic entire entirely establish estate estimate ethical evaluate evil examination excuse executive exhibit existence expectation expense exploration expose extend extent external extraordinary facility failure faith fault feather fee feedback fellow finance finding firm flame flash flexible float folding forgive former fortune found freedom frequency fully fund fundamental funding furthermore gain gang generate genocide genre goods govern governor grab gradually grand grant guarantee guerrilla handle harm harmful hearing heaven heel hell hesitate hollow holy honor hostage household housing humor humorous hunting illustrate illustration imagination impatient imply impose impress impressed inch incident income increasingly industrial infection inform initial initially initiative inner inquiry insight insist inspire install instance institute institution insurance intended intense internal interpret interrupt investigation investment joy judgment junior justice justify labor landscape largely launch leadership league lean license limited lively load loan logical loose lord lower lung maintain majority mass massive master matching maximum means measurement melt militant military militia mineral minimum minister minor minority missile mission mixed modify monitor moral motor mount multiple multiply mysterious nerve nevertheless nightmare notion numerous obey objective obligation observation observe obtain occasionally offend offense offensive opening operate opponent oppose opposed opposition oppress organ origin otherwise outcome outer outline overall overthrow owe pace panel participant partly passage permanent permit perspective phase phenomenon philosophy pile pitch plain pointed popularity pose possess potential praise pregnant preparation presence preserve prime principle priority privacy procedure proof proposal propose prospect protection psychologist psychology publication purchase pure pursue rank rapid rapidly raw realistic reasonable rebel recall recover reduction refugee regard regional register regret regulation relatively relevant relief rely remark representative reputation requirement rescue reserve resident resist resolve resort retain reveal revolution reward rhythm rid root rub rubber rural rush sabotage satellite satisfied satisfy saving scale scream sector secure seek select selection self senate senator senior sensitive sequence session settle severe shade shadow shall shallow shame shelter shock shocked shooting shot significant significantly silence silk sincere slide slight slip slope solar somewhat soul specialist species spiritual split sponsor stable stare status steady steel steep sticky stiff stock stream stretch strict strike struggle submit subversion sum surgery surround surrounding suspect swear sweep sympathy tale tank temporary terrorist therapy threat threaten thus tone tough transfer transform transition treaty trial tropical truly trust tune tunnel ultimately unconscious unexpected unique universe unknown upper upward urban urge van vary vast venue via victory violence virtual vision visual vital vitamin volume wage weakness wealth wealthy whereas wherever whisper whom widely wildlife willing wire wise witness wound wrap zone"};
+
+const LEVELS=[{"h":"note","l":"A1","w":["net","not","one","ten","toe","ton","tone","note"]},
+{"h":"east","l":"A1","w":["eat","sea","set","tea","seat","east"]},
+{"h":"hate","l":"A1","w":["eat","hat","tea","the","heat","hate"]},
+{"h":"town","l":"A1","w":["not","now","own","ton","two","town"]},
+{"h":"late","l":"A1","w":["eat","let","tea","tale","late"]},
+{"h":"post","l":"A1","w":["pot","top","spot","stop","post"]},
+{"h":"then","l":"A1","w":["hen","net","ten","the","then"]},
+{"h":"this","l":"A1","w":["his","hit","its","sit","this"]},
+{"h":"band","l":"A1","w":["and","bad","ban","band"]},
+{"h":"coat","l":"A1","w":["act","cat","taco","coat"]},
+{"h":"diet","l":"A1","w":["die","tie","edit","diet"]},
+{"h":"dear","l":"A1","w":["ear","red","read","dear"]},
+{"h":"easy","l":"A1","w":["say","sea","yes","easy"]},
+{"h":"fact","l":"A1","w":["act","cat","fat","fact"]},
+{"h":"four","l":"A1","w":["for","fur","our","four"]},
+{"h":"many","l":"A1","w":["any","man","may","many"]},
+{"h":"meat","l":"A1","w":["eat","tea","team","meat"]},
+{"h":"ride","l":"A1","w":["die","red","rid","ride"]},
+{"h":"snow","l":"A1","w":["now","own","son","snow"]},
+{"h":"they","l":"A1","w":["hey","the","yet","they"]},
+{"h":"warm","l":"A1","w":["arm","raw","war","warm"]},
+{"h":"wear","l":"A1","w":["ear","raw","war","wear"]},
+{"h":"later","l":"A1","w":["art","ear","eat","let","rat","tea","late","later"]},
+{"h":"table","l":"A1","w":["bat","bet","eat","lab","let","tea","able","table"]},
+{"h":"teach","l":"A1","w":["act","cat","eat","hat","tea","the","chat","teach"]},
+{"h":"water","l":"A1","w":["art","ear","eat","rat","raw","tea","war","water"]},
+{"h":"after","l":"A1","w":["art","ear","eat","far","fat","rat","tea","after"]},
+{"h":"great","l":"A1","w":["age","art","ear","eat","get","rat","tea","great"]},
+{"h":"tired","l":"A1","w":["die","red","rid","tie","diet","dirt","edit","tired"]},
+{"h":"bread","l":"A1","w":["bad","bar","bed","ear","red","bear","dear","bread"]},
+{"h":"chart","l":"A1","w":["act","art","car","cat","hat","rat","arch","chart"]},
+{"h":"often","l":"A1","w":["net","not","one","ten","toe","ton","note","often"]},
+{"h":"ready","l":"A1","w":["day","dry","ear","red","dear","read","yard","ready"]},
+{"h":"actor","l":"A1","w":["act","art","car","cat","rat","coat","taco","actor"]},
+{"h":"extra","l":"A1","w":["art","ear","eat","rat","tax","tea","rate","extra"]},
+{"h":"riday","l":"A1","w":["aid","air","day","dry","rid","yard","diary"]},
+{"h":"point","l":"A1","w":["not","pin","pot","tip","ton","top","into","point"]},
+{"h":"south","l":"A1","w":["hot","out","host","shot","shut","thus","shout","south"]},
+{"h":"sport","l":"A1","w":["pot","top","port","post","sort","spot","stop","sport"]},
+{"h":"below","l":"A1","w":["low","owe","owl","web","blow","bowl","below"]},
+{"h":"early","l":"A1","w":["ear","lay","real","rely","year","layer","early"]},
+{"h":"hotel","l":"A1","w":["hot","let","lot","the","toe","hole","hotel"]},
+{"h":"party","l":"A1","w":["art","pay","rat","try","part","pray","party"]},
+{"h":"nurse","l":"A1","w":["run","sun","use","sure","user","nurse"]},
+{"h":"plane","l":"A1","w":["pan","pen","lean","pale","plan","panel","plane"]},
+{"h":"share","l":"A1","w":["ear","her","sea","she","hear","hers","share"]},
+{"h":"shirt","l":"A1","w":["his","hit","its","sir","sit","this","shirt"]},
+{"h":"their","l":"A1","w":["her","hit","the","tie","hire","tire","their"]},
+{"h":"under","l":"A1","w":["due","end","red","run","rude","under"]},
+{"h":"chair","l":"A1","w":["air","car","arch","hair","rich","chair"]},
+{"h":"cream","l":"A1","w":["arm","car","ear","care","race","cream"]},
+{"h":"false","l":"A1","w":["sea","leaf","safe","sale","self","false"]},
+{"h":"email","l":"A1","w":["aim","mail","male","meal","mile","email"]},
+{"h":"horse","l":"A1","w":["her","she","hero","hers","shoe","horse"]},
+{"h":"learn","l":"A1","w":["ear","earn","lean","near","real","learn"]},
+{"h":"paint","l":"A1","w":["ant","pan","pin","tip","pain","paint"]},
+{"h":"other","l":"A1","w":["her","hot","the","toe","hero","other"]},
+{"h":"phone","l":"A1","w":["hen","one","pen","hope","open","phone"]},
+{"h":"skirt","l":"A1","w":["its","sir","sit","ski","risk","skirt"]},
+{"h":"smart","l":"A1","w":["arm","art","rat","arms","star","smart"]},
+{"h":"three","l":"A1","w":["her","the","here","tree","there","three"]},
+{"h":"train","l":"A1","w":["air","ant","art","rat","rain","train"]},
+{"h":"still","l":"A1","w":["ill","its","sit","list","till","still"]},
+{"h":"watch","l":"A1","w":["act","cat","hat","chat","what","watch"]},
+{"h":"world","l":"A1","w":["low","old","owl","lord","word","world"]},
+{"h":"white","l":"A1","w":["hit","the","tie","wet","with","white"]},
+{"h":"about","l":"A1","w":["bat","but","out","boat","about"]},
+{"h":"break","l":"A1","w":["bar","ear","bake","bear","break"]},
+{"h":"brown","l":"A1","w":["nor","now","own","born","brown"]},
+{"h":"could","l":"A1","w":["old","cold","loud","cloud","could"]},
+{"h":"dirty","l":"A1","w":["dry","rid","try","dirt","dirty"]},
+{"h":"drive","l":"A1","w":["die","red","rid","ride","drive"]},
+{"h":"first","l":"A1","w":["fit","its","sir","sit","first"]},
+{"h":"eight","l":"A1","w":["get","hit","the","tie","eight"]},
+{"h":"forty","l":"A1","w":["for","fry","toy","try","forty"]},
+{"h":"front","l":"A1","w":["for","nor","not","ton","front"]},
+{"h":"large","l":"A1","w":["age","ear","leg","real","large"]},
+{"h":"north","l":"A1","w":["hot","nor","not","ton","north"]},
+{"h":"photo","l":"A1","w":["hot","pot","too","top","photo"]},
+{"h":"radio","l":"A1","w":["aid","air","rid","road","radio"]},
+{"h":"skill","l":"A1","w":["ill","ski","kill","silk","skill"]},
+{"h":"short","l":"A1","w":["hot","host","shot","sort","short"]},
+{"h":"space","l":"A1","w":["cap","sea","case","pace","space"]},
+{"h":"style","l":"A1","w":["let","set","yes","yet","style"]},
+{"h":"stand","l":"A1","w":["and","ant","sad","sand","stand"]},
+{"h":"thank","l":"A1","w":["ant","hat","tank","than","thank"]},
+{"h":"store","l":"A1","w":["set","toe","rest","sort","store"]},
+{"h":"twice","l":"A1","w":["ice","tie","wet","cite","twice"]},
+{"h":"would","l":"A1","w":["low","old","owl","loud","would"]},
+{"h":"write","l":"A1","w":["tie","wet","tire","wire","write"]},
+{"h":"wrong","l":"A1","w":["nor","now","own","grow","wrong"]},
+{"h":"parent","l":"A1","w":["ant","art","ear","eat","net","pan","pen","parent"]},
+{"h":"father","l":"A1","w":["art","ear","eat","far","fat","hat","her","father"]},
+{"h":"waiter","l":"A1","w":["air","art","ear","eat","rat","raw","tea","waiter"]},
+{"h":"detail","l":"A1","w":["aid","die","eat","let","tea","tie","date","detail"]},
+{"h":"garden","l":"A1","w":["age","and","ear","end","red","dear","drag","garden"]},
+{"h":"create","l":"A1","w":["act","art","car","cat","ear","eat","rat","create"]},
+{"h":"dancer","l":"A1","w":["and","car","ear","end","red","card","care","dancer"]},
+{"h":"market","l":"A1","w":["arm","art","ear","eat","rat","tea","make","market"]},
+{"h":"player","l":"A1","w":["ear","lay","pay","per","pale","play","pray","player"]},
+{"h":"shower","l":"A1","w":["her","how","owe","she","who","hero","hers","shower"]},
+{"h":"travel","l":"A1","w":["art","ear","eat","let","rat","tea","late","travel"]},
+{"h":"winter","l":"A1","w":["net","new","ten","tie","wet","win","rent","winter"]},
+{"h":"answer","l":"A1","w":["ear","new","raw","sea","war","earn","near","answer"]},
+{"h":"listen","l":"A1","w":["its","let","net","set","sit","ten","tie","listen"]},
+{"h":"phrase","l":"A1","w":["ear","her","per","sea","she","hear","hers","phrase"]},
+{"h":"repeat","l":"A1","w":["art","ear","eat","per","pet","rat","tea","repeat"]},
+{"h":"course","l":"A1","w":["our","use","core","cure","euro","ours","sure","course"]},
+{"h":"mother","l":"A1","w":["her","hot","the","toe","hero","home","more","mother"]},
+{"h":"orange","l":"A1","w":["age","ago","ear","nor","one","earn","near","orange"]},
+{"h":"sister","l":"A1","w":["its","set","sir","sit","tie","rest","rise","sister"]},
+{"h":"action","l":"A1","w":["act","ant","cat","not","ton","coat","coin","action"]},
+{"h":"artist","l":"A1","w":["air","art","its","rat","sir","sit","star","artist"]},
+{"h":"health","l":"A1","w":["eat","hat","let","tea","the","hate","heat","health"]},
+{"h":"fourth","l":"A1","w":["for","fur","hot","our","out","four","hour","fourth"]},
+{"h":"moment","l":"A1","w":["mom","net","not","one","ten","toe","ton","moment"]},
+{"h":"person","l":"A1","w":["nor","one","pen","per","son","nose","open","person"]},
+{"h":"return","l":"A1","w":["net","nut","run","ten","rent","true","return"]},
+{"h":"uesday","l":"A1","w":["day","due","sad","say","sea","use","yes"]},
+{"h":"carrot","l":"A1","w":["act","art","car","cat","rat","coat","taco","carrot"]},
+{"h":"eighty","l":"A1","w":["get","hey","hit","the","tie","yet","they","eighty"]},
+{"h":"flower","l":"A1","w":["few","for","low","owe","owl","flow","role","flower"]},
+{"h":"friend","l":"A1","w":["die","end","red","rid","find","fine","fire","friend"]},
+{"h":"really","l":"A1","w":["all","ear","lay","real","rely","year","early","really"]},
+{"h":"reason","l":"A1","w":["ear","nor","one","sea","son","earn","near","reason"]},
+{"h":"report","l":"A1","w":["per","pet","pot","toe","top","poet","port","report"]},
+{"h":"result","l":"A1","w":["let","set","use","rest","rule","sure","true","result"]},
+{"h":"tennis","l":"A1","w":["its","net","set","sit","ten","tie","nine","tennis"]},
+{"h":"center","l":"A1","w":["net","ten","cent","rent","tree","enter","recent","center"]},
+{"h":"camera","l":"A1","w":["arm","car","ear","area","care","race","cream","camera"]},
+{"h":"cannot","l":"A1","w":["act","ant","cat","not","ton","coat","taco","cannot"]},
+{"h":"dinner","l":"A1","w":["die","end","red","rid","nine","ride","inner","dinner"]},
+{"h":"design","l":"A1","w":["die","dig","end","send","side","sign","sing","design"]},
+{"h":"family","l":"A1","w":["aim","fly","lay","may","fail","film","mail","family"]},
+{"h":"farmer","l":"A1","w":["arm","ear","far","farm","fear","rare","frame","farmer"]},
+{"h":"island","l":"A1","w":["aid","and","sad","land","nail","sail","sand","island"]},
+{"h":"pencil","l":"A1","w":["ice","lip","pen","pin","line","nice","pile","pencil"]},
+{"h":"period","l":"A1","w":["die","per","red","rid","drop","ride","rope","period"]},
+{"h":"please","l":"A1","w":["sea","see","else","pale","sale","sleep","asleep","please"]},
+{"h":"thanks","l":"A1","w":["ant","ask","hat","tank","task","than","thank","thanks"]}];
+
+const OFFLINE={
+ able:{tr:'yapabilir',def:'having the power to do something',ex:'She is able to swim fast.'},
+ about:{tr:'hakkında / yaklaşık',def:'on the subject of; approximately',ex:'Tell me about your day.'},
+ act:{tr:'hareket / oyunculuk',def:'to do something; to perform',ex:'She acts in school plays.'},
+ action:{tr:'eylem / hareket',def:'the process of doing something',ex:'Quick action saved his life.'},
+ actor:{tr:'aktör / oyuncu',def:'a person who acts in plays or films',ex:'The actor performed well.'},
+ after:{tr:'sonra',def:'later in time; following',ex:'We left after lunch.'},
+ age:{tr:'yaş',def:'how old a person or thing is',ex:'Children of every age came.'},
+ ago:{tr:'önce (zaman)',def:'in the past; before now',ex:'I moved here two years ago.'},
+ aid:{tr:'yardım',def:'help or support given to someone',ex:'They sent aid to the region.'},
+ aim:{tr:'hedeflemek / amaç',def:'to point or direct toward a target',ex:'She aims to finish today.'},
+ air:{tr:'hava',def:'the invisible gas we breathe',ex:'The mountain air is fresh.'},
+ all:{tr:'hepsi / tüm',def:'every one; the whole amount',ex:'All students passed the exam.'},
+ and:{tr:'ve',def:'a word used to join things',ex:'bread and butter'},
+ answer:{tr:'cevap / yanıt',def:'a reply to a question',ex:'What is your answer?'},
+ ant:{tr:'karınca',def:'a tiny insect that lives in groups',ex:'An ant carried the crumb.'},
+ any:{tr:'herhangi bir',def:'one or some, no matter which',ex:'Do you have any questions?'},
+ arch:{tr:'kemer / kemerli yapı',def:'a curved structure over an opening',ex:'They walked under the arch.'},
+ area:{tr:'alan / bölge',def:'a part of a place or surface',ex:'This area is very quiet.'},
+ arm:{tr:'kol',def:'the body part from shoulder to hand',ex:'She broke her arm.'},
+ arms:{tr:'silahlar',def:'weapons used in war',ex:'They laid down their arms.'},
+ art:{tr:'sanat',def:'creative works like painting or music',ex:'She studies art at school.'},
+ artist:{tr:'sanatçı',def:'a person who creates art',ex:'The artist painted a landscape.'},
+ ask:{tr:'sormak',def:'to say a question to someone',ex:'May I ask you something?'},
+ asleep:{tr:'uyuyor / uykuda',def:'in the state of sleep',ex:'The baby fell asleep quickly.'},
+ bad:{tr:'kötü',def:'not good',ex:'The weather is bad today.'},
+ bake:{tr:'fırında pişirmek',def:'to cook food using an oven',ex:'She bakes bread every Sunday.'},
+ ban:{tr:'yasaklamak',def:'to officially stop something',ex:'They will ban smoking here.'},
+ band:{tr:'grup / bant',def:'a music group; a thin strip',ex:'The band played all night.'},
+ bar:{tr:'bar / çubuk',def:'a long narrow piece; a drinking place',ex:'They met at the bar.'},
+ bat:{tr:'yarasa',def:'a flying animal active at night',ex:'A bat flew over us.'},
+ bear:{tr:'ayı',def:'a large heavy animal with thick fur',ex:'We saw a bear in the forest.'},
+ bed:{tr:'yatak',def:'furniture for sleeping on',ex:'The children went to bed early.'},
+ below:{tr:'aşağıda / altında',def:'at a lower level or position',ex:'The valley lies below the hill.'},
+ bet:{tr:'bahis / iddia',def:'to risk money on a result',ex:'I bet he will win.'},
+ blow:{tr:'esmek / üflemek',def:'to send out air from the mouth',ex:'The wind blows from the north.'},
+ boat:{tr:'tekne',def:'a small vessel for water travel',ex:'We crossed the lake by boat.'},
+ born:{tr:'doğmuş',def:'brought into life',ex:'She was born in April.'},
+ bowl:{tr:'kase',def:'a round deep dish for food',ex:'He ate a bowl of soup.'},
+ bread:{tr:'ekmek',def:'a basic food made from flour',ex:'Fresh bread smells wonderful.'},
+ break:{tr:'kırmak / mola',def:'to separate into pieces; a pause',ex:'Don\'t break the glass.'},
+ brown:{tr:'kahverengi',def:'the color of coffee or chocolate',ex:'She has brown eyes.'},
+ but:{tr:'ama / fakat',def:'used to introduce something different',ex:'Small but very strong.'},
+ camera:{tr:'kamera / fotoğraf makinesi',def:'a device for taking photographs',ex:'She bought a new camera.'},
+ cannot:{tr:'yapamaz / olanaksız',def:'to be unable to do something',ex:'I cannot find my keys.'},
+ cap:{tr:'şapka / kapak',def:'a soft hat; a lid or cover',ex:'He wore a red cap.'},
+ car:{tr:'araba',def:'a vehicle with four wheels',ex:'She drives to work by car.'},
+ card:{tr:'kart',def:'a piece of stiff paper for messages',ex:'He sent a birthday card.'},
+ care:{tr:'ilgi / özen',def:'attention given to someone or something',ex:'Handle it with care.'},
+ carrot:{tr:'havuç',def:'an orange root vegetable',ex:'Rabbits love to eat carrots.'},
+ case:{tr:'durum / çanta',def:'a situation; a container',ex:'In that case, let\'s go.'},
+ cat:{tr:'kedi',def:'a small animal kept as a pet',ex:'The cat is sleeping.'},
+ cent:{tr:'sent / kuruş',def:'one hundredth of a dollar',ex:'It costs fifty cents.'},
+ center:{tr:'merkez / orta',def:'the middle point of something',ex:'The park is in the center.'},
+ chair:{tr:'sandalye',def:'a seat with a back for one person',ex:'Please sit on the chair.'},
+ chart:{tr:'tablo / grafik',def:'a diagram showing information',ex:'The chart shows sales data.'},
+ chat:{tr:'sohbet',def:'a friendly informal conversation',ex:'We had a nice chat.'},
+ cite:{tr:'alıntılamak',def:'to mention as an example or proof',ex:'She cited three sources.'},
+ cloud:{tr:'bulut',def:'a white or gray mass in the sky',ex:'Dark clouds covered the sky.'},
+ coat:{tr:'palto / ceket',def:'a warm piece of clothing',ex:'Wear your coat, it is cold.'},
+ coin:{tr:'madeni para',def:'a small flat piece of metal money',ex:'He found a gold coin.'},
+ cold:{tr:'soğuk',def:'having a low temperature',ex:'The water is very cold.'},
+ core:{tr:'çekirdek / öz',def:'the central or most important part',ex:'Trust is the core value.'},
+ could:{tr:'-ebilir (geçmiş)',def:'past tense of can; was able to',ex:'She could run very fast.'},
+ course:{tr:'kurs / elbette',def:'a set of lessons; of course',ex:'I\'m taking a math course.'},
+ cream:{tr:'krema',def:'the thick white part of milk',ex:'She added cream to her coffee.'},
+ create:{tr:'yaratmak / oluşturmak',def:'to make something new',ex:'Artists create beautiful things.'},
+ cure:{tr:'tedavi / iyileştirmek',def:'a treatment that makes someone well',ex:'They found a cure for it.'},
+ dancer:{tr:'dansçı',def:'a person who dances',ex:'She is a professional dancer.'},
+ date:{tr:'tarih / randevu',def:'a day of the month or year',ex:'What is today\'s date?'},
+ day:{tr:'gün',def:'a period of twenty-four hours',ex:'It was a beautiful day.'},
+ dear:{tr:'sevgili / değerli',def:'much loved; used to start a letter',ex:'Dear friend, how are you?'},
+ design:{tr:'tasarım / tasarlamak',def:'a plan or drawing of something',ex:'She likes the new design.'},
+ detail:{tr:'detay / ayrıntı',def:'a small individual fact or item',ex:'He explained every detail.'},
+ diary:{tr:'günlük',def:'a book for daily personal notes',ex:'She writes in her diary.'},
+ die:{tr:'ölmek',def:'to stop living',ex:'Plants die without water.'},
+ diet:{tr:'diyet / beslenme',def:'the food you usually eat',ex:'A healthy diet is important.'},
+ dig:{tr:'kazmak',def:'to make a hole in the ground',ex:'The dog digs in the yard.'},
+ dinner:{tr:'akşam yemeği',def:'the main meal of the day',ex:'Dinner is ready at seven.'},
+ dirt:{tr:'kir / toprak',def:'soil or earth; unclean matter',ex:'His shoes were covered in dirt.'},
+ dirty:{tr:'kirli',def:'not clean; covered with dirt',ex:'The windows are very dirty.'},
+ drag:{tr:'sürüklemek',def:'to pull something along the ground',ex:'He dragged the heavy box.'},
+ drive:{tr:'sürmek / araba kullanmak',def:'to operate and control a vehicle',ex:'She drives to work daily.'},
+ drop:{tr:'düşürmek / damla',def:'to let fall; a tiny amount of liquid',ex:'Don\'t drop the plate.'},
+ dry:{tr:'kuru / kurutmak',def:'without water or moisture',ex:'The towel is dry now.'},
+ due:{tr:'vadesi gelmiş',def:'expected at a certain time',ex:'The report is due Monday.'},
+ ear:{tr:'kulak',def:'the part of the body you hear with',ex:'He whispered in her ear.'},
+ early:{tr:'erken',def:'before the usual or expected time',ex:'She woke up early today.'},
+ earn:{tr:'kazanmak (para)',def:'to get money for work done',ex:'He earns a good salary.'},
+ east:{tr:'doğu',def:'the direction where the sun rises',ex:'The sun rises in the east.'},
+ easy:{tr:'kolay',def:'not difficult',ex:'The test was easy.'},
+ eat:{tr:'yemek (fiil)',def:'to put food into your body through your mouth',ex:'We eat dinner at seven.'},
+ edit:{tr:'düzenlemek',def:'to change and improve a text',ex:'She edits news articles.'},
+ eight:{tr:'sekiz',def:'the number 8',ex:'There are eight chairs here.'},
+ eighty:{tr:'seksen',def:'the number 80',ex:'My grandma is eighty years old.'},
+ else:{tr:'başka / yoksa',def:'other; different; otherwise',ex:'What else do you need?'},
+ email:{tr:'e-posta',def:'a message sent electronically',ex:'I sent you an email.'},
+ end:{tr:'son / bitmek',def:'the final part; to finish',ex:'The movie has a happy end.'},
+ enter:{tr:'girmek',def:'to go or come into a place',ex:'Please enter through the door.'},
+ euro:{tr:'avro',def:'the currency used in many European countries',ex:'It costs five euros.'},
+ extra:{tr:'ekstra / fazladan',def:'more than what is usual or needed',ex:'Do you need extra time?'},
+ fact:{tr:'gerçek / olgu',def:'something that is true',ex:'It is a fact that water boils.'},
+ fail:{tr:'başarısız olmak',def:'to not succeed in doing something',ex:'She didn\'t want to fail.'},
+ false:{tr:'yanlış / sahte',def:'not true; incorrect',ex:'That statement is false.'},
+ family:{tr:'aile',def:'parents and their children together',ex:'My family is very close.'},
+ far:{tr:'uzak',def:'a great distance away',ex:'The school is not far.'},
+ farm:{tr:'çiftlik',def:'land used to grow food or raise animals',ex:'They live on a small farm.'},
+ farmer:{tr:'çiftçi',def:'a person who works on a farm',ex:'The farmer grows wheat.'},
+ fat:{tr:'şişman / yağ',def:'having much body weight; oily',ex:'The cat is a little fat.'},
+ father:{tr:'baba',def:'a male parent',ex:'My father works at a bank.'},
+ fear:{tr:'korku',def:'the feeling when danger is near',ex:'She has a fear of heights.'},
+ few:{tr:'birkaç / az',def:'a small number of; not many',ex:'Only a few people came.'},
+ film:{tr:'film',def:'a motion picture; a movie',ex:'We watched a great film.'},
+ find:{tr:'bulmak',def:'to discover or locate something',ex:'I can\'t find my keys.'},
+ fine:{tr:'iyi / güzel / ince',def:'of high quality; very thin',ex:'The weather is fine today.'},
+ fire:{tr:'ateş / yangın',def:'heat and light from something burning',ex:'They sat around the fire.'},
+ first:{tr:'ilk / birinci',def:'coming before all others in order',ex:'She finished in first place.'},
+ fit:{tr:'uygun / formda',def:'the right size or shape; healthy',ex:'These shoes fit perfectly.'},
+ flow:{tr:'akış / akmak',def:'to move steadily like water',ex:'The river flows to the sea.'},
+ flower:{tr:'çiçek',def:'the colored part of a plant',ex:'She picked a yellow flower.'},
+ fly:{tr:'uçmak',def:'to move through the air with wings',ex:'Birds fly south in winter.'},
+ for:{tr:'için',def:'used to show purpose or who gets something',ex:'This gift is for you.'},
+ forty:{tr:'kırk',def:'the number 40',ex:'He is forty years old.'},
+ four:{tr:'dört',def:'the number 4',ex:'There are four seasons.'},
+ fourth:{tr:'dördüncü',def:'coming after the third in order',ex:'She lives on the fourth floor.'},
+ frame:{tr:'çerçeve',def:'a structure that surrounds something',ex:'The picture has a gold frame.'},
+ friend:{tr:'arkadaş',def:'a person you know and like well',ex:'She is my best friend.'},
+ front:{tr:'ön / ön taraf',def:'the part that faces forward',ex:'Wait at the front door.'},
+ fry:{tr:'kızartmak',def:'to cook in hot oil or fat',ex:'She fried eggs for breakfast.'},
+ fur:{tr:'kürk / post',def:'the soft hair of an animal',ex:'The cat has soft fur.'},
+ garden:{tr:'bahçe',def:'a piece of land for growing plants',ex:'Roses grow in the garden.'},
+ get:{tr:'almak / elde etmek',def:'to receive or obtain something',ex:'I need to get some milk.'},
+ great:{tr:'harika / büyük',def:'very good; large in amount',ex:'You did a great job.'},
+ grow:{tr:'büyümek / yetiştirmek',def:'to increase in size; to raise plants',ex:'Children grow very fast.'},
+ hair:{tr:'saç',def:'thin threads growing on the head',ex:'She has long brown hair.'},
+ hat:{tr:'şapka',def:'something you wear on your head',ex:'She wore a red hat.'},
+ hate:{tr:'nefret etmek',def:'to dislike something very strongly',ex:'I hate cold, rainy days.'},
+ health:{tr:'sağlık',def:'the condition of your body and mind',ex:'Exercise is good for health.'},
+ hear:{tr:'duymak',def:'to receive sounds through your ears',ex:'Can you hear the music?'},
+ heat:{tr:'ısı / sıcaklık',def:'the quality of being hot',ex:'The heat of summer was strong.'},
+ hen:{tr:'tavuk',def:'a female chicken',ex:'The hen laid an egg.'},
+ her:{tr:'onun (kadın) / onu',def:'belonging to or about a female',ex:'This is her book.'},
+ here:{tr:'burada / buraya',def:'in or to this place',ex:'Come here, please.'},
+ hero:{tr:'kahraman',def:'a person admired for brave actions',ex:'The firefighter is a hero.'},
+ hers:{tr:'onunki (kadın)',def:'belonging to her',ex:'The red coat is hers.'},
+ hey:{tr:'hey / selam',def:'used to get attention or greet',ex:'Hey, how are you?'},
+ hire:{tr:'kiralamak / işe almak',def:'to pay someone to work for you',ex:'They hired ten new workers.'},
+ his:{tr:'onun (erkek)',def:'belonging to him',ex:'This is his book.'},
+ hit:{tr:'vurmak',def:'to touch something with force',ex:'He hit the ball hard.'},
+ hole:{tr:'delik',def:'an opening or empty space in something',ex:'There is a hole in my sock.'},
+ home:{tr:'ev',def:'the place where you live',ex:'She went home after work.'},
+ hope:{tr:'umut / ummak',def:'to want something to happen',ex:'I hope you feel better.'},
+ horse:{tr:'at',def:'a large animal for riding',ex:'She rides her horse daily.'},
+ host:{tr:'ev sahibi / sunucu',def:'a person who receives guests',ex:'The host welcomed everyone.'},
+ hot:{tr:'sıcak',def:'having a high temperature',ex:'The coffee is very hot.'},
+ hotel:{tr:'otel',def:'a building where travelers can stay',ex:'We booked a hotel room.'},
+ hour:{tr:'saat (süre)',def:'a period of sixty minutes',ex:'The meeting lasted one hour.'},
+ how:{tr:'nasıl',def:'in what way or manner',ex:'How do you do this?'},
+ ice:{tr:'buz',def:'frozen water',ex:'Put some ice in the glass.'},
+ ill:{tr:'hasta',def:'not in good health; sick',ex:'She has been ill all week.'},
+ inner:{tr:'iç / içteki',def:'located inside; relating to feelings',ex:'Listen to your inner voice.'},
+ into:{tr:'içine',def:'to the inside of something',ex:'She walked into the room.'},
+ island:{tr:'ada',def:'land surrounded by water',ex:'They visited a small island.'},
+ its:{tr:'onun (cansız)',def:'belonging to it',ex:'The dog wagged its tail.'},
+ kill:{tr:'öldürmek',def:'to cause someone or something to die',ex:'Frost can kill young plants.'},
+ lab:{tr:'laboratuvar',def:'a room for scientific experiments',ex:'Students work in the lab.'},
+ land:{tr:'kara / toprak',def:'the solid part of earth\'s surface',ex:'The plane will land soon.'},
+ large:{tr:'büyük / geniş',def:'big in size or amount',ex:'They live in a large house.'},
+ late:{tr:'geç',def:'after the right or usual time',ex:'He was late for work.'},
+ later:{tr:'daha sonra',def:'at a time after the present',ex:'I\'ll call you later.'},
+ lay:{tr:'koymak / yatırmak',def:'to put something down flat',ex:'Lay the book on the table.'},
+ layer:{tr:'katman / tabaka',def:'a single thickness over a surface',ex:'Add another layer of paint.'},
+ leaf:{tr:'yaprak',def:'the flat green part of a plant',ex:'A leaf fell from the tree.'},
+ lean:{tr:'yaslanmak / eğilmek',def:'to bend the body toward something',ex:'Don\'t lean on the wall.'},
+ learn:{tr:'öğrenmek',def:'to gain knowledge or a new skill',ex:'She wants to learn French.'},
+ leg:{tr:'bacak',def:'the body part used for walking',ex:'He hurt his leg running.'},
+ let:{tr:'izin vermek',def:'to allow someone to do something',ex:'Let me help you.'},
+ line:{tr:'çizgi / sıra',def:'a long thin mark; a row of people',ex:'Wait in line, please.'},
+ lip:{tr:'dudak',def:'one of the two soft parts of mouth',ex:'She bit her lower lip.'},
+ list:{tr:'liste',def:'a series of names or items written down',ex:'Make a shopping list.'},
+ listen:{tr:'dinlemek',def:'to pay attention to sounds',ex:'Listen to the teacher carefully.'},
+ lord:{tr:'lord / efendi',def:'a man of high rank or title',ex:'The lord ruled the estate.'},
+ lot:{tr:'çok fazla',def:'a large amount or number',ex:'I have a lot of work.'},
+ loud:{tr:'gürültülü / yüksek sesli',def:'making a lot of noise',ex:'The music is too loud.'},
+ low:{tr:'alçak / düşük',def:'not high; near the ground',ex:'Prices are very low today.'},
+ mail:{tr:'posta',def:'letters and packages sent or received',ex:'Check the mail, please.'},
+ make:{tr:'yapmak',def:'to create or produce something',ex:'She makes cakes every weekend.'},
+ male:{tr:'erkek',def:'a man or boy; the opposite of female',ex:'The male lion has a mane.'},
+ man:{tr:'adam / erkek',def:'an adult male human',ex:'A man opened the door.'},
+ many:{tr:'çok / birçok',def:'a large number of',ex:'Many people came to the party.'},
+ market:{tr:'pazar / piyasa',def:'a place where things are bought and sold',ex:'We buy fruit at the market.'},
+ may:{tr:'-ebilir (izin/olasılık)',def:'used to show possibility or permission',ex:'It may rain tomorrow.'},
+ meal:{tr:'öğün / yemek',def:'food eaten at a regular time',ex:'Breakfast is the first meal.'},
+ meat:{tr:'et',def:'the flesh of an animal used as food',ex:'They don\'t eat meat.'},
+ mile:{tr:'mil',def:'a unit of distance equal to 1.6 km',ex:'The town is five miles away.'},
+ mom:{tr:'anne',def:'a mother',ex:'My mom cooks great food.'},
+ moment:{tr:'an / dakika',def:'a very short period of time',ex:'Wait a moment, please.'},
+ more:{tr:'daha fazla',def:'a greater amount or degree',ex:'I need more time.'},
+ mother:{tr:'anne',def:'a female parent',ex:'Her mother is a teacher.'},
+ nail:{tr:'çivi / tırnak',def:'a thin metal pin; the hard tip of fingers',ex:'He hammered the nail in.'},
+ near:{tr:'yakın',def:'a short distance away; close',ex:'The station is very near.'},
+ net:{tr:'ağ',def:'material with holes, used to catch things',ex:'The fish swam into the net.'},
+ new:{tr:'yeni',def:'recently made or discovered',ex:'She bought a new dress.'},
+ nice:{tr:'güzel / hoş',def:'pleasant; giving pleasure',ex:'It was a nice surprise.'},
+ nine:{tr:'dokuz',def:'the number 9',ex:'The shop opens at nine.'},
+ nor:{tr:'ne de',def:'used after neither to show another negative',ex:'Neither he nor she came.'},
+ north:{tr:'kuzey',def:'the direction opposite to south',ex:'They live in the north.'},
+ nose:{tr:'burun',def:'the part of the face used for smelling',ex:'The dog has a wet nose.'},
+ not:{tr:'değil',def:'a word that makes something negative',ex:'I am not tired.'},
+ note:{tr:'not',def:'a short piece of writing to remember something',ex:'He left a note on the table.'},
+ now:{tr:'şimdi',def:'at this moment',ex:'We have to leave now.'},
+ nurse:{tr:'hemşire',def:'a person who cares for sick people',ex:'The nurse checked his pulse.'},
+ nut:{tr:'fındık / ceviz',def:'a hard-shelled fruit of some trees',ex:'She ate a handful of nuts.'},
+ often:{tr:'sık sık',def:'many times; frequently',ex:'He often walks to work.'},
+ old:{tr:'yaşlı / eski',def:'having lived many years; not new',ex:'The building is very old.'},
+ one:{tr:'bir',def:'the number 1',ex:'I have one brother.'},
+ open:{tr:'açık / açmak',def:'not closed; to make not closed',ex:'Open the window, please.'},
+ orange:{tr:'portakal / turuncu',def:'a round citrus fruit; its color',ex:'She drank orange juice.'},
+ other:{tr:'diğer / başka',def:'different from the one mentioned',ex:'The other room is bigger.'},
+ our:{tr:'bizim',def:'belonging to us',ex:'This is our home.'},
+ ours:{tr:'bizimki',def:'belonging to us',ex:'That house is ours.'},
+ out:{tr:'dışarı / dışında',def:'away from the inside',ex:'Let\'s go out for dinner.'},
+ owe:{tr:'borçlu olmak',def:'to need to pay someone back',ex:'I owe you ten dollars.'},
+ owl:{tr:'baykuş',def:'a bird that hunts at night',ex:'An owl hooted in the dark.'},
+ own:{tr:'sahip olmak / kendi',def:'to have something; belonging to you',ex:'They own a small house.'},
+ pace:{tr:'hız / tempo',def:'the speed of walking or doing things',ex:'He walked at a fast pace.'},
+ pain:{tr:'ağrı / acı',def:'physical suffering or discomfort',ex:'She felt pain in her knee.'},
+ paint:{tr:'boya / boyamak',def:'colored liquid for covering surfaces',ex:'They paint the walls white.'},
+ pale:{tr:'solgun / soluk',def:'light in color; not bright',ex:'She looked pale and tired.'},
+ pan:{tr:'tava',def:'a flat metal container for cooking',ex:'Heat oil in the pan.'},
+ panel:{tr:'panel',def:'a flat board; a group of experts',ex:'A panel discussed the topic.'},
+ parent:{tr:'ebeveyn / anne-baba',def:'a father or mother',ex:'Both parents came to school.'},
+ part:{tr:'parça / bölüm',def:'a piece or section of something',ex:'This is the best part.'},
+ party:{tr:'parti / kutlama',def:'a social gathering for fun',ex:'She went to a birthday party.'},
+ pay:{tr:'ödemek / ücret',def:'to give money for goods or services',ex:'I\'ll pay for the coffee.'},
+ pen:{tr:'kalem (tükenmez)',def:'an instrument for writing with ink',ex:'Sign with a black pen.'},
+ pencil:{tr:'kurşun kalem',def:'a writing tool with graphite inside',ex:'She drew with a pencil.'},
+ per:{tr:'başına / her bir',def:'for each one',ex:'The price is five dollars per item.'},
+ period:{tr:'dönem / süre',def:'a length or portion of time',ex:'It was a difficult period.'},
+ person:{tr:'kişi / insan',def:'an individual human being',ex:'She is a very kind person.'},
+ pet:{tr:'evcil hayvan',def:'an animal kept for companionship',ex:'Do you have a pet?'},
+ phone:{tr:'telefon',def:'a device for talking over distance',ex:'She is on the phone now.'},
+ photo:{tr:'fotoğraf',def:'a picture taken with a camera',ex:'Let\'s take a group photo.'},
+ phrase:{tr:'deyim / ifade',def:'a small group of words',ex:'That is a common phrase.'},
+ pile:{tr:'yığın',def:'a heap of things on top of each other',ex:'A pile of books sat there.'},
+ pin:{tr:'iğne / toplu iğne',def:'a thin pointed piece of metal',ex:'She fixed it with a pin.'},
+ plan:{tr:'plan',def:'a detailed idea for doing something',ex:'What is your plan?'},
+ plane:{tr:'uçak',def:'a vehicle that flies through the air',ex:'The plane landed safely.'},
+ play:{tr:'oynamak / oyun',def:'to do something for fun',ex:'Children play in the park.'},
+ player:{tr:'oyuncu',def:'a person who plays a game or sport',ex:'He is the best player.'},
+ please:{tr:'lütfen',def:'used to make a polite request',ex:'Sit down, please.'},
+ poet:{tr:'şair',def:'a person who writes poems',ex:'The poet read her new work.'},
+ point:{tr:'nokta / puan',def:'a dot; a unit of scoring; a main idea',ex:'She made a good point.'},
+ port:{tr:'liman',def:'a harbor where ships load and unload',ex:'The ship arrived at the port.'},
+ post:{tr:'posta / direk',def:'mail; or to put something up',ex:'I will post the letter today.'},
+ pot:{tr:'tencere / saksı',def:'a deep round container',ex:'Water boiled in the pot.'},
+ pray:{tr:'dua etmek',def:'to speak to God or a spirit',ex:'They pray every morning.'},
+ race:{tr:'yarış / ırk',def:'a speed contest; a group of people',ex:'He won the race easily.'},
+ radio:{tr:'radyo',def:'a device for receiving broadcast sounds',ex:'She listens to the radio.'},
+ rain:{tr:'yağmur',def:'water falling from clouds',ex:'Take an umbrella, it may rain.'},
+ rare:{tr:'nadir / az bulunur',def:'not happening or found very often',ex:'This is a rare flower.'},
+ rat:{tr:'fare (büyük)',def:'a small animal like a large mouse',ex:'A rat ran across the floor.'},
+ rate:{tr:'oran / hız',def:'how fast or often something happens',ex:'The heart rate increased.'},
+ raw:{tr:'çiğ / ham',def:'not cooked; in a natural state',ex:'She eats raw vegetables.'},
+ read:{tr:'okumak',def:'to look at and understand words',ex:'I read a book every week.'},
+ ready:{tr:'hazır',def:'prepared and able to start',ex:'Dinner is almost ready.'},
+ real:{tr:'gerçek',def:'actually existing; not imagined',ex:'Is this story real?'},
+ really:{tr:'gerçekten',def:'truly; in fact; very',ex:'I really enjoyed the film.'},
+ reason:{tr:'sebep / neden',def:'a cause or explanation for something',ex:'What is the reason for this?'},
+ recent:{tr:'yakın zamanlı',def:'happening a short time ago',ex:'She read a recent article.'},
+ red:{tr:'kırmızı',def:'the colour of blood',ex:'She drives a red car.'},
+ rely:{tr:'güvenmek / bel bağlamak',def:'to depend on with full trust',ex:'You can rely on me.'},
+ rent:{tr:'kira / kiralamak',def:'money paid for using something',ex:'The rent is due Friday.'},
+ repeat:{tr:'tekrarlamak',def:'to say or do something again',ex:'Please repeat the question.'},
+ report:{tr:'rapor / bildirmek',def:'a spoken or written account of something',ex:'She wrote a short report.'},
+ rest:{tr:'dinlenmek / geri kalan',def:'to relax; what remains',ex:'You should rest a while.'},
+ result:{tr:'sonuç',def:'something that happens because of an action',ex:'The result was surprising.'},
+ return:{tr:'dönmek / iade etmek',def:'to come or go back to a place',ex:'He will return on Monday.'},
+ rich:{tr:'zengin',def:'having a lot of money or resources',ex:'She became very rich.'},
+ rid:{tr:'kurtulmak (get rid of)',def:'to make free of something unwanted',ex:'Get rid of old papers.'},
+ ride:{tr:'binmek / sürmek',def:'to sit on and control a vehicle',ex:'She rides her bike to school.'},
+ rise:{tr:'yükselmek / artmak',def:'to move upward; to increase',ex:'Prices continue to rise.'},
+ risk:{tr:'risk / tehlike',def:'a chance of loss or danger',ex:'There is a risk of rain.'},
+ road:{tr:'yol',def:'a wide path for vehicles to travel on',ex:'The road leads to the city.'},
+ role:{tr:'rol',def:'the part someone plays in a situation',ex:'She has an important role.'},
+ rope:{tr:'ip / halat',def:'thick strong string',ex:'Tie it with a rope.'},
+ rude:{tr:'kaba / terbiyesiz',def:'not polite; showing bad manners',ex:'It is rude to interrupt.'},
+ rule:{tr:'kural / yönetmek',def:'an instruction that must be followed',ex:'Follow the school rules.'},
+ run:{tr:'koşmak',def:'to move quickly using your legs',ex:'She runs every morning.'},
+ sad:{tr:'üzgün',def:'feeling unhappy',ex:'He was sad about leaving.'},
+ safe:{tr:'güvenli / kasa',def:'free from danger or harm',ex:'The children are safe now.'},
+ sail:{tr:'yelken açmak',def:'to travel across water in a boat',ex:'They sailed across the lake.'},
+ sale:{tr:'satış / indirim',def:'selling something; a reduced price event',ex:'The shoes are on sale.'},
+ sand:{tr:'kum',def:'tiny grains found on beaches',ex:'Children play in the sand.'},
+ say:{tr:'söylemek',def:'to speak words',ex:'What did you say?'},
+ sea:{tr:'deniz',def:'a large area of salt water',ex:'We swam in the warm sea.'},
+ seat:{tr:'koltuk / oturak',def:'a place to sit',ex:'Please take your seat.'},
+ see:{tr:'görmek',def:'to notice with your eyes',ex:'I can see the mountain.'},
+ self:{tr:'kendi / benlik',def:'a person\'s own being or identity',ex:'Be true to your self.'},
+ send:{tr:'göndermek',def:'to cause something to go to another place',ex:'Send me a message, please.'},
+ set:{tr:'takım / koymak',def:'a group of things; to put in place',ex:'He set the cups on the table.'},
+ share:{tr:'paylaşmak / pay',def:'to give part of something to others',ex:'She shares her lunch.'},
+ she:{tr:'o (kadın)',def:'the female person being spoken about',ex:'She is my sister.'},
+ shirt:{tr:'gömlek',def:'a piece of clothing for the upper body',ex:'He wore a white shirt.'},
+ shoe:{tr:'ayakkabı',def:'a covering for the foot',ex:'She bought new shoes.'},
+ short:{tr:'kısa',def:'not long in length or time',ex:'It was a short meeting.'},
+ shot:{tr:'atış / deneme',def:'an act of firing a gun; an attempt',ex:'He took a shot at the goal.'},
+ shout:{tr:'bağırmak',def:'to say something very loudly',ex:'Don\'t shout at me.'},
+ shower:{tr:'duş / sağanak',def:'a device for washing; a brief rain',ex:'She took a quick shower.'},
+ shut:{tr:'kapatmak',def:'to close something',ex:'Shut the door, please.'},
+ side:{tr:'taraf / yan',def:'a surface forming part of something',ex:'The house has a garden side.'},
+ sign:{tr:'işaret / imzalamak',def:'a notice giving information; to write one\'s name',ex:'Sign the form at the bottom.'},
+ silk:{tr:'ipek',def:'a soft smooth cloth made by worms',ex:'She wore a silk scarf.'},
+ sing:{tr:'şarkı söylemek',def:'to make music with your voice',ex:'Birds sing in the morning.'},
+ sir:{tr:'efendim / bayım',def:'a polite way to address a man',ex:'Yes, sir, right away.'},
+ sister:{tr:'kız kardeş / abla',def:'a female sibling',ex:'My sister is older than me.'},
+ sit:{tr:'oturmak',def:'to rest on a seat',ex:'Please sit down.'},
+ ski:{tr:'kayak yapmak',def:'to move over snow on long boards',ex:'They ski every winter.'},
+ skill:{tr:'beceri / yetenek',def:'the ability to do something well',ex:'Writing is an important skill.'},
+ skirt:{tr:'etek',def:'a woman\'s garment hanging from the waist',ex:'She wore a blue skirt.'},
+ sleep:{tr:'uyumak / uyku',def:'to rest with eyes closed',ex:'I need eight hours of sleep.'},
+ smart:{tr:'akıllı / zeki',def:'having quick intelligence',ex:'She is a very smart student.'},
+ snow:{tr:'kar',def:'soft white frozen water from the sky',ex:'Snow covered the ground.'},
+ son:{tr:'oğul',def:'a male child',ex:'Their son starts school today.'},
+ sort:{tr:'tür / sıralamak',def:'a type or kind; to arrange in order',ex:'What sort of music do you like?'},
+ south:{tr:'güney',def:'the direction opposite to north',ex:'They moved to the south.'},
+ space:{tr:'uzay / alan',def:'the area beyond earth; an empty area',ex:'There is no space here.'},
+ sport:{tr:'spor',def:'a physical activity done for fun or competition',ex:'Football is a popular sport.'},
+ spot:{tr:'nokta / yer',def:'a small mark; a place',ex:'There is a spot on your shirt.'},
+ stand:{tr:'ayakta durmak',def:'to be on your feet; to rise up',ex:'Please stand in line.'},
+ star:{tr:'yıldız',def:'a bright point of light in the night sky',ex:'The stars shine at night.'},
+ still:{tr:'hâlâ / hareketsiz',def:'continuing until now; not moving',ex:'She is still waiting.'},
+ stop:{tr:'durmak / durdurmak',def:'to end movement or action',ex:'The bus will stop here.'},
+ store:{tr:'mağaza / saklamak',def:'a shop; to keep for future use',ex:'The store opens at nine.'},
+ style:{tr:'stil / tarz',def:'a way of doing or making something',ex:'I like your writing style.'},
+ sun:{tr:'güneş',def:'the star that gives earth light and heat',ex:'The sun rises in the east.'},
+ sure:{tr:'emin',def:'certain; having no doubt',ex:'Are you sure about this?'},
+ table:{tr:'masa',def:'a flat surface with legs for eating or working',ex:'Put the plates on the table.'},
+ taco:{tr:'tako',def:'a Mexican food in a folded shell',ex:'We ate tacos for lunch.'},
+ tale:{tr:'masal / öykü',def:'a story',ex:'Grandfather told us a tale.'},
+ tank:{tr:'tank / depo',def:'a large container; a military vehicle',ex:'Fill the water tank.'},
+ task:{tr:'görev / iş',def:'a piece of work to be done',ex:'He finished the task quickly.'},
+ tax:{tr:'vergi',def:'money paid to the government',ex:'Income tax is collected yearly.'},
+ tea:{tr:'çay',def:'a hot drink made from leaves',ex:'I drink tea every morning.'},
+ teach:{tr:'öğretmek',def:'to give lessons or show someone how',ex:'She teaches math to children.'},
+ team:{tr:'takım',def:'a group working or playing together',ex:'Our team won the match.'},
+ ten:{tr:'on',def:'the number 10',ex:'She is ten years old.'},
+ tennis:{tr:'tenis',def:'a sport played with rackets and a ball',ex:'They play tennis on Sundays.'},
+ than:{tr:'-den / -dan (kıyaslama)',def:'used to compare two things',ex:'She is taller than her brother.'},
+ thank:{tr:'teşekkür etmek',def:'to express gratitude to someone',ex:'Thank you for your help.'},
+ thanks:{tr:'teşekkürler',def:'an expression of gratitude',ex:'Thanks for coming today.'},
+ the:{tr:'(belirli tanımlık)',def:'used before a known noun',ex:'Close the door, please.'},
+ their:{tr:'onların',def:'belonging to them',ex:'Their house is very big.'},
+ then:{tr:'sonra / o zaman',def:'at that time; after that',ex:'We ate, then we left.'},
+ there:{tr:'orada / oraya',def:'in or to that place',ex:'Put the box over there.'},
+ they:{tr:'onlar',def:'the people or things being spoken about',ex:'They arrive at noon.'},
+ this:{tr:'bu',def:'the thing near you',ex:'This is my house.'},
+ three:{tr:'üç',def:'the number 3',ex:'She has three brothers.'},
+ thus:{tr:'bu nedenle / böylece',def:'as a result of this; in this way',ex:'He studied hard, thus he passed.'},
+ tie:{tr:'kravat / bağlamak',def:'a neck band; or to join with string',ex:'He wore a blue tie.'},
+ till:{tr:'-e kadar',def:'up to a certain time; until',ex:'Wait till I come back.'},
+ tip:{tr:'bahşiş / ipucu',def:'extra money for service; a helpful hint',ex:'Leave a tip for the waiter.'},
+ tire:{tr:'lastik / yorulmak',def:'a rubber covering on a wheel; to feel weary',ex:'The car has a flat tire.'},
+ tired:{tr:'yorgun',def:'needing sleep or rest',ex:'I\'m tired after the long day.'},
+ toe:{tr:'ayak parmağı',def:'one of the parts at the end of your foot',ex:'He hurt his toe on the door.'},
+ ton:{tr:'ton',def:'a unit of weight; a large amount',ex:'The truck carried a ton of sand.'},
+ tone:{tr:'ton / tonlama',def:'the quality of a sound or voice',ex:'She spoke in a gentle tone.'},
+ too:{tr:'de / da / fazla',def:'also; more than enough',ex:'It is too hot outside.'},
+ top:{tr:'üst / tepe',def:'the highest part of something',ex:'The cat sat on top of the box.'},
+ town:{tr:'kasaba',def:'a place with houses and shops, smaller than a city',ex:'She lives in a quiet town.'},
+ toy:{tr:'oyuncak',def:'an object for children to play with',ex:'The child loves this toy.'},
+ train:{tr:'tren / eğitmek',def:'a rail vehicle; to teach a skill',ex:'She takes the train to work.'},
+ travel:{tr:'seyahat etmek',def:'to go from one place to another',ex:'They travel every summer.'},
+ tree:{tr:'ağaç',def:'a tall plant with a trunk and branches',ex:'An apple tree grows here.'},
+ true:{tr:'doğru / gerçek',def:'in agreement with fact; correct',ex:'That story is true.'},
+ try:{tr:'denemek',def:'to make an effort to do something',ex:'Try your best every day.'},
+ twice:{tr:'iki kez',def:'two times',ex:'I called you twice.'},
+ two:{tr:'iki',def:'the number 2',ex:'I have two cats.'},
+ under:{tr:'altında',def:'below or beneath something',ex:'The cat hid under the table.'},
+ use:{tr:'kullanmak / kullanım',def:'to do something with a tool or method',ex:'Use a pen to write.'},
+ user:{tr:'kullanıcı',def:'a person who uses something',ex:'The app has many users.'},
+ waiter:{tr:'garson',def:'a person who serves food in a restaurant',ex:'The waiter brought our order.'},
+ war:{tr:'savaş',def:'a fight between countries or groups',ex:'The war lasted four years.'},
+ warm:{tr:'sıcak / ılık',def:'slightly hot; giving gentle heat',ex:'The sun feels warm today.'},
+ watch:{tr:'izlemek / saat',def:'to look at for a time; a small clock',ex:'Let\'s watch a movie tonight.'},
+ water:{tr:'su',def:'a clear liquid that living things need',ex:'Drink plenty of water.'},
+ wear:{tr:'giymek',def:'to have clothes or accessories on your body',ex:'She wears a blue dress.'},
+ web:{tr:'ağ / internet',def:'the World Wide Web; a spider\'s net',ex:'Search for it on the web.'},
+ wet:{tr:'ıslak',def:'covered with water or liquid',ex:'The grass is still wet.'},
+ what:{tr:'ne',def:'used to ask about something',ex:'What time is it?'},
+ white:{tr:'beyaz',def:'the lightest color; like snow',ex:'She wore a white shirt.'},
+ who:{tr:'kim',def:'used to ask about a person',ex:'Who is at the door?'},
+ win:{tr:'kazanmak',def:'to be the best in a contest',ex:'We hope to win the game.'},
+ winter:{tr:'kış',def:'the coldest season of the year',ex:'Snow falls in winter.'},
+ wire:{tr:'tel / kablo',def:'a thin piece of metal; an electric cable',ex:'Connect the red wire first.'},
+ with:{tr:'ile / birlikte',def:'accompanied by; using',ex:'Come with me, please.'},
+ word:{tr:'kelime / sözcük',def:'a unit of language with meaning',ex:'What does this word mean?'},
+ world:{tr:'dünya',def:'the earth and all people on it',ex:'She traveled around the world.'},
+ would:{tr:'-irdi / -ecekti',def:'past of will; used for polite requests',ex:'Would you like some tea?'},
+ write:{tr:'yazmak',def:'to put words on paper or screen',ex:'She writes in her journal.'},
+ wrong:{tr:'yanlış / hatalı',def:'not correct; not right',ex:'That answer is wrong.'},
+ yard:{tr:'avlu / yarda',def:'an area near a house; a unit of length',ex:'Children play in the yard.'},
+ year:{tr:'yıl',def:'a period of twelve months',ex:'She lived there for one year.'},
+ yes:{tr:'evet',def:'used to agree or accept',ex:'Yes, I will come.'},
+ yet:{tr:'henüz / yine de',def:'until now; but; still',ex:'I haven\'t finished yet.'},
+};
+
+/* ===== Kütüphane (bonus kelime kontrolü için) ===== */
+const LIBSET=new Set();
+Object.values(LIB).forEach(s=> s.split(" ").forEach(w=> w&&LIBSET.add(w)));
+
+/* ===== DURUM ===== */
+const SAVE_KEY="kelimeAvi_v3";
+let S={levelIdx:0,coins:0,foundByLevel:{},bonusByLevel:{},sound:true};
+let found=[], bonus=[], wheelLetters=[], selected=[], dragging=false;
+
+function loadSave(){ try{ const d=JSON.parse(localStorage.getItem(SAVE_KEY)||"null"); if(d) S=Object.assign(S,d); }catch(e){} }
+function persist(){ try{ localStorage.setItem(SAVE_KEY, JSON.stringify(S)); }catch(e){} }
+function hasSave(){ try{ return !!localStorage.getItem(SAVE_KEY); }catch(e){ return false; } }
+
+/* ===== SES ===== */
+let AC=null;
+function audio(){ if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return AC; }
+function tone(f,d,t,v,delay){ if(!S.sound)return; const ac=audio(); if(!ac)return; const tt=ac.currentTime+(delay||0);
+  const o=ac.createOscillator(),g=ac.createGain(); o.type=t||'sine'; o.frequency.setValueAtTime(f,tt);
+  g.gain.setValueAtTime(0,tt); g.gain.linearRampToValueAtTime(v||0.18,tt+0.012); g.gain.exponentialRampToValueAtTime(0.0001,tt+d);
+  o.connect(g);g.connect(ac.destination);o.start(tt);o.stop(tt+d+0.02); }
+function sweep(f1,f2,d,t,v){ if(!S.sound)return; const ac=audio(); if(!ac)return; const tt=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();
+  o.type=t||'sine'; o.frequency.setValueAtTime(f1,tt); o.frequency.exponentialRampToValueAtTime(f2,tt+d);
+  g.gain.setValueAtTime(v||0.14,tt); g.gain.exponentialRampToValueAtTime(0.0001,tt+d); o.connect(g);g.connect(ac.destination);o.start(tt);o.stop(tt+d+0.02); }
+const sfx={
+  pick:(i)=>tone(420*Math.pow(1.06,i||0),.14,'triangle',.16),
+  correct:()=>[523,659,784,1047].forEach((f,i)=>tone(f,.22,'triangle',.16,i*0.06)),
+  bonus:()=>[784,1047,1318].forEach((f,i)=>tone(f,.16,'sine',.14,i*0.05)),
+  wrong:()=>{tone(180,.16,'sawtooth',.14);tone(130,.18,'sawtooth',.12,.06);},
+  hint:()=>{tone(1200,.10,'sine',.14);tone(1650,.12,'sine',.13,.07);},
+  shuffle:()=>sweep(300,700,.22,'sine',.12),
+  win:()=>[523,659,784,1047,1318].forEach((f,i)=>tone(f,.30,'triangle',.17,i*0.10)),
+};
+
+/* ===== yıldız ===== */
+(function(){const sky=document.getElementById('sky');for(let i=0;i<46;i++){const s=document.createElement('b');
+  s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=(Math.random()*4)+'s';
+  s.style.transform='scale('+(0.5+Math.random()*1.4)+')';sky.appendChild(s);}})();
+
+const $=id=>document.getElementById(id);
+function shuffleArr(a){for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* ===== SÖZLÜK (tam offline) ===== */
+function entry(w){ return OFFLINE[w]||null; }
+
+/* ===== BÖLÜM ===== */
+function curLevel(){ return LEVELS[S.levelIdx]; }
+function sortedWords(){ return [...curLevel().w].sort((a,b)=>a.length-b.length||a.localeCompare(b)); }
+
+function loadLevel(){
+  const lv=curLevel();
+  found=(S.foundByLevel[S.levelIdx]||[]).slice();
+  bonus=(S.bonusByLevel[S.levelIdx]||[]).slice();
+  wheelLetters=shuffleArr(lv.h.split(""));
+  $('levelLabel').textContent="Bölüm "+(S.levelIdx+1)+" / "+LEVELS.length+"  ·  "+lv.l;
+  $('coins').textContent=S.coins;
+  renderBoard(); renderWheel(); updateCount();
+}
+function updateCount(){ $('foundCount').textContent=found.length+"/"+curLevel().w.length; }
+
+function renderBoard(){
+  const board=$('board'); board.innerHTML="";
+  sortedWords().forEach(w=>{
+    const isDone=found.includes(w);
+    const row=document.createElement('div'); row.className='row'+(isDone?' done':''); row.dataset.en=w;
+    const e=entry(w);
+    const clue=document.createElement('div'); clue.className='clue';
+    clue.textContent=e?e.tr:w;
+    if(isDone) clue.onclick=()=>openDetail(w);
+    const boxes=document.createElement('div'); boxes.className='boxes';
+    for(let i=0;i<w.length;i++){ const b=document.createElement('div'); b.className='box'; b.dataset.i=i;
+      if(isDone){ b.classList.add('filled'); b.textContent=w[i].toUpperCase(); b.onclick=()=>openDetail(w); }
+      boxes.appendChild(b); }
+    row.appendChild(clue); row.appendChild(boxes); board.appendChild(row);
+  });
+}
+
+/* ===== ÇEMBER ===== */
+function wheelSize(){ return Math.min(window.innerWidth*0.82,340); }
+function renderWheel(){
+  const wheel=$('wheel'); [...wheel.querySelectorAll('.letter')].forEach(e=>e.remove());
+  const size=wheelSize(); wheel.style.width=size+'px'; wheel.style.height=size+'px';
+  const cx=size/2,cy=size/2,r=size/2-32,n=wheelLetters.length;
+  wheelLetters.forEach((ch,i)=>{ const ang=(-Math.PI/2)+(i*2*Math.PI/n);
+    const x=cx+r*Math.cos(ang),y=cy+r*Math.sin(ang);
+    const el=document.createElement('div'); el.className='letter'; el.textContent=ch.toUpperCase();
+    el.style.left=x+'px';el.style.top=y+'px';el.dataset.i=i;el.dataset.cx=x;el.dataset.cy=y; wheel.appendChild(el); });
+}
+function letterAt(px,py){ for(const el of $('wheel').querySelectorAll('.letter')){ if(Math.hypot(px-(+el.dataset.cx),py-(+el.dataset.cy))<29) return el; } return null; }
+function wheelPoint(e){ const r=$('wheel').getBoundingClientRect(); const t=e.touches?e.touches[0]:e; return {x:t.clientX-r.left,y:t.clientY-r.top}; }
+function addLetter(el){ const i=+el.dataset.i; if(selected.includes(i))return; selected.push(i); el.classList.add('sel'); sfx.pick(selected.length-1); drawLine(); renderForming(); }
+function drawLine(cur){ const size=wheelSize(),poly=$('poly'),map={};
+  $('wheel').querySelectorAll('.letter').forEach(el=>map[+el.dataset.i]={x:+el.dataset.cx,y:+el.dataset.cy});
+  let pts=selected.map(i=>(map[i].x/size*100).toFixed(1)+","+(map[i].y/size*100).toFixed(1));
+  if(cur)pts.push((cur.x/size*100).toFixed(1)+","+(cur.y/size*100).toFixed(1)); poly.setAttribute('points',pts.join(" ")); }
+function renderForming(bad){ const f=$('forming'); f.className='forming'+(bad?' bad':''); f.innerHTML='';
+  selected.forEach(i=>{const c=document.createElement('div');c.className='chip';c.textContent=wheelLetters[i].toUpperCase();f.appendChild(c);}); }
+
+const wheel=$('wheel');
+function startDrag(e){ if(document.querySelector('.overlay.show'))return; dragging=true; selected=[]; const p=wheelPoint(e),el=letterAt(p.x,p.y); if(el)addLetter(el); e.preventDefault(); }
+function moveDrag(e){ if(!dragging)return; const p=wheelPoint(e),el=letterAt(p.x,p.y);
+  if(el){ const i=+el.dataset.i;
+    if(selected.length>=2&&i===selected[selected.length-2]){ const last=selected.pop(); wheel.querySelector('.letter[data-i="'+last+'"]').classList.remove('sel'); renderForming(); }
+    else addLetter(el); } drawLine(p); e.preventDefault(); }
+function endDrag(e){ if(!dragging)return; dragging=false; checkWord();
+  selected.forEach(i=>wheel.querySelector('.letter[data-i="'+i+'"]').classList.remove('sel')); selected=[]; $('poly').setAttribute('points',''); e&&e.preventDefault&&e.preventDefault(); }
+wheel.addEventListener('mousedown',startDrag); window.addEventListener('mousemove',moveDrag); window.addEventListener('mouseup',endDrag);
+wheel.addEventListener('touchstart',startDrag,{passive:false}); wheel.addEventListener('touchmove',moveDrag,{passive:false}); wheel.addEventListener('touchend',endDrag,{passive:false});
+
+/* ===== KONTROL ===== */
+function checkWord(){
+  const word=selected.map(i=>wheelLetters[i]).join("");
+  if(word.length<3) return;
+  if(curLevel().w.includes(word) && !found.includes(word)){
+    found.push(word); S.foundByLevel[S.levelIdx]=found; S.coins+=word.length*3; sfx.correct();
+    fillRow(word); $('coins').textContent=S.coins; updateCount(); persist();
+    if(found.length===curLevel().w.length) setTimeout(winLevel,550);
+  } else if(LIBSET.has(word) && !curLevel().w.includes(word) && !bonus.includes(word)){
+    bonus.push(word); S.bonusByLevel[S.levelIdx]=bonus; S.coins+=2; sfx.bonus();
+    $('coins').textContent=S.coins; toast("Bonus: "+word.toUpperCase()+" +2"); persist();
+    setTimeout(()=>{ if(!dragging)$('forming').innerHTML=''; },350);
+  } else { sfx.wrong(); renderForming(true); setTimeout(()=>{ if(!dragging)$('forming').innerHTML=''; },450); }
+}
+function fillRow(en){
+  const row=$('board').querySelector('.row[data-en="'+en+'"]'); if(!row)return; row.classList.add('done');
+  row.querySelector('.clue').onclick=()=>openDetail(en);
+  row.querySelectorAll('.box').forEach((b,i)=>{ setTimeout(()=>{ b.classList.remove('hint'); b.classList.add('filled'); b.textContent=en[i].toUpperCase(); b.onclick=()=>openDetail(en); }, i*70); });
+  setTimeout(()=>{$('forming').innerHTML='';},300);
+}
+let toastT;
+function toast(msg){ const t=$('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),1600); }
+
+/* ===== İPUCU ===== */
+$('hintBtn').onclick=()=>{
+  if(S.coins<15){ flash($('hintBtn')); return; }
+  for(const w of sortedWords().filter(x=>!found.includes(x))){
+    const boxes=[...$('board').querySelector('.row[data-en="'+w+'"]').querySelectorAll('.box')];
+    const idx=boxes.findIndex(b=>!b.classList.contains('hint')&&!b.classList.contains('filled'));
+    if(idx>=0){ boxes[idx].classList.add('hint'); boxes[idx].textContent=w[idx].toUpperCase(); S.coins-=15; $('coins').textContent=S.coins; sfx.hint(); persist(); return; }
+  }
+};
+function flash(b){ b.animate([{transform:'translateX(0)'},{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'translateX(0)'}],{duration:300}); }
+$('shuffleBtn').onclick=()=>{ shuffleArr(wheelLetters); renderWheel(); sfx.shuffle(); };
+
+/* ===== DETAY ===== */
+let dWord=null;
+function openDetail(w){
+  dWord=w; const e=entry(w);
+  $('dWord').textContent=w.toUpperCase();
+  $('dTr').textContent=e?e.tr:w;
+  $('dDef').textContent=e?e.def:"—";
+  $('dEx').textContent=e?e.ex:"—";
+  $('detailOverlay').classList.add('show');
+}
+function speak(t){ try{ const u=new SpeechSynthesisUtterance(t); u.lang='en-US'; u.rate=.9; speechSynthesis.cancel(); speechSynthesis.speak(u); }catch(e){} }
+$('speakBtn').onclick=()=>{ if(dWord){ const e=entry(dWord); speak(dWord+(e?". "+e.ex:"")); } };
+$('detailClose').onclick=()=>$('detailOverlay').classList.remove('show');
+$('detailOverlay').onclick=e=>{ if(e.target===$('detailOverlay'))$('detailOverlay').classList.remove('show'); };
+
+/* ===== BÖLÜM TAMAM ===== */
+function winLevel(){
+  sfx.win(); const last=S.levelIdx===LEVELS.length-1;
+  $('winTitle').textContent=last?"Tüm bölümler bitti! 🎉":"Bölüm Tamamlandı!";
+  $('winSub').textContent="Bu bölümün kelimeleri:";
+  const recap=$('winRecap'); recap.innerHTML='';
+  sortedWords().forEach(w=>{ const e=entry(w); const d=document.createElement('div'); d.innerHTML='<span class="en">'+w.toUpperCase()+'</span><b>'+(e?e.tr:'')+'</b>'; recap.appendChild(d); });
+  $('nextBtn').textContent=last?"Başa Dön":"Sonraki Bölüm";
+  $('winOverlay').classList.add('show');
+}
+$('nextBtn').onclick=()=>{ $('winOverlay').classList.remove('show'); S.levelIdx=(S.levelIdx+1)%LEVELS.length; persist(); loadLevel(); };
+
+/* ===== MENÜ ===== */
+function openGame(){ $('menuOverlay').classList.remove('show'); audio(); loadLevel(); }
+$('menuBtn').onclick=()=>{ persist(); $('menuOverlay').classList.add('show'); refreshMenu(); };
+$('contBtn').onclick=openGame;
+$('newBtn').onclick=()=>{ S.levelIdx=0; S.coins=0; S.foundByLevel={}; S.bonusByLevel={}; persist(); openGame(); };
+$('helpBtn').onclick=()=>$('helpOverlay').classList.add('show');
+$('helpClose').onclick=()=>$('helpOverlay').classList.remove('show');
+$('soundTog').onclick=()=>{ S.sound=!S.sound; $('soundTog').classList.toggle('on',S.sound); persist(); };
+function refreshMenu(){ $('contBtn').style.display=(hasSave()&&(S.levelIdx>0||(S.foundByLevel[0]||[]).length))?'flex':'none'; $('soundTog').classList.toggle('on',S.sound); }
+window.addEventListener('resize',()=>renderWheel());
+
+/* ===== BAŞLAT ===== */
+loadSave();
+$('soundTog').classList.toggle('on',S.sound);
+refreshMenu();
+
+</script>
+</body>
+</html>
