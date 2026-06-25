@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Kelime Avı — İngilizce Kelime Keşfi</title>
+<title>LexiPlay — English Learning Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -38,11 +38,11 @@
   .guide{display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 16px 2px;opacity:.7;}
   .gtag{font-size:11px;font-weight:800;padding:3px 10px;border-radius:99px;letter-spacing:.3px;}
   .gtag.tr{background:rgba(255,94,168,.18);color:#ffb3d9;}
-  .gtag.en{background:rgba(126,240,255,.15);color:var(--cyan);}
+  .gtag.en{background:rgba(57,255,20,.15);color:var(--cyan);}
   .garrow{color:var(--text-dim);font-size:14px;font-weight:800;}
   .lang{font-size:9px;font-weight:800;letter-spacing:.5px;padding:2px 5px;border-radius:6px;margin-right:4px;vertical-align:middle;}
   .lang.tr{background:rgba(255,94,168,.15);color:#ffb3d9;}
-  .lang.en{background:rgba(126,240,255,.12);color:var(--cyan);}
+  .lang.en{background:rgba(57,255,20,.12);color:var(--cyan);}
   .row{display:flex;align-items:center;gap:10px;margin:8px 0;}
   .clue{flex:0 0 40%;text-align:right;font-size:13px;color:var(--text-dim);font-weight:700;line-height:1.15;}
   .clue.wait{opacity:.55;font-style:italic;}
@@ -74,12 +74,12 @@
   .wheel{position:relative;touch-action:none;overflow:visible;}
   .wheel svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;}
   .wheel .disc{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 35%,#2b1a55,#150d31);
-    border:2px solid rgba(126,240,255,.32);z-index:0;box-shadow:inset 0 2px 22px rgba(0,0,0,.5),0 0 26px rgba(126,240,255,.10);}
+    border:2px solid rgba(57,255,20,.32);z-index:0;box-shadow:inset 0 2px 22px rgba(0,0,0,.5),0 0 26px rgba(57,255,20,.10);}
   .letter{position:absolute;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;
     background:linear-gradient(180deg,#fdf3da,var(--tile));color:var(--tile-ink);font-family:'Fredoka',sans-serif;font-weight:600;font-size:25px;
     display:flex;align-items:center;justify-content:center;z-index:10;touch-action:none;
     box-shadow:0 4px 0 #c9b485,0 6px 12px rgba(0,0,0,.35);transition:transform .12s;}
-  .letter.sel{background:linear-gradient(180deg,#aef7ff,var(--cyan));color:#063038;box-shadow:0 0 0 4px rgba(126,240,255,.35),0 4px 0 var(--cyan-deep);transform:scale(1.07);}
+  .letter.sel{background:linear-gradient(180deg,#aef7ff,var(--cyan));color:#063038;box-shadow:0 0 0 4px rgba(57,255,20,.35),0 4px 0 var(--cyan-deep);transform:scale(1.07);}
   .controls{display:flex;justify-content:center;gap:12px;padding:6px 16px 14px;flex:0 0 auto;position:relative;z-index:4;}
   .btn{background:var(--panel);border:1px solid var(--panel-line);color:var(--text);border-radius:14px;padding:11px 16px;
     font-family:'Nunito';font-weight:800;font-size:14px;display:flex;align-items:center;gap:7px;cursor:pointer;transition:transform .1s,background .15s;backdrop-filter:blur(6px);}
@@ -95,23 +95,23 @@
   .card h2{font-family:'Fredoka',sans-serif;font-weight:600;margin:0 0 6px;font-size:23px;}
   .card p{color:var(--text-dim);margin:0 0 16px;font-size:14px;line-height:1.55;}
   .menuBtns{display:flex;flex-direction:column;gap:10px;}
-  .card .recap{text-align:left;background:rgba(255,255,255,.05);border-radius:14px;padding:10px 14px;margin-bottom:18px;max-height:220px;overflow:auto;}
+  .card .recap{text-align:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:14px;padding:10px 14px;margin-bottom:18px;max-height:220px;overflow:auto;}
   .card .recap div{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px dashed rgba(255,255,255,.12);}
   .card .recap div:last-child{border:0;}
   .card .recap b{color:var(--gold);font-family:'Fredoka';font-weight:500;}
   .card .recap .en{color:var(--text);font-weight:800;}
   .full{width:100%;justify-content:center;font-size:16px;padding:14px;}
-  .intro p{font-size:14px;line-height:1.65;color:var(--text-dim);text-align:left;}
+  .intro p{font-size:14px;line-height:1.65;color:var(--text-dim);text-align:center;justify-content:center;}
   .intro p b{color:var(--gold);}
   .detail .word{font-family:'Fredoka',sans-serif;font-size:36px;font-weight:600;color:var(--cyan);letter-spacing:1px;}
   .detail .tr{color:var(--pink);font-weight:800;font-size:16px;margin-bottom:14px;}
-  .detail .blk{text-align:left;background:rgba(255,255,255,.05);border-radius:12px;padding:11px 14px;margin-bottom:10px;}
+  .detail .blk{text-align:center;justify-content:center;background:rgba(255,255,255,.05);border-radius:12px;padding:11px 14px;margin-bottom:10px;}
   .detail .blk .k{font-size:11px;font-weight:800;letter-spacing:.6px;color:var(--text-dim);text-transform:uppercase;margin-bottom:3px;}
   .detail .blk .v{font-size:14px;line-height:1.5;color:var(--text);}
   .detail .blk .v.ex{font-style:italic;color:#e9def4;}
   .detail .wordrow{display:flex;align-items:center;justify-content:center;gap:10px;}
   .detail .blk .k{display:flex;align-items:center;justify-content:space-between;gap:8px;}
-  .spk{background:rgba(126,240,255,.14);border:1px solid rgba(126,240,255,.35);color:var(--cyan);
+  .spk{background:rgba(57,255,20,.14);border:1px solid rgba(57,255,20,.35);color:var(--cyan);
     border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto;transition:transform .1s,background .15s;}
   .spk:active{transform:scale(.9);}
   .spk svg{width:20px;height:20px;}
@@ -134,7 +134,7 @@
     box-shadow:0 0 10px 2px rgba(255,194,75,.8);pointer-events:none;will-change:transform,opacity;}
   /* çember kıvılcımları (fruit-ninja hissi) */
   .spark{position:absolute;z-index:3;width:8px;height:8px;border-radius:50%;
-    background:radial-gradient(circle,#fff,rgba(126,240,255,.9) 50%,transparent 70%);pointer-events:none;will-change:transform,opacity;}
+    background:radial-gradient(circle,#fff,rgba(57,255,20,.9) 50%,transparent 70%);pointer-events:none;will-change:transform,opacity;}
   .letter.scramble{transition:transform .42s cubic-bezier(.34,1.56,.64,1),opacity .42s;}
   @keyframes glint{0%{opacity:0;transform:scale(.2);}40%{opacity:1;}100%{opacity:0;transform:scale(1.6) translateY(-14px);}}
   .combowrap{text-align:center;height:22px;pointer-events:none;}
@@ -158,6 +158,112 @@
   .nb-filters{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;}
   .nb-filt{padding:5px 12px;border-radius:99px;border:1px solid var(--panel-line);background:transparent;color:var(--text-dim);font-size:12px;font-weight:700;cursor:pointer;transition:.15s;}
   .nb-filt.on{background:var(--cyan);color:#063038;border-color:var(--cyan);}
+  /* slot makinesi */
+  .slotFrame{position:relative;height:220px;overflow:hidden;border-radius:18px;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.12),rgba(0,0,0,.5));border:1.5px solid rgba(255,255,255,.06);}
+  .slotHighlight{position:absolute;top:50%;left:12px;right:12px;height:48px;transform:translateY(-50%);
+    border-radius:14px;background:linear-gradient(135deg,rgba(57,255,20,.1),rgba(57,255,20,.1));
+    box-shadow:0 0 24px rgba(57,255,20,.12),inset 0 0 0 1.5px rgba(57,255,20,.4);z-index:2;pointer-events:none;}
+  .slotFade{position:absolute;left:0;right:0;height:80px;z-index:3;pointer-events:none;}
+  .slotFade.top{top:0;background:linear-gradient(180deg,rgba(20,10,40,.97) 10%,transparent);}
+  .slotFade.bot{bottom:0;background:linear-gradient(0deg,rgba(20,10,40,.97) 10%,transparent);}
+  .slotReel{position:absolute;left:0;right:0;}
+  .slotItem{height:48px;display:flex;align-items:center;justify-content:center;gap:8px;
+    font-family:'Fredoka';font-weight:600;font-size:15px;color:rgba(255,255,255,.25);filter:blur(1px);transition:all .2s;}
+  .slotItem.active{color:var(--gold);font-size:19px;filter:blur(0);transform:scale(1.1);text-shadow:0 0 24px rgba(255,194,75,.7);}
+  /* chunk oyun */
+  .chunkTR{font-family:'Fredoka';font-size:22px;font-weight:600;color:var(--pink);text-align:center;margin:8px 0 14px;}
+  .chunkSlots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;min-height:44px;padding:10px;background:rgba(255,255,255,.04);border-radius:14px;border:2px dashed rgba(255,255,255,.15);margin-bottom:12px;}
+  .chunkSlots .cword{background:var(--cyan);color:#063038;}
+  .chunkPool{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;min-height:44px;padding:6px;}
+  .cword{padding:8px 14px;border-radius:10px;font-family:'Fredoka';font-weight:600;font-size:16px;cursor:pointer;transition:transform .12s,opacity .15s;
+    background:linear-gradient(180deg,#fdf3da,var(--tile));color:var(--tile-ink);box-shadow:0 3px 0 #c9b485;}
+  .cword:active{transform:scale(.92);}
+  .cword.wrong{animation:shake .4s;background:var(--coral);color:#fff;box-shadow:0 3px 0 #c33;}
+  .chunkCorrect{font-family:'Fredoka';font-size:20px;font-weight:600;color:var(--mint);text-align:center;padding:10px;background:rgba(71,224,161,.08);border-radius:12px;}
+  .chunkResult .blk{margin-top:8px;}
+  .chunkResult .v{font-size:13px;}
+  /* X kapatma butonu */
+  .xbtn{position:absolute;top:12px;right:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+    color:var(--text-dim);width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .15s,color .15s;z-index:2;font-family:sans-serif;}
+  .xbtn:hover,.xbtn:active{background:rgba(255,94,168,.25);color:#fff;}
+  /* kategori duyurusu */
+  .catAnnounce{text-align:center;animation:catPop .6s ease;}
+  .catIcon{font-size:56px;margin-bottom:8px;}
+  .catName{font-family:'Fredoka';font-size:32px;font-weight:700;color:var(--gold);text-shadow:0 0 30px rgba(255,194,75,.7),0 0 60px rgba(255,194,75,.4);letter-spacing:1px;}
+  @keyframes catPop{0%{transform:scale(.3);opacity:0;}50%{transform:scale(1.15);}100%{transform:scale(1);opacity:1;}}
+  /* oyun kartları */
+  .gameCards{display:flex;flex-direction:column;gap:10px;margin-bottom:8px;}
+  .gameCard{display:flex;align-items:center;gap:10px;padding:16px 18px;flex-direction:column;align-items:center;border-radius:18px;border:1.5px solid rgba(255,255,255,.08);
+    background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.02));cursor:pointer;text-align:center;justify-content:center;
+    color:var(--text);transition:transform .12s,border-color .2s,box-shadow .2s;backdrop-filter:blur(4px);}
+  .gameCard:active{transform:scale(.97);}
+  .gameCard:hover{border-color:rgba(255,194,75,.3);box-shadow:0 0 20px rgba(255,194,75,.1),inset 0 0 30px rgba(255,194,75,.03);}
+  .gcIcon{font-size:42px;flex:0 0 54px;text-align:center;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));}
+  .gcTitle{font-family:'Fredoka';font-weight:700;font-size:19px;display:block;letter-spacing:.3px;}
+  .gcSub{font-size:13px;color:rgba(255,255,255,.45);display:block;margin-top:3px;letter-spacing:.2px;}
+  /* wordle */
+  .wTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+  .wTimer{font-family:'Fredoka';font-weight:700;font-size:22px;color:var(--cyan);}
+  .wTimer.low{color:var(--coral);animation:pulse 1s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+  .wScore{font-family:'Fredoka';font-size:14px;color:var(--gold);}
+  .wBody{text-align:center;}
+  
+  
+  .wGrid{display:flex;flex-direction:column;gap:5px;align-items:center;}
+  .wRow{display:flex;gap:5px;}
+  .wCell{width:46px;height:46px;border-radius:8px;border:2px solid rgba(255,255,255,.15);
+    display:flex;align-items:center;justify-content:center;font-family:'Fredoka';font-weight:700;font-size:22px;color:#fff;
+    cursor:pointer;transition:border-color .2s;}
+  .wCell.pop{animation:pop .15s ease;}
+  .wCell.flip{animation:wFlip .5s ease forwards;}
+  @keyframes wFlip{0%{transform:rotateX(0);}50%{transform:rotateX(90deg);}100%{transform:rotateX(0);}}
+  .wCell.correct{background:#47e0a1;border-color:#47e0a1;box-shadow:0 0 12px rgba(71,224,161,.5);}
+  .wCell.present{background:#ffc24b;border-color:#ffc24b;color:#3a2607;box-shadow:0 0 12px rgba(255,194,75,.4);}
+  .wCell.absent{background:#3a3f6e;border-color:#3a3f6e;}
+  .wCell.active{border-color:var(--cyan);box-shadow:0 0 10px rgba(57,255,20,.4);}
+  .wCell.wSel{border-color:var(--gold)!important;box-shadow:0 0 18px rgba(255,194,75,.6)!important;background:rgba(255,194,75,.15)!important;}
+  .wCell.invalid{animation:shake .4s;border-color:var(--coral);}
+  .wRow.win .wCell{animation:wBounce .5s ease;animation-fill-mode:both;}
+  .wRow.win .wCell:nth-child(1){animation-delay:0s;}.wRow.win .wCell:nth-child(2){animation-delay:.1s;}
+  .wRow.win .wCell:nth-child(3){animation-delay:.2s;}.wRow.win .wCell:nth-child(4){animation-delay:.3s;}
+  .wRow.win .wCell:nth-child(5){animation-delay:.4s;}
+  @keyframes wBounce{0%{transform:translateY(0);}40%{transform:translateY(-18px);}100%{transform:translateY(0);}}
+  .wKeyboard{display:flex;flex-direction:column;gap:4px;align-items:center;margin-top:6px;}
+  .wKeyRow{display:flex;gap:3px;}
+  .wKey{min-width:42px;height:56px;padding:0 6px;border-radius:8px;border:none;
+    background:rgba(255,255,255,.12);color:#fff;font-family:'Fredoka';font-weight:600;font-size:18px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:background .2s,transform .1s;}
+  .wKey:active{transform:scale(.9);}
+  .wKey.wide{min-width:65px;font-size:15px;}
+  .wKey.correct{background:#47e0a1;color:#0c3a2a;}
+  .wKey.present{background:#ffc24b;color:#3a2607;}
+  .wKey.absent{background:#2a2d4e;}
+  .wMsg{text-align:center;font-family:'Fredoka';font-size:14px;min-height:20px;margin:4px 0;}
+  /* kalıp defteri */
+  .cbCat{padding:4px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.15);font-size:11px;cursor:pointer;
+    font-family:'Fredoka';color:var(--text-dim);background:transparent;transition:all .15s;}
+  .cbCat.active{background:var(--gold);color:#3a2607;border-color:var(--gold);}
+  .cbItem{padding:10px;margin-bottom:6px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);cursor:pointer;transition:background .15s;}
+  .cbItem:hover{background:rgba(255,255,255,.08);}
+  .cbChunk{font-family:'Fredoka';font-weight:700;font-size:15px;color:var(--cyan);}
+  .cbTr{font-size:12px;color:var(--text-dim);margin-top:2px;}
+  .cbMeta{font-size:10px;color:rgba(255,255,255,.3);margin-top:3px;}
+  .cbPat{font-size:11px;color:var(--gold);margin-top:4px;display:none;}
+  .cbVars{font-size:11px;color:rgba(255,255,255,.4);display:none;}
+  .cbEx{font-size:11px;color:var(--mint);font-style:italic;display:none;}
+  .cbItem.open .cbPat,.cbItem.open .cbVars,.cbItem.open .cbEx{display:block;}
+  /* kelime bulutu */
+  .wRow.wActive{background:rgba(57,255,20,.1);border-radius:12px;padding:2px 6px;
+    box-shadow:0 0 20px rgba(57,255,20,.3),0 0 40px rgba(57,255,20,.15);animation:rowGlow 2s ease-in-out infinite;}
+  @keyframes rowGlow{0%,100%{box-shadow:0 0 12px rgba(57,255,20,.2);}50%{box-shadow:0 0 30px rgba(57,255,20,.6),0 0 60px rgba(57,255,20,.25);}}
+  .wCloud{max-height:none;overflow:hidden;border-radius:10px;background:rgba(0,0,0,.2);padding:8px;display:block;margin-top:6px;border:1px solid rgba(255,255,255,.08);text-align:center;}
+  .cloudWord{display:inline-block;padding:4px 10px;margin:3px;border-radius:8px;font-family:'Fredoka';font-weight:600;font-size:18px;cursor:pointer;
+    background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03));color:var(--text);border:1px solid rgba(255,255,255,.1);
+    transition:transform .15s,box-shadow .2s;white-space:nowrap;cursor:pointer;}
+  .cloudWord:hover,.cloudWord:active{box-shadow:0 0 14px rgba(57,255,20,.3);transform:scale(1.1);border-color:var(--cyan);}
+  @keyframes cloudFloat{0%{transform:translateY(0);}50%{transform:translateY(-8px);}100%{transform:translateY(0);}}
 </style>
 </head>
 <body>
@@ -168,9 +274,11 @@
       <div class="iconbtn" id="menuBtn" title="Menü">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
       </div>
-      <div class="brand"><h1>Kelime <span>Avı</span></h1><small id="levelLabel">Bölüm 1</small></div>
+      <div class="brand"><h1>Spell<span>Spin</span></h1><small id="levelLabel">Bölüm 1</small></div>
     </div>
     <div class="stats">
+      <div class="pill" id="helpBtn" style="cursor:pointer" title="Yardım">❓</div>
+      <div class="pill" id="notebookBtn" style="cursor:pointer" title="Defterim">📖</div>
       <div class="pill" id="streakPill" title="Günlük seri"><span class="lab">🔥</span><span id="streakNum">0</span></div>
       <div class="pill"><span class="lab">Bulunan</span><span id="foundCount">0/0</span></div>
       <div class="pill" id="coinPill"><span class="coin">●</span><span id="coins">0</span></div>
@@ -179,7 +287,7 @@
   <div class="guide">
     <span class="gtag tr">🇹🇷 Türkçe ipucu</span>
     <span class="garrow">→</span>
-    <span class="gtag en">🇬🇧 English Word</span>
+    <span class="gtag en">EN English Word</span>
   </div>
   <div class="board" id="board"></div>
   <div class="combowrap"><span class="combobadge" id="comboBadge"></span></div>
@@ -187,37 +295,148 @@
   <div style="text-align:center;padding:0 0 2px"><span class="lang en" style="font-size:10px;padding:3px 8px">EN</span><span style="font-size:10px;color:var(--text-dim);margin-left:4px">Swipe to spell the word</span></div>
   <div class="wheelzone"><div class="wheel" id="wheel">
     <div class="disc"></div>
-    <svg id="line" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline id="poly" points="" fill="none" stroke="#aef6ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 0 3px rgba(126,240,255,.95))"/></svg>
+    <svg id="line" viewBox="0 0 100 100" preserveAspectRatio="none"><polyline id="poly" points="" fill="none" stroke="#aef6ff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" style="filter:drop-shadow(0 0 3px rgba(57,255,20,.95))"/></svg>
   </div></div>
   <div class="controls">
     <button class="btn" id="shuffleBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg>Karıştır</button>
     <button class="btn gold" id="hintBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2Z"/></svg>İpucu (15)</button>
   </div>
+  <div style="text-align:center;padding:0 0 6px;opacity:.35;font-size:9px;color:var(--text-dim)">murat simsekoglu · m.simsekoglu@gmail.com</div>
 </div>
 <div class="toast" id="toast"></div>
 
+<!-- KALIP DEFTERİ -->
+<div class="overlay" id="chunkBookOverlay"><div class="card" style="max-width:500px;padding:14px;position:relative;max-height:90vh;overflow-y:auto">
+  <button class="xbtn" id="chunkBookX">✕</button>
+  <h2 style="margin:0 0 8px">📚 ChunkBook</h2>
+  <input class="nb-search" id="chunkBookSearch" placeholder="Kalıp ara..." style="margin-bottom:8px">
+  <div id="chunkBookCats" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px"></div>
+  <div id="chunkBookList"></div>
+</div></div>
+
+<!-- KONUŞMA KALIPLARI — SLOT -->
+<div class="overlay" id="wheelOverlay"><div class="card" style="max-width:400px;padding:18px;position:relative">
+  <button class="xbtn" id="wheelX">✕</button>
+  <h2 style="margin-bottom:6px">🎰 ChunkDrop</h2>
+  <p style="font-size:13px;margin-bottom:12px;color:var(--text-dim)">Başlat'a bas, istediğin an Dur! de.</p>
+  <div class="slotFrame">
+    <div class="slotFade top"></div>
+    <div class="slotHighlight"></div>
+    <div class="slotReel" id="slotReel"></div>
+    <div class="slotFade bot"></div>
+  </div>
+  <div style="display:flex;gap:8px;margin-top:14px">
+    <button class="btn gold full" id="slotStartBtn">▶ Başlat</button>
+    <button class="btn full" id="slotStopBtn" style="display:none">⬛ Dur!</button>
+  </div>
+</div></div>
+
+<!-- KATEGORİ DUYURUSU -->
+<div class="overlay" id="catOverlay"><div class="catAnnounce">
+  <div class="catIcon" id="catIcon"></div>
+  <div class="catName" id="catName"></div>
+</div></div>
+
+<!-- CHUNK MEYDAN OKUMA -->
+<div class="overlay" id="chunkOverlay"><div class="card" style="max-width:420px;padding:20px;position:relative">
+  <button class="xbtn" id="chunkX">✕</button>
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+    <span class="gtag tr" style="font-size:11px" id="chunkCat"></span>
+    <span class="gtag en" style="font-size:11px" id="chunkLv"></span>
+  </div>
+  <p style="font-size:13px;color:var(--text-dim);margin:0 0 6px">Türkçe anlamı oku, İngilizce kelimeleri doğru sıraya diz:</p>
+  <div class="chunkTR" id="chunkTR"></div>
+  <div class="chunkSlots" id="chunkSlots"></div>
+  <div class="chunkPool" id="chunkPool"></div>
+  <div class="chunkResult" id="chunkResult" style="display:none">
+    <div class="chunkCorrect" id="chunkCorrect"></div>
+    <div class="blk" style="margin-top:10px"><div class="k">🔑 Pattern</div><div class="v" id="chunkPat"></div></div>
+    <div class="blk"><div class="k">Variations</div><div class="v" id="chunkVars"></div></div>
+    <div class="blk"><div class="k">Example</div><div class="v ex" id="chunkEx"></div></div>
+  </div>
+  <div style="display:flex;gap:8px;margin-top:12px">
+    <button class="btn full" id="chunkClear">🔄</button>
+    <button class="btn full" id="chunkHint">💡 İpucu (10)</button>
+    <button class="btn full" id="chunkSkip">Atla</button>
+    <button class="btn gold full" id="chunkCheck">Kontrol Et</button>
+    <button class="btn gold full" id="chunkNext" style="display:none">Sonraki →</button>
+  </div>
+</div></div>
+
+<!-- WORDLE HARF SEÇİMİ -->
+<div class="overlay" id="wPickOverlay"><div class="card" style="max-width:340px;text-align:center">
+  <h2>🔓 WordCrack</h2>
+  <p style="font-size:13px;margin-bottom:14px">Kaç harfli kelime istiyorsun?</p>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap" id="wPickBtns">
+    <button class="btn gold" onclick="startWordCrackWith(3)">3 harf</button>
+    <button class="btn gold" onclick="startWordCrackWith(4)">4 harf</button>
+    <button class="btn gold" onclick="startWordCrackWith(5)">5 harf</button>
+    <button class="btn gold" onclick="startWordCrackWith(6)">6 harf</button>
+    <button class="btn gold" onclick="startWordCrackWith(7)">7 harf</button>
+  </div>
+  <button class="btn ghost full" style="margin-top:12px" onclick="$('wPickOverlay').classList.remove('show');$('menuOverlay').classList.add('show')">Geri</button>
+</div></div>
+
+<!-- WORDLE -->
+<div class="overlay" id="wordleOverlay"><div class="card" style="max-width:580px;padding:14px;position:relative">
+  <button class="xbtn" id="wordleX" style="top:8px;right:8px">✕</button>
+  <div class="wTop" style="padding-right:40px">
+    <div><span class="wTimer" id="wTimerEl">⏱ 3:00</span></div>
+    <div class="wScore" id="wScoreEl">Skor: 0</div>
+  </div>
+  <div class="wMsg" id="wMsg"></div>
+  <div class="wBody">
+    <div class="wGrid" id="wGrid"></div>
+      <div class="wKeyboard" id="wKeyboard"></div>
+    </div>
+  <div style="display:flex;gap:6px;justify-content:center;margin-top:6px">
+    <button class="btn" id="wCloudToggle" style="font-size:11px;padding:4px 12px">💡 Gizle</button>
+    <button class="btn" id="wShuffle" style="font-size:11px;padding:4px 12px">🔀 Yenile</button>
+  </div>
+  <div class="wCloud" id="wCloud"></div>
+  <div id="wEndPanel" style="display:none;text-align:center;margin-top:10px">
+    <div id="wEndMsg" style="font-family:Fredoka;font-size:20px;font-weight:700;margin-bottom:8px"></div>
+    <div style="display:flex;gap:8px;justify-content:center">
+      <button class="btn gold" id="wNewGame">Yeni Oyun</button>
+      <button class="btn" id="wExit">Çıkış</button>
+    </div>
+  </div>
+</div></div>
+
 <!-- GİRİŞ -->
-<div class="overlay show" id="loginOverlay"><div class="card">
-  <div class="big">🔑</div><h2>Kelime <span style="color:var(--gold)">Avı</span></h2>
-  <p>Kullanıcı adını gir — ilerlemen bu isimle kaydedilir.</p>
-  <input class="nb-search" id="loginName" placeholder="Kullanıcı adı..." autocomplete="off" maxlength="20" style="text-align:center;font-size:18px;font-weight:700">
-  <div id="loginUsers" style="margin:10px 0"></div>
-  <button class="btn gold full" id="loginBtn" style="margin-top:8px">Giriş Yap</button>
+<div class="overlay show" id="loginOverlay"><div class="card" style="max-width:420px;padding:30px 24px;text-align:center">
+  <div style="font-size:64px;margin-bottom:4px;filter:drop-shadow(0 4px 12px rgba(255,194,75,.4))">🧠</div>
+  <h2 style="font-size:34px;margin:0">Lexi<span style="color:var(--gold)">Play</span></h2>
+  <p style="color:var(--gold);font-size:13px;font-weight:700;letter-spacing:2px;margin:4px 0 16px">LEARN · PLAY · MASTER</p>
+  <div style="display:flex;justify-content:center;gap:18px;margin-bottom:18px;opacity:.7">
+    <div style="text-align:center"><div style="font-size:28px">🔭</div><div style="font-size:9px;color:var(--text-dim)">SpellSpin</div></div>
+    <div style="text-align:center"><div style="font-size:28px">🗣</div><div style="font-size:9px;color:var(--text-dim)">Kalıplar</div></div>
+    <div style="text-align:center"><div style="font-size:28px">🟩</div><div style="font-size:9px;color:var(--text-dim)">WordCrack</div></div>
+  </div>
+  <p style="font-size:12px;color:var(--text-dim);margin:0 0 18px;line-height:1.5">3 Games · 2890 Words · 284 Chunks<br>Oxford 3000 + VOA tabanlı · Tam çevrimdışı</p>
+  <input class="nb-search" id="loginName" placeholder="Enter your name..." autocomplete="off" maxlength="20" style="text-align:center;font-size:18px;font-weight:700;padding:14px;border-radius:14px">
+  <div id="loginUsers" style="margin:12px 0"></div>
+  <button class="btn gold full" id="loginBtn" style="padding:14px;font-size:17px;border-radius:14px">🚀 Start</button>
+  <p style="font-size:9px;color:rgba(255,255,255,.2);margin:14px 0 0">murat simsekoglu · m.simsekoglu@gmail.com</p>
+</div></div>
 </div></div>
 
 <!-- MENÜ / BAŞLANGIÇ -->
-<div class="overlay" id="menuOverlay"><div class="card">
-  <div class="big">🔭</div><h2>Kelime <span style="color:var(--gold)">Avı</span></h2>
-  <p>Oxford 3000 + VOA tabanlı kelime kütüphanesiyle İngilizce öğren.</p>
-  <div class="menuBtns">
-    <button class="btn gold full" id="contBtn">Devam Et</button>
-    <button class="btn full" id="newBtn">Yeni Oyun</button>
-    <button class="btn ghost full" id="helpBtn">Nasıl Oynanır?</button>
-    <button class="btn ghost full" id="notebookBtn">📖 Kelime Defterim</button>
-    <div class="switch">Ses efektleri <b id="soundTog" class="on"></b></div>
-    <div class="switch">Odak müziği <b id="musicTog"></b></div>
-    <button class="btn ghost full" id="logoutBtn" style="margin-top:6px;color:var(--coral)">🔄 Kullanıcı Değiştir</button>
+<div class="overlay" id="menuOverlay"><div class="card" style="max-width:400px;position:relative">
+  <button class="xbtn" id="menuX" style="display:none">✕</button>
+  <div style="font-size:72px;margin-bottom:8px;filter:drop-shadow(0 6px 20px rgba(255,194,75,.5))">🧠</div><h2 style="font-size:38px;margin:0;letter-spacing:-1px">Lexi<span style="color:var(--gold)">Play</span></h2>
+  <p style="font-size:12px;margin-bottom:14px">3 Games · 2890 Words · 284 Chunks · Offline Ready</p>
+  <div class="gameCards">
+    <button class="gameCard" id="contBtn"><span class="gcIcon">🔤</span><span class="gcTitle">SpellSpin</span></button>
+    <button class="gameCard" id="chunksBtn"><span class="gcIcon">🎰</span><span class="gcTitle">ChunkDrop</span></button>
+    <button class="gameCard" id="chunkBookBtn"><span class="gcIcon">📚</span><span class="gcTitle">ChunkBook</span></button>
+    <button class="gameCard" id="wordleBtn"><span class="gcIcon">🟩</span><span class="gcTitle">WordCrack</span></button>
   </div>
+  <div style="display:flex;gap:8px;margin-top:8px">
+    <div class="switch" style="flex:1;font-size:15px;font-weight:600">Sound <b id="soundTog" class="on"></b></div>
+    <div class="switch" style="flex:1;font-size:15px;font-weight:600">Music <b id="musicTog"></b></div>
+  </div>
+  <button class="btn ghost full" id="logoutBtn" style="margin-top:8px;color:var(--coral);font-size:14px">🔄 Change User</button>
 </div></div>
 
 <!-- NASIL OYNANIR -->
@@ -228,11 +447,11 @@
     <span class="garrow">→</span>
     <span style="font-size:13px;color:var(--text)">Aklından çevir</span>
     <span class="garrow">→</span>
-    <span class="gtag en" style="font-size:13px">🇬🇧 Spell the word</span>
+    <span class="gtag en" style="font-size:13px">EN Spell the word</span>
   </div>
   <p style="margin-bottom:18px">
     • Sol tarafta <b>🇹🇷 Türkçe anlam</b> yazar, sağdaki kutular boştur.<br>
-    • Alttaki <b>🇬🇧 English letter wheel</b> parmağını sürükleyerek kelimeyi yaz.<br>
+    • Alttaki <b>EN English letter wheel</b> parmağını sürükleyerek kelimeyi yaz.<br>
     • Doğru İngilizce kelimeyi bulunca kutulara yerleşir — <b>altın parlama</b> ile ödüllendirilirsin.<br>
     • Listede olmayan ama harflerden çıkan gerçek kelimeler <b>bonus</b> jeton verir.<br>
     • Bulduğun kelimeye dokun → <b>tanım</b>, örnek cümle, telaffuz.<br>
@@ -3588,14 +3807,29 @@ function loginAs(name){
 }
 function showLoginUsers(){
   const users=getUsers(); const c=$('loginUsers'); c.innerHTML='';
+  $('loginName').value='';
   if(!users.length) return;
-  const lbl=document.createElement('p'); lbl.style.cssText='color:var(--text-dim);font-size:12px;margin:0 0 6px'; lbl.textContent='Kayıtlı kullanıcılar:'; c.appendChild(lbl);
-  users.forEach(u=>{ const b=document.createElement('button'); b.className='btn full'; b.style.marginBottom='6px';
-    b.textContent='👤 '+u; b.onclick=()=>{ $('loginName').value=u; loginAs(u); }; c.appendChild(b); });
+  const lbl=document.createElement('p'); lbl.style.cssText='color:var(--text-dim);font-size:12px;margin:0 0 6px'; lbl.textContent='Saved users:'; c.appendChild(lbl);
+  users.forEach(u=>{
+    const row=document.createElement('div'); row.style.cssText='display:flex;gap:6px;margin-bottom:6px;align-items:center';
+    const b=document.createElement('button'); b.className='btn full'; b.style.flex='1';
+    b.textContent='👤 '+u; b.onclick=()=>{ $('loginName').value=u; $('loginName').focus(); };
+    const del=document.createElement('button'); del.className='btn'; del.style.cssText='padding:8px 12px;color:var(--coral);font-size:16px';
+    del.textContent='✕'; del.title='Delete user';
+    del.onclick=(e)=>{ e.stopPropagation();
+      if(confirm(u+' will be deleted. Progress will be lost.')){
+        const arr=getUsers().filter(x=>x!==u);
+        localStorage.setItem(USERS_KEY(),JSON.stringify(arr));
+        try{localStorage.removeItem('kelimeAvi_'+u);}catch(e){}
+        showLoginUsers();
+      }
+    };
+    row.appendChild(b); row.appendChild(del); c.appendChild(row);
+  });
 }
 $('loginBtn').onclick=()=>{ const v=$('loginName').value.trim(); if(v) loginAs(v); };
 $('loginName').onkeydown=e=>{ if(e.key==='Enter'){ const v=$('loginName').value.trim(); if(v) loginAs(v); } };
-showLoginUsers();
+// Otomatik giriş: sayfa sonunda çalışacak
 let S={levelIdx:0,coins:0,foundByLevel:{},bonusByLevel:{},hintsUsedByLevel:{},starsByLevel:{},
   streak:0,maxStreak:0,lastPlayDate:null,learned:[],sound:true,music:false};
 let found=[], bonus=[], wheelLetters=[], selected=[], dragging=false;
@@ -3953,9 +4187,9 @@ function openGame(){
   if(S.coins===0 && !S.lastPlayDate) S.coins=30; // ilk kez, başlangıç jetonu
   musicSync(); loadLevel();
 }
-$('menuBtn').onclick=()=>{ persist(); $('menuOverlay').classList.add('show'); refreshMenu(); };
+$('menuBtn').onclick=()=>{ persist(); $('menuX').style.display='flex'; $('menuOverlay').classList.add('show'); refreshMenu(); };
+$('menuX').onclick=()=>{ $('menuOverlay').classList.remove('show'); };
 $('contBtn').onclick=openGame;
-$('newBtn').onclick=()=>{ S.levelIdx=0; S.coins=0; S.foundByLevel={}; S.bonusByLevel={}; S.hintsUsedByLevel={}; S.starsByLevel={}; S.learned=[]; hintFocus=null; persist(); openGame(); };
 $('helpBtn').onclick=()=>$('helpOverlay').classList.add('show');
 $('helpClose').onclick=()=>$('helpOverlay').classList.remove('show');
 /* ===== KELİME DEFTERİM ===== */
@@ -3998,10 +4232,732 @@ function renderNB(){
 }
 $('soundTog').onclick=()=>{ S.sound=!S.sound; $('soundTog').classList.toggle('on',S.sound); persist(); };
 $('musicTog').onclick=()=>{ S.music=!S.music; $('musicTog').classList.toggle('on',S.music); audio(); musicSync(); persist(); };
+/* ===== KONUŞMA KALIPLARI — ÇARK + KELİME DİZME ===== */
+const CHUNKS=[
+{cat:"Greetings",lv:"A1",ch:"Good morning.",tr:"Günaydın.",pat:"Good + time",vars:["Good afternoon.","Good evening."],ex:"Good morning! How are you?"},
+{cat:"Greetings",lv:"A1",ch:"How are you?",tr:"Nasılsın?",pat:"How + be + subject",vars:["How is she?","How are they?"],ex:"Hi! How are you today?"},
+{cat:"Greetings",lv:"A1",ch:"Nice to meet you.",tr:"Tanıştığıma memnunum.",pat:"Nice to + verb + you",vars:["Nice to see you.","Nice to hear from you."],ex:"I'm Murat. Nice to meet you."},
+{cat:"Greetings",lv:"A2",ch:"Long time no see.",tr:"Uzun zamandır görüşmedik.",pat:"Fixed expression",vars:[],ex:"Hey! Long time no see!"},
+{cat:"Greetings",lv:"A2",ch:"What's up?",tr:"Ne var ne yok?",pat:"What's + adverb/adj",vars:["What's new?","What's going on?"],ex:"Hey man, what's up?"},
+{cat:"Introductions",lv:"A1",ch:"My name is...",tr:"Benim adım...",pat:"My + noun + is",vars:["My job is...","My hobby is..."],ex:"My name is Ali."},
+{cat:"Introductions",lv:"A1",ch:"I'm from Turkey.",tr:"Türkiye'denliyim.",pat:"I'm from + place",vars:["I'm from Istanbul.","I'm from a small town."],ex:"Hi, I'm from Turkey."},
+{cat:"Introductions",lv:"A2",ch:"I work as a teacher.",tr:"Öğretmen olarak çalışıyorum.",pat:"I work as + a/an + job",vars:["I work as an engineer.","I work as a doctor."],ex:"I work as a teacher in Ankara."},
+{cat:"Farewells",lv:"A1",ch:"See you later.",tr:"Sonra görüşürüz.",pat:"See you + time",vars:["See you tomorrow.","See you next week."],ex:"Bye! See you later."},
+{cat:"Farewells",lv:"A1",ch:"Have a nice day.",tr:"İyi günler.",pat:"Have a + adj + noun",vars:["Have a good weekend.","Have a safe trip."],ex:"Goodbye! Have a nice day."},
+{cat:"Farewells",lv:"A2",ch:"Take care of yourself.",tr:"Kendine iyi bak.",pat:"Take care of + noun",vars:["Take care of your health.","Take care of the kids."],ex:"See you soon. Take care of yourself."},
+{cat:"Politeness",lv:"A1",ch:"Excuse me.",tr:"Affedersiniz.",pat:"Fixed expression",vars:[],ex:"Excuse me, where is the station?"},
+{cat:"Politeness",lv:"A1",ch:"Could you please help me?",tr:"Bana yardım eder misiniz?",pat:"Could you please + verb",vars:["Could you please wait?","Could you please repeat that?"],ex:"Could you please help me find the exit?"},
+{cat:"Politeness",lv:"A2",ch:"Would you mind closing the door?",tr:"Kapıyı kapatır mısınız?",pat:"Would you mind + verb-ing",vars:["Would you mind waiting?","Would you mind speaking slowly?"],ex:"Would you mind closing the door? It's cold."},
+{cat:"Thanks",lv:"A1",ch:"Thank you very much.",tr:"Çok teşekkür ederim.",pat:"Thank you + adverb",vars:["Thank you so much.","Thank you for everything."],ex:"Thank you very much for your help."},
+{cat:"Thanks",lv:"A1",ch:"I really appreciate it.",tr:"Gerçekten minnettarım.",pat:"I really + verb + it",vars:["I really like it.","I really need it."],ex:"Thanks, I really appreciate it."},
+{cat:"Thanks",lv:"A2",ch:"That's very kind of you.",tr:"Çok naziksiniz.",pat:"That's very + adj + of you",vars:["That's very nice of you.","That's very sweet of you."],ex:"That's very kind of you to help."},
+{cat:"Apologies",lv:"A1",ch:"I'm sorry about that.",tr:"Bunun için özür dilerim.",pat:"I'm sorry about + noun",vars:["I'm sorry about the delay.","I'm sorry about the mistake."],ex:"I'm sorry about that. It won't happen again."},
+{cat:"Apologies",lv:"A2",ch:"I didn't mean to bother you.",tr:"Sizi rahatsız etmek istememiştim.",pat:"I didn't mean to + verb",vars:["I didn't mean to hurt you.","I didn't mean to be late."],ex:"I didn't mean to bother you."},
+{cat:"Requests",lv:"A1",ch:"Can I have some water?",tr:"Biraz su alabilir miyim?",pat:"Can I have + noun",vars:["Can I have the bill?","Can I have a coffee?"],ex:"Can I have some water, please?"},
+{cat:"Requests",lv:"A2",ch:"I need to talk to you.",tr:"Seninle konuşmam lazım.",pat:"I need to + verb",vars:["I need to go now.","I need to think about it."],ex:"I need to talk to you about something."},
+{cat:"Requests",lv:"B1",ch:"I was wondering if you could help.",tr:"Yardım edebilir misiniz acaba.",pat:"I was wondering if + clause",vars:["I was wondering if you're free.","I was wondering if you knew."],ex:"I was wondering if you could help me."},
+{cat:"Asking Questions",lv:"A1",ch:"What time is it?",tr:"Saat kaç?",pat:"What + noun + be",vars:["What day is it?","What color is it?"],ex:"Excuse me, what time is it?"},
+{cat:"Asking Questions",lv:"A2",ch:"How long does it take?",tr:"Ne kadar sürer?",pat:"How long + does/do + subject + verb",vars:["How long does the flight take?","How long do you work?"],ex:"How long does it take to get there?"},
+{cat:"Asking Questions",lv:"A2",ch:"What do you mean?",tr:"Ne demek istiyorsun?",pat:"What do you + verb",vars:["What do you think?","What do you want?"],ex:"I don't understand. What do you mean?"},
+{cat:"Giving Opinions",lv:"A1",ch:"I think so.",tr:"Bence öyle.",pat:"I think + clause",vars:["I think it's good.","I think you're right."],ex:"Will it rain? I think so."},
+{cat:"Giving Opinions",lv:"A2",ch:"In my opinion, it's wrong.",tr:"Bence bu yanlış.",pat:"In my opinion + clause",vars:["In my opinion, it's too expensive.","In my opinion, we should wait."],ex:"In my opinion, it's the wrong approach."},
+{cat:"Giving Opinions",lv:"B1",ch:"As far as I'm concerned...",tr:"Bana kalırsa...",pat:"As far as I'm concerned + clause",vars:[],ex:"As far as I'm concerned, the project is finished."},
+{cat:"Agreeing",lv:"A1",ch:"That's right.",tr:"Doğru.",pat:"That's + adj",vars:["That's true.","That's correct.","That's great."],ex:"That's right, I agree with you."},
+{cat:"Agreeing",lv:"A1",ch:"Sounds good.",tr:"Kulağa iyi geliyor.",pat:"Sounds + adj",vars:["Sounds great.","Sounds fun.","Sounds interesting."],ex:"Let's meet at 5? Sounds good."},
+{cat:"Agreeing",lv:"A2",ch:"That makes sense.",tr:"Bu mantıklı.",pat:"That makes + noun",vars:["That makes a difference.","That makes it easier."],ex:"Oh, that makes sense now."},
+{cat:"Disagreeing",lv:"A2",ch:"I don't think so.",tr:"Bence değil.",pat:"I don't think + clause",vars:["I don't think it's true.","I don't think we should."],ex:"I don't think so. Let me check."},
+{cat:"Disagreeing",lv:"A2",ch:"Not really.",tr:"Pek sayılmaz.",pat:"Fixed expression",vars:[],ex:"Do you like it? Not really."},
+{cat:"Disagreeing",lv:"B1",ch:"I see your point, but...",tr:"Seni anlıyorum ama...",pat:"I see your + noun + but",vars:["I see your concern, but..."],ex:"I see your point, but I disagree."},
+{cat:"Small Talk",lv:"A1",ch:"How's the weather today?",tr:"Bugün hava nasıl?",pat:"How's + the + noun",vars:["How's the food?","How's the traffic?"],ex:"How's the weather today?"},
+{cat:"Small Talk",lv:"A2",ch:"What do you do for a living?",tr:"Ne iş yapıyorsun?",pat:"What do you do for + noun",vars:["What do you do for fun?"],ex:"So, what do you do for a living?"},
+{cat:"Small Talk",lv:"A2",ch:"I'm into music.",tr:"Müzikle ilgileniyorum.",pat:"I'm into + noun/gerund",vars:["I'm into sports.","I'm into cooking."],ex:"I'm really into music these days."},
+{cat:"Feelings",lv:"A1",ch:"I feel great.",tr:"Harika hissediyorum.",pat:"I feel + adj",vars:["I feel tired.","I feel happy.","I feel sick."],ex:"After the walk, I feel great."},
+{cat:"Feelings",lv:"A2",ch:"I'm looking forward to it.",tr:"Dört gözle bekliyorum.",pat:"I'm looking forward to + noun/gerund",vars:["I'm looking forward to the trip.","I'm looking forward to meeting you."],ex:"The concert is tomorrow. I'm looking forward to it."},
+{cat:"Feelings",lv:"B1",ch:"I can't help feeling nervous.",tr:"Gergin hissetmekten kendimi alamıyorum.",pat:"I can't help + verb-ing",vars:["I can't help laughing.","I can't help worrying."],ex:"I can't help feeling nervous before exams."},
+{cat:"Everyday Life",lv:"A1",ch:"I wake up at seven.",tr:"Yedide uyanırım.",pat:"I + verb + at + time",vars:["I start at eight.","I sleep at eleven."],ex:"I usually wake up at seven."},
+{cat:"Everyday Life",lv:"A1",ch:"Let's go.",tr:"Hadi gidelim.",pat:"Let's + verb",vars:["Let's eat.","Let's start.","Let's try again."],ex:"Are you ready? Let's go."},
+{cat:"Everyday Life",lv:"A2",ch:"I'm used to waking up early.",tr:"Erken kalkmaya alışığım.",pat:"I'm used to + verb-ing",vars:["I'm used to working hard.","I'm used to the cold."],ex:"I'm used to waking up early now."},
+{cat:"Time",lv:"A1",ch:"What time does it start?",tr:"Saat kaçta başlıyor?",pat:"What time + does/do + subject + verb",vars:["What time does the movie start?","What time do you finish?"],ex:"What time does the meeting start?"},
+{cat:"Time",lv:"A2",ch:"I'll be there in ten minutes.",tr:"On dakikaya orada olurum.",pat:"I'll be there in + time",vars:["I'll be there in an hour.","I'll be there in a moment."],ex:"Wait for me. I'll be there in ten minutes."},
+{cat:"Directions",lv:"A1",ch:"Turn left at the corner.",tr:"Köşeden sola dön.",pat:"Turn + direction + at + place",vars:["Turn right at the traffic lights.","Turn left after the bridge."],ex:"Turn left at the corner and you'll see it."},
+{cat:"Directions",lv:"A2",ch:"It's across from the bank.",tr:"Bankanın karşısında.",pat:"It's + preposition + the + place",vars:["It's next to the park.","It's behind the school."],ex:"The cafe? It's across from the bank."},
+{cat:"Shopping",lv:"A1",ch:"How much does this cost?",tr:"Bu ne kadar?",pat:"How much + does/do + subject + verb",vars:["How much does it weigh?","How much do I owe you?"],ex:"Excuse me, how much does this cost?"},
+{cat:"Shopping",lv:"A2",ch:"I'm just looking, thanks.",tr:"Sadece bakıyorum, teşekkürler.",pat:"I'm just + verb-ing",vars:["I'm just checking.","I'm just passing by."],ex:"Can I help you? I'm just looking, thanks."},
+{cat:"Shopping",lv:"A2",ch:"Do you have this in a larger size?",tr:"Bunun daha büyük bedeni var mı?",pat:"Do you have this in + adj + noun",vars:["Do you have this in blue?","Do you have this in a smaller size?"],ex:"Do you have this in a larger size?"},
+{cat:"Restaurant",lv:"A1",ch:"A table for two, please.",tr:"İki kişilik bir masa lütfen.",pat:"A + noun + for + number",vars:["A ticket for one.","A room for three."],ex:"Good evening. A table for two, please."},
+{cat:"Restaurant",lv:"A1",ch:"Could I have the bill, please?",tr:"Hesabı alabilir miyim?",pat:"Could I have + the + noun",vars:["Could I have the menu?","Could I have some more bread?"],ex:"We're finished. Could I have the bill, please?"},
+{cat:"Restaurant",lv:"A2",ch:"I'd like to order the pasta.",tr:"Makarnayı sipariş etmek istiyorum.",pat:"I'd like to + verb + noun",vars:["I'd like to try the fish.","I'd like to change my order."],ex:"I'd like to order the pasta, please."},
+{cat:"Travel",lv:"A1",ch:"Where is the airport?",tr:"Havalimanı nerede?",pat:"Where is + the + place",vars:["Where is the station?","Where is the hotel?"],ex:"Excuse me, where is the airport?"},
+{cat:"Travel",lv:"A2",ch:"I'd like to book a flight.",tr:"Bir uçuş rezervasyonu yapmak istiyorum.",pat:"I'd like to book + noun",vars:["I'd like to book a room.","I'd like to book a table."],ex:"I'd like to book a flight to London."},
+{cat:"Hotel",lv:"A1",ch:"I have a reservation.",tr:"Rezervasyonum var.",pat:"I have a + noun",vars:["I have a question.","I have a problem."],ex:"Hello, I have a reservation under Simsek."},
+{cat:"Hotel",lv:"A2",ch:"Is breakfast included?",tr:"Kahvaltı dahil mi?",pat:"Is + noun + included",vars:["Is parking included?","Is Wi-Fi included?"],ex:"Is breakfast included in the price?"},
+{cat:"Transportation",lv:"A1",ch:"Which bus goes to the center?",tr:"Merkeze hangi otobüs gider?",pat:"Which + noun + verb + to + place",vars:["Which train goes to Ankara?","Which road goes to the coast?"],ex:"Which bus goes to the city center?"},
+{cat:"Transportation",lv:"A2",ch:"How often do the buses run?",tr:"Otobüsler ne sıklıkla çalışır?",pat:"How often + do/does + noun + verb",vars:["How often do you exercise?","How often does it rain?"],ex:"How often do the buses run on weekends?"},
+{cat:"Phone",lv:"A1",ch:"Can I call you back?",tr:"Seni geri arayabilir miyim?",pat:"Can I + verb + you + adverb",vars:["Can I help you out?","Can I pick you up?"],ex:"I'm busy right now. Can I call you back?"},
+{cat:"Phone",lv:"A2",ch:"I'll send you a message.",tr:"Sana bir mesaj göndereceğim.",pat:"I'll + verb + you + noun",vars:["I'll give you a call.","I'll send you the link."],ex:"I'll send you a message tonight."},
+{cat:"Work",lv:"A2",ch:"I'm working on a project.",tr:"Bir proje üzerinde çalışıyorum.",pat:"I'm working on + noun",vars:["I'm working on a report.","I'm working on my English."],ex:"I'm working on a new project this week."},
+{cat:"Work",lv:"A2",ch:"I have a meeting at three.",tr:"Saat üçte toplantım var.",pat:"I have a + noun + at + time",vars:["I have a class at ten.","I have a call at noon."],ex:"Sorry, I have a meeting at three."},
+{cat:"Work",lv:"B1",ch:"Let me get back to you on that.",tr:"Bu konuda sana döneyim.",pat:"Let me + verb + preposition + you",vars:["Let me think about it.","Let me check for you."],ex:"Good question. Let me get back to you on that."},
+{cat:"Meetings",lv:"A2",ch:"Let's get started.",tr:"Hadi başlayalım.",pat:"Let's get + past participle/adj",vars:["Let's get going.","Let's get organized."],ex:"Everyone's here. Let's get started."},
+{cat:"Meetings",lv:"B1",ch:"Moving on to the next point...",tr:"Bir sonraki maddeye geçelim...",pat:"Moving on to + noun",vars:["Moving on to the budget.","Moving on to questions."],ex:"Moving on to the next point on the agenda."},
+{cat:"Problem Solving",lv:"A2",ch:"What's the problem?",tr:"Sorun ne?",pat:"What's the + noun",vars:["What's the plan?","What's the answer?"],ex:"You look worried. What's the problem?"},
+{cat:"Problem Solving",lv:"A2",ch:"Let me figure it out.",tr:"Çözeyim bunu.",pat:"Let me + verb + it + adverb",vars:["Let me sort it out.","Let me work it out."],ex:"Don't worry. Let me figure it out."},
+{cat:"Problem Solving",lv:"B1",ch:"We need to come up with a solution.",tr:"Bir çözüm bulmamız lazım.",pat:"We need to + phrasal verb + noun",vars:["We need to come up with a plan.","We need to figure out the problem."],ex:"We need to come up with a solution fast."},
+{cat:"Emergencies",lv:"A1",ch:"I need help!",tr:"Yardıma ihtiyacım var!",pat:"I need + noun",vars:["I need a doctor.","I need water."],ex:"Please, I need help!"},
+{cat:"Emergencies",lv:"A2",ch:"Call an ambulance!",tr:"Ambulans çağırın!",pat:"Call + noun",vars:["Call the police!","Call a taxi!"],ex:"He's hurt! Call an ambulance!"},
+{cat:"Conversation Fillers",lv:"A1",ch:"By the way...",tr:"Bu arada...",pat:"Fixed expression",vars:[],ex:"By the way, I saw your brother yesterday."},
+{cat:"Conversation Fillers",lv:"A1",ch:"Actually, I changed my mind.",tr:"Aslında fikrimi değiştirdim.",pat:"Actually + clause",vars:["Actually, I'm not sure.","Actually, that's a good idea."],ex:"Actually, I changed my mind about dinner."},
+{cat:"Conversation Fillers",lv:"A2",ch:"To be honest...",tr:"Dürüst olmak gerekirse...",pat:"To be + adj",vars:["To be fair...","To be clear..."],ex:"To be honest, I didn't like the movie."},
+{cat:"Conversation Fillers",lv:"A2",ch:"The thing is...",tr:"Mesele şu ki...",pat:"The thing is + clause",vars:["The point is...","The problem is..."],ex:"The thing is, I don't have enough time."},
+{cat:"Conversation Fillers",lv:"B1",ch:"It's on the tip of my tongue.",tr:"Dilimin ucunda.",pat:"It's on the + noun + of + noun",vars:[],ex:"I know her name... it's on the tip of my tongue."},
+{cat:"Phrasal Chunks",lv:"A1",ch:"Hold on a second.",tr:"Bir saniye bekle.",pat:"Hold on + time expression",vars:["Hold on a moment.","Hold on a minute."],ex:"Hold on a second, I'll check."},
+{cat:"Phrasal Chunks",lv:"A1",ch:"Come on!",tr:"Hadi!",pat:"Come + adverb",vars:["Come in.","Come here.","Come back."],ex:"Come on! We're going to be late."},
+{cat:"Phrasal Chunks",lv:"A2",ch:"I'll pick you up at eight.",tr:"Seni sekizde alırım.",pat:"I'll pick + person + up + at + time",vars:["I'll pick you up after work.","I'll drop you off at the station."],ex:"I'll pick you up at eight. Be ready."},
+{cat:"Phrasal Chunks",lv:"A2",ch:"I ran into an old friend.",tr:"Eski bir arkadaşıma rastladım.",pat:"I ran into + person",vars:["I ran into my teacher.","I ran into a problem."],ex:"I ran into an old friend at the mall."},
+{cat:"Phrasal Chunks",lv:"B1",ch:"I'll look into it.",tr:"Araştıracağım.",pat:"I'll look into + noun/it",vars:["I'll look into the issue.","I'll look into your complaint."],ex:"Thanks for reporting it. I'll look into it."},
+{cat:"Collocations",lv:"A1",ch:"Make a decision.",tr:"Karar vermek.",pat:"Make + a/an + noun",vars:["Make a mistake.","Make a plan.","Make a promise."],ex:"It's time to make a decision."},
+{cat:"Collocations",lv:"A1",ch:"Take a break.",tr:"Mola vermek.",pat:"Take + a/an + noun",vars:["Take a look.","Take a walk.","Take a photo."],ex:"Let's take a break for five minutes."},
+{cat:"Collocations",lv:"A2",ch:"Pay attention to the details.",tr:"Detaylara dikkat et.",pat:"Pay attention to + noun",vars:["Pay attention to the road.","Pay attention to the teacher."],ex:"Pay attention to the details."},
+{cat:"Collocations",lv:"A2",ch:"Do your best.",tr:"Elinden gelenin en iyisini yap.",pat:"Do + possessive + best/noun",vars:["Do your homework.","Do me a favor."],ex:"Just relax and do your best."},
+{cat:"Collocations",lv:"B1",ch:"Keep in mind that...",tr:"Aklında tut ki...",pat:"Keep in mind + that clause",vars:["Keep in touch.","Keep in shape."],ex:"Keep in mind that the deadline is Friday."},
+{cat:"High Frequency",lv:"A1",ch:"I don't know.",tr:"Bilmiyorum.",pat:"I don't + verb",vars:["I don't understand.","I don't care.","I don't remember."],ex:"I don't know the answer."},
+{cat:"High Frequency",lv:"A1",ch:"No problem.",tr:"Sorun değil.",pat:"No + noun",vars:["No worries.","No way.","No doubt."],ex:"Thanks for helping. No problem."},
+{cat:"High Frequency",lv:"A1",ch:"Of course.",tr:"Tabii ki.",pat:"Fixed expression",vars:[],ex:"Can you help? Of course!"},
+{cat:"High Frequency",lv:"A1",ch:"Go ahead.",tr:"Buyurun. / Devam et.",pat:"Go + adverb",vars:["Go away.","Go back.","Go on."],ex:"Can I sit here? Go ahead."},
+{cat:"High Frequency",lv:"A1",ch:"Here you go.",tr:"Buyurun, al.",pat:"Here/There + subject + verb",vars:["There you go.","Here we go."],ex:"Here you go. One coffee."},
+{cat:"High Frequency",lv:"A2",ch:"It depends.",tr:"Duruma göre değişir.",pat:"It depends on + noun",vars:["It depends on the weather.","It depends on the price."],ex:"Will you come? It depends."},
+{cat:"High Frequency",lv:"A2",ch:"Never mind.",tr:"Boşver.",pat:"Never + verb",vars:["Never give up.","Never say never."],ex:"Never mind, it's not important."},
+{cat:"High Frequency",lv:"A2",ch:"I hope so.",tr:"Umarım öyle.",pat:"I hope + clause",vars:["I hope it works.","I hope you're right."],ex:"Will the weather be nice? I hope so."},
+{cat:"High Frequency",lv:"A2",ch:"I'm not sure about that.",tr:"Bundan emin değilim.",pat:"I'm not sure + preposition/clause",vars:["I'm not sure what to do.","I'm not sure if he's coming."],ex:"I'm not sure about that. Let me check."},
+{cat:"High Frequency",lv:"A2",ch:"I guess so.",tr:"Sanırım öyle.",pat:"I guess + clause",vars:["I guess you're right.","I guess we should go."],ex:"Is it true? I guess so."},
+{cat:"High Frequency",lv:"B1",ch:"As far as I know...",tr:"Bildiğim kadarıyla...",pat:"As far as + subject + verb",vars:["As far as I can tell...","As far as I remember..."],ex:"As far as I know, the store closes at nine."},
+,
+// === EK CHUNKLAR ===
+// === GREETINGS ===
+{cat:"Greetings",lv:"A1",ch:"Hello, how are you doing?",tr:"Merhaba, nasıl gidiyor?",pat:"Hello + question",vars:["Hello, how's it going?"],ex:"Hello, how are you doing today?"},
+{cat:"Greetings",lv:"A1",ch:"Good afternoon.",tr:"Tünaydın.",pat:"Good + time",vars:["Good evening."],ex:"Good afternoon, welcome."},
+{cat:"Greetings",lv:"A2",ch:"How's everything?",tr:"Her şey nasıl?",pat:"How's + noun",vars:["How's life?","How's work?"],ex:"Hey! How's everything?"},
+{cat:"Greetings",lv:"A2",ch:"It's good to see you.",tr:"Seni görmek güzel.",pat:"It's good to + verb",vars:["It's good to hear that.","It's nice to be here."],ex:"It's good to see you again!"},
+{cat:"Greetings",lv:"B1",ch:"I haven't seen you in ages.",tr:"Seni yıllardır görmemiştim.",pat:"I haven't + past participle + in + time",vars:["I haven't been there in years."],ex:"Wow, I haven't seen you in ages!"},
+// === INTRODUCTIONS ===
+{cat:"Introductions",lv:"A1",ch:"This is my friend Ali.",tr:"Bu benim arkadaşım Ali.",pat:"This is my + noun",vars:["This is my brother.","This is my teacher."],ex:"This is my friend Ali from work."},
+{cat:"Introductions",lv:"A2",ch:"Where are you from?",tr:"Nerelisiniz?",pat:"Where + be + subject + from",vars:["Where is she from?"],ex:"Nice to meet you. Where are you from?"},
+{cat:"Introductions",lv:"A2",ch:"I've been living here for two years.",tr:"İki yıldır burada yaşıyorum.",pat:"I've been + verb-ing + for + time",vars:["I've been working here for six months.","I've been studying English for a year."],ex:"I've been living here for two years now."},
+{cat:"Introductions",lv:"B1",ch:"Let me introduce myself.",tr:"Kendimi tanıtayım.",pat:"Let me + verb + myself",vars:["Let me explain myself."],ex:"Let me introduce myself. I'm Murat."},
+// === FAREWELLS ===
+{cat:"Farewells",lv:"A1",ch:"Goodbye, take care.",tr:"Hoşça kal, kendine iyi bak.",pat:"Goodbye + imperative",vars:["Goodbye, stay safe."],ex:"Goodbye, take care!"},
+{cat:"Farewells",lv:"A1",ch:"Good night.",tr:"İyi geceler.",pat:"Good + time",vars:["Good morning.","Good evening."],ex:"Good night, sleep well."},
+{cat:"Farewells",lv:"A2",ch:"It was nice talking to you.",tr:"Seninle konuşmak güzeldi.",pat:"It was nice + verb-ing",vars:["It was nice meeting you.","It was nice seeing you."],ex:"I have to go. It was nice talking to you."},
+{cat:"Farewells",lv:"A2",ch:"Keep in touch.",tr:"İletişimde kalalım.",pat:"Keep in + noun",vars:["Keep in mind.","Keep in shape."],ex:"Bye! Keep in touch."},
+{cat:"Farewells",lv:"B1",ch:"I'm afraid I have to go now.",tr:"Korkarım şimdi gitmem lazım.",pat:"I'm afraid + clause",vars:["I'm afraid I can't come.","I'm afraid it's too late."],ex:"I'm afraid I have to go now. See you!"},
+// === POLITENESS ===
+{cat:"Politeness",lv:"A1",ch:"Please sit down.",tr:"Lütfen oturun.",pat:"Please + verb",vars:["Please wait.","Please come in."],ex:"Please sit down and relax."},
+{cat:"Politeness",lv:"A1",ch:"After you.",tr:"Siz buyurun. / Önden buyurun.",pat:"Fixed expression",vars:[],ex:"After you, please."},
+{cat:"Politeness",lv:"A2",ch:"I don't want to bother you.",tr:"Sizi rahatsız etmek istemiyorum.",pat:"I don't want to + verb",vars:["I don't want to be late.","I don't want to cause trouble."],ex:"I don't want to bother you, but..."},
+{cat:"Politeness",lv:"B1",ch:"I'd appreciate it if you could help.",tr:"Yardım ederseniz minnettar olurum.",pat:"I'd appreciate it if + clause",vars:["I'd appreciate it if you could call me."],ex:"I'd appreciate it if you could help me with this."},
+// === THANKS ===
+{cat:"Thanks",lv:"A1",ch:"Thanks a lot.",tr:"Çok teşekkürler.",pat:"Thanks + quantifier",vars:["Thanks a million.","Thanks a bunch."],ex:"Thanks a lot for your help."},
+{cat:"Thanks",lv:"A2",ch:"Thank you for coming.",tr:"Geldiğiniz için teşekkürler.",pat:"Thank you for + verb-ing/noun",vars:["Thank you for waiting.","Thank you for your time."],ex:"Thank you for coming to the meeting."},
+{cat:"Thanks",lv:"A2",ch:"I owe you one.",tr:"Sana bir iyilik borçluyum.",pat:"I owe you + noun",vars:["I owe you an apology."],ex:"You saved me! I owe you one."},
+{cat:"Thanks",lv:"B1",ch:"I can't thank you enough.",tr:"Sana yeterince teşekkür edemem.",pat:"I can't + verb + enough",vars:["I can't stress this enough."],ex:"I can't thank you enough for everything."},
+// === APOLOGIES ===
+{cat:"Apologies",lv:"A1",ch:"Sorry, I'm late.",tr:"Üzgünüm, geç kaldım.",pat:"Sorry + clause",vars:["Sorry, I forgot.","Sorry, my mistake."],ex:"Sorry, I'm late. Traffic was terrible."},
+{cat:"Apologies",lv:"A1",ch:"I'm sorry to hear that.",tr:"Bunu duyduğuma üzüldüm.",pat:"I'm sorry to + verb",vars:["I'm sorry to bother you.","I'm sorry to say this."],ex:"I'm sorry to hear that. Are you okay?"},
+{cat:"Apologies",lv:"A2",ch:"It won't happen again.",tr:"Bir daha olmayacak.",pat:"It won't + verb + again",vars:["It won't take long."],ex:"I apologize. It won't happen again."},
+{cat:"Apologies",lv:"B1",ch:"I owe you an apology.",tr:"Senden özür borçluyum.",pat:"I owe you + noun",vars:["I owe you an explanation."],ex:"I owe you an apology for yesterday."},
+// === REQUESTS ===
+{cat:"Requests",lv:"A1",ch:"Can you help me, please?",tr:"Bana yardım eder misin?",pat:"Can you + verb + please",vars:["Can you wait, please?","Can you repeat that, please?"],ex:"Can you help me, please? I'm lost."},
+{cat:"Requests",lv:"A2",ch:"Do you mind if I open the window?",tr:"Pencereyi açsam sakıncası var mı?",pat:"Do you mind if I + verb",vars:["Do you mind if I sit here?","Do you mind if I take a photo?"],ex:"Do you mind if I open the window?"},
+{cat:"Requests",lv:"A2",ch:"Could you do me a favor?",tr:"Bana bir iyilik yapar mısın?",pat:"Could you + verb + me + noun",vars:["Could you give me a minute?","Could you send me the file?"],ex:"Could you do me a favor? I need a ride."},
+{cat:"Requests",lv:"B1",ch:"Would it be possible to change the date?",tr:"Tarihi değiştirmek mümkün mü?",pat:"Would it be possible to + verb",vars:["Would it be possible to get a refund?"],ex:"Would it be possible to change the date?"},
+// === ASKING QUESTIONS ===
+{cat:"Asking Questions",lv:"A1",ch:"Where is the bathroom?",tr:"Tuvalet nerede?",pat:"Where is + the + noun",vars:["Where is the exit?","Where is the bus stop?"],ex:"Excuse me, where is the bathroom?"},
+{cat:"Asking Questions",lv:"A1",ch:"How much is this?",tr:"Bu ne kadar?",pat:"How much + be + noun",vars:["How much is the ticket?"],ex:"How much is this shirt?"},
+{cat:"Asking Questions",lv:"A2",ch:"Do you know what time it is?",tr:"Saatin kaç olduğunu biliyor musun?",pat:"Do you know + question word + clause",vars:["Do you know where she is?","Do you know how to get there?"],ex:"Do you know what time it is?"},
+{cat:"Asking Questions",lv:"A2",ch:"What's the difference between A and B?",tr:"A ile B arasındaki fark ne?",pat:"What's the difference between + noun + and + noun",vars:[],ex:"What's the difference between these two?"},
+{cat:"Asking Questions",lv:"B1",ch:"I'd like to know more about it.",tr:"Bu konuda daha fazla bilgi edinmek istiyorum.",pat:"I'd like to know + question",vars:["I'd like to know the price.","I'd like to know your opinion."],ex:"I'd like to know more about the project."},
+// === GIVING OPINIONS ===
+{cat:"Giving Opinions",lv:"A1",ch:"I like it.",tr:"Beğendim.",pat:"I + verb + it",vars:["I love it.","I hate it."],ex:"I like it a lot, actually."},
+{cat:"Giving Opinions",lv:"A2",ch:"I believe that's correct.",tr:"Bunun doğru olduğuna inanıyorum.",pat:"I believe + clause",vars:["I believe we should wait.","I believe it's possible."],ex:"I believe that's correct."},
+{cat:"Giving Opinions",lv:"A2",ch:"If you ask me, it's too expensive.",tr:"Bana sorarsan, çok pahalı.",pat:"If you ask me + clause",vars:["If you ask me, he's wrong."],ex:"If you ask me, it's too expensive."},
+{cat:"Giving Opinions",lv:"B1",ch:"From my point of view, we should wait.",tr:"Benim açımdan beklemeliyiz.",pat:"From my point of view + clause",vars:[],ex:"From my point of view, we should wait."},
+{cat:"Giving Opinions",lv:"B1",ch:"I'm convinced that it will work.",tr:"İşe yarayacağına ikna oldum.",pat:"I'm convinced that + clause",vars:["I'm convinced that he's right."],ex:"I'm convinced that it will work."},
+// === AGREEING ===
+{cat:"Agreeing",lv:"A1",ch:"Yes, I agree.",tr:"Evet, katılıyorum.",pat:"Yes + I agree",vars:["Yes, you're right."],ex:"Yes, I agree with you."},
+{cat:"Agreeing",lv:"A1",ch:"Exactly.",tr:"Kesinlikle. / Aynen.",pat:"Fixed expression",vars:["Absolutely.","Definitely."],ex:"Exactly! That's what I meant."},
+{cat:"Agreeing",lv:"A2",ch:"I couldn't agree more.",tr:"Kesinlikle katılıyorum.",pat:"I couldn't + verb + more",vars:["I couldn't be happier."],ex:"I couldn't agree more with you."},
+{cat:"Agreeing",lv:"A2",ch:"You have a point.",tr:"Haklısın bir bakıma.",pat:"You have + a + noun",vars:["You have a choice.","You have a chance."],ex:"You have a point. Let me think about it."},
+{cat:"Agreeing",lv:"B1",ch:"I'm with you on that.",tr:"Bu konuda seninleyim.",pat:"I'm with you on + noun",vars:["I'm with you on this."],ex:"I'm with you on that. Let's do it."},
+// === DISAGREEING ===
+{cat:"Disagreeing",lv:"A1",ch:"I'm not sure about that.",tr:"Bundan emin değilim.",pat:"I'm not sure about + noun",vars:["I'm not sure about the plan."],ex:"I'm not sure about that idea."},
+{cat:"Disagreeing",lv:"A2",ch:"That's not what I meant.",tr:"Demek istediğim bu değildi.",pat:"That's not what + clause",vars:["That's not what I said.","That's not what happened."],ex:"No, that's not what I meant."},
+{cat:"Disagreeing",lv:"A2",ch:"I understand, but I disagree.",tr:"Anlıyorum ama katılmıyorum.",pat:"I understand, but + clause",vars:["I understand, but it's too risky."],ex:"I understand, but I disagree with the plan."},
+{cat:"Disagreeing",lv:"B1",ch:"With all due respect, I think you're wrong.",tr:"Saygılarımla, yanıldığınızı düşünüyorum.",pat:"With all due respect + clause",vars:[],ex:"With all due respect, I think you're wrong."},
+// === SMALL TALK ===
+{cat:"Small Talk",lv:"A1",ch:"Nice weather today.",tr:"Bugün hava güzel.",pat:"Nice + noun + today",vars:["Nice game today."],ex:"Nice weather today, isn't it?"},
+{cat:"Small Talk",lv:"A1",ch:"Where do you live?",tr:"Nerede oturuyorsun?",pat:"Where do you + verb",vars:["Where do you work?","Where do you study?"],ex:"So, where do you live?"},
+{cat:"Small Talk",lv:"A2",ch:"Have you ever been to London?",tr:"Hiç Londra'ya gittin mi?",pat:"Have you ever + past participle",vars:["Have you ever tried sushi?","Have you ever been abroad?"],ex:"Have you ever been to London?"},
+{cat:"Small Talk",lv:"A2",ch:"What kind of music do you like?",tr:"Ne tür müzik seversin?",pat:"What kind of + noun + do you + verb",vars:["What kind of food do you like?","What kind of movies do you watch?"],ex:"What kind of music do you like?"},
+{cat:"Small Talk",lv:"B1",ch:"I've heard a lot about you.",tr:"Hakkında çok şey duydum.",pat:"I've heard + quantifier + about + noun",vars:["I've heard good things about this place."],ex:"I've heard a lot about you. Nice to finally meet."},
+// === FEELINGS ===
+{cat:"Feelings",lv:"A1",ch:"I'm so happy.",tr:"Çok mutluyum.",pat:"I'm so + adj",vars:["I'm so tired.","I'm so excited."],ex:"I got the job! I'm so happy."},
+{cat:"Feelings",lv:"A1",ch:"I'm a little worried.",tr:"Biraz endişeliyim.",pat:"I'm a little + adj",vars:["I'm a little nervous.","I'm a little confused."],ex:"I'm a little worried about the test."},
+{cat:"Feelings",lv:"A2",ch:"I can't wait to see you.",tr:"Seni görmek için sabırsızlanıyorum.",pat:"I can't wait to + verb",vars:["I can't wait to start.","I can't wait to travel."],ex:"I can't wait to see you this weekend!"},
+{cat:"Feelings",lv:"A2",ch:"That really bothers me.",tr:"Bu beni gerçekten rahatsız ediyor.",pat:"That really + verb + me",vars:["That really surprises me.","That really helps me."],ex:"The noise next door really bothers me."},
+{cat:"Feelings",lv:"B1",ch:"I'm fed up with this traffic.",tr:"Bu trafikten bıktım.",pat:"I'm fed up with + noun/gerund",vars:["I'm fed up with waiting.","I'm fed up with this weather."],ex:"I'm fed up with this traffic every morning."},
+// === EVERYDAY LIFE ===
+{cat:"Everyday Life",lv:"A1",ch:"I go to work by bus.",tr:"İşe otobüsle giderim.",pat:"I go to + place + by + transport",vars:["I go to school by car.","I go to the gym on foot."],ex:"I go to work by bus every day."},
+{cat:"Everyday Life",lv:"A1",ch:"I have breakfast at eight.",tr:"Saat sekizde kahvaltı yaparım.",pat:"I have + meal + at + time",vars:["I have lunch at noon.","I have dinner at seven."],ex:"I usually have breakfast at eight."},
+{cat:"Everyday Life",lv:"A2",ch:"I'm running late.",tr:"Geç kalıyorum.",pat:"I'm running + adj/adverb",vars:["I'm running out of time.","I'm running low on battery."],ex:"Sorry, I'm running late. Start without me."},
+{cat:"Everyday Life",lv:"A2",ch:"I need to do the laundry.",tr:"Çamaşır yıkamam lazım.",pat:"I need to do + the + noun",vars:["I need to do the dishes.","I need to do the shopping."],ex:"I need to do the laundry tonight."},
+{cat:"Everyday Life",lv:"B1",ch:"I'm trying to cut down on sugar.",tr:"Şekeri azaltmaya çalışıyorum.",pat:"I'm trying to + verb + on/down",vars:["I'm trying to cut down on coffee.","I'm trying to save up for a car."],ex:"I'm trying to cut down on sugar."},
+// === TIME ===
+{cat:"Time",lv:"A1",ch:"It's half past three.",tr:"Saat üç buçuk.",pat:"It's + time expression",vars:["It's quarter to five.","It's ten past eight."],ex:"It's half past three already!"},
+{cat:"Time",lv:"A2",ch:"I'm free on Friday afternoon.",tr:"Cuma öğleden sonra müsaitim.",pat:"I'm free + on/at + time",vars:["I'm free at six.","I'm free this weekend."],ex:"I'm free on Friday afternoon. Want to meet?"},
+{cat:"Time",lv:"A2",ch:"It takes about thirty minutes.",tr:"Yaklaşık otuz dakika sürer.",pat:"It takes + time + to + verb",vars:["It takes an hour to get there.","It takes two days to deliver."],ex:"It takes about thirty minutes by bus."},
+{cat:"Time",lv:"B1",ch:"We're running out of time.",tr:"Zamanımız daralıyor.",pat:"We're running out of + noun",vars:["We're running out of money.","We're running out of ideas."],ex:"Hurry up, we're running out of time."},
+// === DIRECTIONS ===
+{cat:"Directions",lv:"A1",ch:"Go straight ahead.",tr:"Dümdüz git.",pat:"Go + direction",vars:["Go left.","Go right.","Go back."],ex:"Go straight ahead for two blocks."},
+{cat:"Directions",lv:"A1",ch:"It's on the right side.",tr:"Sağ tarafta.",pat:"It's on the + direction + side",vars:["It's on the left side.","It's on the other side."],ex:"The shop is on the right side."},
+{cat:"Directions",lv:"A2",ch:"Can you show me on the map?",tr:"Haritada gösterebilir misiniz?",pat:"Can you show me + noun",vars:["Can you show me the way?","Can you show me how to get there?"],ex:"I'm lost. Can you show me on the map?"},
+{cat:"Directions",lv:"A2",ch:"You can't miss it.",tr:"Kaçırmazsınız, hemen görürsünüz.",pat:"You can't + verb + it",vars:["You can't avoid it.","You can't ignore it."],ex:"It's a big building. You can't miss it."},
+// === SHOPPING ===
+{cat:"Shopping",lv:"A1",ch:"I'd like to buy this.",tr:"Bunu almak istiyorum.",pat:"I'd like to + verb + noun",vars:["I'd like to try this on.","I'd like to return this."],ex:"I'd like to buy this shirt."},
+{cat:"Shopping",lv:"A2",ch:"Can I try this on?",tr:"Bunu deneyebilir miyim?",pat:"Can I + verb + this + particle",vars:["Can I take this home?","Can I pay by card?"],ex:"Can I try this on? Where's the fitting room?"},
+{cat:"Shopping",lv:"A2",ch:"Is there a discount?",tr:"İndirim var mı?",pat:"Is there + a/an + noun",vars:["Is there a warranty?","Is there a bigger size?"],ex:"Is there a discount on this item?"},
+{cat:"Shopping",lv:"B1",ch:"I'm looking for something in my budget.",tr:"Bütçeme uygun bir şey arıyorum.",pat:"I'm looking for + noun/clause",vars:["I'm looking for a gift.","I'm looking for something special."],ex:"I'm looking for something in my budget."},
+// === RESTAURANT ===
+{cat:"Restaurant",lv:"A1",ch:"Can I see the menu, please?",tr:"Menüyü görebilir miyim?",pat:"Can I see + the + noun",vars:["Can I see the dessert menu?","Can I see the wine list?"],ex:"Good evening. Can I see the menu, please?"},
+{cat:"Restaurant",lv:"A2",ch:"What do you recommend?",tr:"Ne tavsiye edersiniz?",pat:"What do you + verb",vars:["What do you suggest?"],ex:"I can't decide. What do you recommend?"},
+{cat:"Restaurant",lv:"A2",ch:"I'll have the same.",tr:"Ben de aynısından alayım.",pat:"I'll have + noun",vars:["I'll have a coffee.","I'll have the chicken."],ex:"That looks good. I'll have the same."},
+{cat:"Restaurant",lv:"B1",ch:"Could we have separate checks?",tr:"Hesabı ayrı ayrı alabilir miyiz?",pat:"Could we have + adj + noun",vars:["Could we have a quiet table?"],ex:"Could we have separate checks, please?"},
+// === TRAVEL ===
+{cat:"Travel",lv:"A1",ch:"I need a ticket to Ankara.",tr:"Ankara'ya bir bilet istiyorum.",pat:"I need + noun + to + place",vars:["I need a map of the city.","I need directions to the hotel."],ex:"I need a ticket to Ankara, please."},
+{cat:"Travel",lv:"A2",ch:"When does the next train leave?",tr:"Sonraki tren ne zaman kalkıyor?",pat:"When does + the + noun + verb",vars:["When does the bus arrive?","When does the tour start?"],ex:"When does the next train leave?"},
+{cat:"Travel",lv:"A2",ch:"Is this seat taken?",tr:"Bu yer dolu mu?",pat:"Is this + noun + past participle",vars:["Is this bus going to the center?"],ex:"Excuse me, is this seat taken?"},
+{cat:"Travel",lv:"B1",ch:"I'd like to extend my stay.",tr:"Kalışımı uzatmak istiyorum.",pat:"I'd like to extend + noun",vars:["I'd like to extend the deadline."],ex:"I'd like to extend my stay for two more nights."},
+// === HOTEL ===
+{cat:"Hotel",lv:"A1",ch:"I'd like to check in.",tr:"Giriş yapmak istiyorum.",pat:"I'd like to + verb + in/out",vars:["I'd like to check out.","I'd like to sign up."],ex:"Hello, I'd like to check in."},
+{cat:"Hotel",lv:"A2",ch:"Could I get an extra towel?",tr:"Bir havlu daha alabilir miyim?",pat:"Could I get + noun",vars:["Could I get a wake-up call?","Could I get a late checkout?"],ex:"Could I get an extra towel, please?"},
+{cat:"Hotel",lv:"A2",ch:"The air conditioning doesn't work.",tr:"Klima çalışmıyor.",pat:"The + noun + doesn't work",vars:["The Wi-Fi doesn't work.","The TV doesn't work."],ex:"Excuse me, the air conditioning doesn't work."},
+{cat:"Hotel",lv:"B1",ch:"I'd like to make a complaint.",tr:"Bir şikayette bulunmak istiyorum.",pat:"I'd like to make + a + noun",vars:["I'd like to make a reservation.","I'd like to make an appointment."],ex:"I'd like to make a complaint about the noise."},
+// === TRANSPORTATION ===
+{cat:"Transportation",lv:"A1",ch:"Where is the bus stop?",tr:"Otobüs durağı nerede?",pat:"Where is + the + place",vars:["Where is the taxi stand?","Where is the train station?"],ex:"Where is the nearest bus stop?"},
+{cat:"Transportation",lv:"A2",ch:"Does this bus go to the airport?",tr:"Bu otobüs havalimanına gider mi?",pat:"Does this + noun + go to + place",vars:["Does this train go to Izmir?"],ex:"Excuse me, does this bus go to the airport?"},
+{cat:"Transportation",lv:"A2",ch:"I missed my bus.",tr:"Otobüsümü kaçırdım.",pat:"I missed + my + noun",vars:["I missed my flight.","I missed the train."],ex:"I missed my bus. When's the next one?"},
+{cat:"Transportation",lv:"B1",ch:"Can you drop me off at the corner?",tr:"Beni köşede bırakır mısınız?",pat:"Can you drop me off at + place",vars:["Can you drop me off at the station?"],ex:"Can you drop me off at the next corner?"},
+// === PHONE ===
+{cat:"Phone",lv:"A1",ch:"Who's calling, please?",tr:"Kim arıyor, acaba?",pat:"Who's + verb-ing",vars:["Who's coming?","Who's there?"],ex:"Hello, who's calling, please?"},
+{cat:"Phone",lv:"A2",ch:"Sorry, I can't hear you.",tr:"Üzgünüm, seni duyamıyorum.",pat:"Sorry, I can't + verb",vars:["Sorry, I can't come.","Sorry, I can't remember."],ex:"Sorry, I can't hear you. Can you speak louder?"},
+{cat:"Phone",lv:"A2",ch:"Can I leave a message?",tr:"Bir mesaj bırakabilir miyim?",pat:"Can I leave + a + noun",vars:["Can I leave my bag here?"],ex:"She's not available. Can I leave a message?"},
+{cat:"Phone",lv:"B1",ch:"I'm returning your call.",tr:"Aramanıza geri dönüyorum.",pat:"I'm returning + your + noun",vars:["I'm returning your email."],ex:"Hi, I'm returning your call from this morning."},
+// === WORK ===
+{cat:"Work",lv:"A1",ch:"What do you do?",tr:"Ne iş yapıyorsun?",pat:"What do you + verb",vars:["What do you study?"],ex:"Nice to meet you. What do you do?"},
+{cat:"Work",lv:"A2",ch:"I'm in charge of marketing.",tr:"Pazarlamadan sorumluyum.",pat:"I'm in charge of + noun",vars:["I'm in charge of the project.","I'm in charge of this department."],ex:"I'm in charge of marketing at our company."},
+{cat:"Work",lv:"A2",ch:"I have a deadline tomorrow.",tr:"Yarın teslim tarihim var.",pat:"I have a + noun + time",vars:["I have a meeting at three.","I have a call in ten minutes."],ex:"I can't stay late. I have a deadline tomorrow."},
+{cat:"Work",lv:"B1",ch:"I'll follow up on that.",tr:"Bunun takibini yapacağım.",pat:"I'll follow up on + noun",vars:["I'll follow up on the email.","I'll follow up with the client."],ex:"Good point. I'll follow up on that."},
+{cat:"Work",lv:"B1",ch:"We need to prioritize this task.",tr:"Bu görevi önceliklendirmemiz lazım.",pat:"We need to + verb + this + noun",vars:["We need to discuss this issue.","We need to finalize the plan."],ex:"We need to prioritize this task first."},
+// === MEETINGS ===
+{cat:"Meetings",lv:"A2",ch:"Shall we begin?",tr:"Başlayalım mı?",pat:"Shall we + verb",vars:["Shall we continue?","Shall we take a break?"],ex:"Everyone is here. Shall we begin?"},
+{cat:"Meetings",lv:"A2",ch:"Can I add something?",tr:"Bir şey ekleyebilir miyim?",pat:"Can I + verb + something",vars:["Can I say something?","Can I ask something?"],ex:"Can I add something to that point?"},
+{cat:"Meetings",lv:"B1",ch:"To sum up, we all agree.",tr:"Özetlemek gerekirse, hepimiz hemfikiriz.",pat:"To sum up + clause",vars:["To sum up, the project is on track."],ex:"To sum up, we all agree on the plan."},
+{cat:"Meetings",lv:"B1",ch:"Could you elaborate on that?",tr:"Bunu biraz açar mısınız?",pat:"Could you + verb + on that",vars:["Could you expand on that?"],ex:"Interesting. Could you elaborate on that?"},
+{cat:"Meetings",lv:"B1",ch:"Let's table this for now.",tr:"Bunu şimdilik erteleyelim.",pat:"Let's + verb + this + for now",vars:["Let's skip this for now.","Let's leave this for now."],ex:"Let's table this for now and move on."},
+// === PROBLEM SOLVING ===
+{cat:"Problem Solving",lv:"A1",ch:"I have a problem.",tr:"Bir sorunum var.",pat:"I have + a + noun",vars:["I have an idea.","I have a question."],ex:"Excuse me, I have a problem with my order."},
+{cat:"Problem Solving",lv:"A2",ch:"How can I fix this?",tr:"Bunu nasıl düzeltebilirim?",pat:"How can I + verb + this",vars:["How can I help?","How can I improve this?"],ex:"The printer is broken. How can I fix this?"},
+{cat:"Problem Solving",lv:"A2",ch:"There must be a mistake.",tr:"Bir hata olmalı.",pat:"There must be + noun",vars:["There must be a reason.","There must be another way."],ex:"This bill is wrong. There must be a mistake."},
+{cat:"Problem Solving",lv:"B1",ch:"Let's look at this from a different angle.",tr:"Buna farklı bir açıdan bakalım.",pat:"Let's look at this from + noun",vars:["Let's look at the big picture."],ex:"Let's look at this from a different angle."},
+// === EMERGENCIES ===
+{cat:"Emergencies",lv:"A1",ch:"Help! Call the police!",tr:"İmdat! Polisi arayın!",pat:"Imperative + imperative",vars:["Stop! Don't move!"],ex:"Help! Someone call the police!"},
+{cat:"Emergencies",lv:"A1",ch:"I need a doctor.",tr:"Doktora ihtiyacım var.",pat:"I need + noun",vars:["I need medicine.","I need water."],ex:"Please, I need a doctor right away."},
+{cat:"Emergencies",lv:"A2",ch:"Where is the nearest hospital?",tr:"En yakın hastane nerede?",pat:"Where is the nearest + place",vars:["Where is the nearest pharmacy?","Where is the nearest police station?"],ex:"It's urgent. Where is the nearest hospital?"},
+{cat:"Emergencies",lv:"A2",ch:"I've lost my wallet.",tr:"Cüzdanımı kaybettim.",pat:"I've lost my + noun",vars:["I've lost my passport.","I've lost my phone."],ex:"I've lost my wallet. Can you help me?"},
+// === CONVERSATION FILLERS ===
+{cat:"Conversation Fillers",lv:"A1",ch:"Well, let me think.",tr:"Şey, düşüneyim.",pat:"Well + clause",vars:["Well, I'm not sure.","Well, it depends."],ex:"Well, let me think about it."},
+{cat:"Conversation Fillers",lv:"A1",ch:"You know what I mean?",tr:"Ne demek istediğimi anlıyor musun?",pat:"You know + clause",vars:["You know what?","You know something?"],ex:"It's complicated, you know what I mean?"},
+{cat:"Conversation Fillers",lv:"A2",ch:"As I was saying...",tr:"Dediğim gibi...",pat:"As I was + verb-ing",vars:["As I was explaining..."],ex:"As I was saying, the project needs more time."},
+{cat:"Conversation Fillers",lv:"A2",ch:"That reminds me...",tr:"Bu bana hatırlattı...",pat:"That + verb + me",vars:["That surprises me.","That concerns me."],ex:"That reminds me, I need to call my mom."},
+{cat:"Conversation Fillers",lv:"B1",ch:"Correct me if I'm wrong, but...",tr:"Yanılıyorsam düzeltin ama...",pat:"Correct me if + clause",vars:[],ex:"Correct me if I'm wrong, but wasn't it Monday?"},
+{cat:"Conversation Fillers",lv:"B1",ch:"For what it's worth...",tr:"Ne kadar değeri varsa...",pat:"Fixed expression + clause",vars:[],ex:"For what it's worth, I think you did great."},
+// === PHRASAL CHUNKS ===
+{cat:"Phrasal Chunks",lv:"A1",ch:"Turn on the light.",tr:"Işığı aç.",pat:"Turn on/off + noun",vars:["Turn off the TV.","Turn on the music.","Turn off the alarm."],ex:"It's dark. Turn on the light."},
+{cat:"Phrasal Chunks",lv:"A1",ch:"Wake up, it's morning.",tr:"Uyan, sabah oldu.",pat:"Wake up + clause",vars:["Hurry up.","Stand up.","Sit down."],ex:"Wake up, it's already eight!"},
+{cat:"Phrasal Chunks",lv:"A2",ch:"I need to figure this out.",tr:"Bunu çözmem lazım.",pat:"Figure out + noun/clause",vars:["Figure out the answer.","Figure out what happened."],ex:"I need to figure this out by tomorrow."},
+{cat:"Phrasal Chunks",lv:"A2",ch:"Can you pick me up?",tr:"Beni alabilir misin?",pat:"Pick up + person/thing",vars:["Pick up your clothes.","Pick up the phone."],ex:"Can you pick me up at the station?"},
+{cat:"Phrasal Chunks",lv:"B1",ch:"Don't give up on your dreams.",tr:"Hayallerinden vazgeçme.",pat:"Give up + on + noun",vars:["Give up smoking.","Don't give up."],ex:"Don't give up on your dreams. Keep going."},
+{cat:"Phrasal Chunks",lv:"B1",ch:"I came across an old photo.",tr:"Eski bir fotoğrafa rastladım.",pat:"Come across + noun",vars:["Come across a problem.","Come across an article."],ex:"I came across an old photo of us."},
+// === COLLOCATIONS ===
+{cat:"Collocations",lv:"A1",ch:"Have a seat.",tr:"Buyurun oturun.",pat:"Have + a + noun",vars:["Have a look.","Have a try.","Have a go."],ex:"Please, have a seat."},
+{cat:"Collocations",lv:"A1",ch:"Make friends.",tr:"Arkadaş edinmek.",pat:"Make + noun (no article)",vars:["Make progress.","Make money.","Make time."],ex:"It's easy to make friends here."},
+{cat:"Collocations",lv:"A2",ch:"Get in trouble.",tr:"Başı belaya girmek.",pat:"Get in + noun",vars:["Get in shape.","Get in touch.","Get in line."],ex:"If you lie, you'll get in trouble."},
+{cat:"Collocations",lv:"A2",ch:"Run a business.",tr:"İş yönetmek.",pat:"Run + a + noun",vars:["Run a meeting.","Run a risk.","Run an errand."],ex:"She runs a small business."},
+{cat:"Collocations",lv:"B1",ch:"Catch someone's attention.",tr:"Birinin dikkatini çekmek.",pat:"Catch + possessive + noun",vars:["Catch someone's eye.","Catch a cold."],ex:"The ad caught my attention."},
+{cat:"Collocations",lv:"B1",ch:"Break the ice.",tr:"Buzları kırmak.",pat:"Break + the + noun",vars:["Break the news.","Break the rules.","Break a habit."],ex:"Tell a joke to break the ice."},
+// === HIGH FREQUENCY ===
+{cat:"High Frequency",lv:"A1",ch:"I don't understand.",tr:"Anlamıyorum.",pat:"I don't + verb",vars:["I don't remember.","I don't agree."],ex:"Sorry, I don't understand."},
+{cat:"High Frequency",lv:"A1",ch:"Just a moment.",tr:"Bir dakika.",pat:"Just + a + noun",vars:["Just a second.","Just a minute."],ex:"Just a moment, please."},
+{cat:"High Frequency",lv:"A1",ch:"What happened?",tr:"Ne oldu?",pat:"What + past tense",vars:["What changed?","What went wrong?"],ex:"You look upset. What happened?"},
+{cat:"High Frequency",lv:"A1",ch:"Let me know.",tr:"Bana haber ver.",pat:"Let me + verb",vars:["Let me see.","Let me try.","Let me help."],ex:"If you need anything, let me know."},
+{cat:"High Frequency",lv:"A2",ch:"That's a good idea.",tr:"Bu iyi bir fikir.",pat:"That's + a + adj + noun",vars:["That's a great question.","That's a long story."],ex:"Let's eat out. That's a good idea!"},
+{cat:"High Frequency",lv:"A2",ch:"I'm on my way.",tr:"Yoldayım.",pat:"I'm on my + noun",vars:["I'm on my own.","I'm on my break."],ex:"I'm on my way. Be there in ten minutes."},
+{cat:"High Frequency",lv:"A2",ch:"It doesn't matter.",tr:"Önemli değil.",pat:"It doesn't + verb",vars:["It doesn't work.","It doesn't make sense."],ex:"Don't worry, it doesn't matter."},
+{cat:"High Frequency",lv:"A2",ch:"I have no idea.",tr:"Hiç fikrim yok.",pat:"I have no + noun",vars:["I have no time.","I have no choice."],ex:"Where is he? I have no idea."},
+{cat:"High Frequency",lv:"A2",ch:"Take your time.",tr:"Acele etme.",pat:"Take your + noun",vars:["Take your chances.","Take your pick."],ex:"No rush. Take your time."},
+{cat:"High Frequency",lv:"B1",ch:"It's up to you.",tr:"Sana bağlı.",pat:"It's up to + person",vars:["It's up to the manager."],ex:"We can go or stay. It's up to you."},
+{cat:"High Frequency",lv:"B1",ch:"I'll keep that in mind.",tr:"Bunu aklımda tutacağım.",pat:"I'll keep + noun + in mind",vars:["I'll keep you in mind.","I'll keep your advice in mind."],ex:"Good tip. I'll keep that in mind."},
+{cat:"High Frequency",lv:"B1",ch:"That's out of the question.",tr:"Bu söz konusu bile olamaz.",pat:"That's out of + the + noun",vars:["That's out of my control."],ex:"Working on Sunday? That's out of the question."},
+{cat:"High Frequency",lv:"B1",ch:"I'll make it up to you.",tr:"Bunu sana telafi edeceğim.",pat:"Make it up to + person",vars:[],ex:"I'm sorry I forgot. I'll make it up to you."},,
+{cat:"Informal & Slang",lv:"B1",ch:"Do you copy?",tr:"Anlaşıldı mı? / Duyuyor musun?",pat:"Do you + verb",vars:["Copy that.","Roger that."],ex:"Team Alpha, do you copy?"},
+{cat:"Informal & Slang",lv:"A2",ch:"No way!",tr:"İmkansız! / Yok artık!",pat:"Fixed expression",vars:["No chance!","Not a chance!"],ex:"You won the lottery? No way!"},
+{cat:"Informal & Slang",lv:"A2",ch:"Hang on a second.",tr:"Bir saniye bekle.",pat:"Hang on + time",vars:["Hold on a sec.","Wait up."],ex:"Hang on a second, I'm coming."},
+{cat:"Informal & Slang",lv:"B1",ch:"I'm on it.",tr:"Üzerinde çalışıyorum. / Hallederim.",pat:"I'm on + noun",vars:["I'm on the case.","I'm on my way."],ex:"Fix the server? I'm on it."},
+{cat:"Informal & Slang",lv:"B1",ch:"It's a long shot.",tr:"Zor ama denemeye değer.",pat:"It's a + adj + noun",vars:["It's a wild guess.","It's a long story."],ex:"It's a long shot, but let's try."},
+{cat:"Informal & Slang",lv:"A2",ch:"What's the catch?",tr:"İşin püf noktası ne? / Bit yeniği ne?",pat:"What's the + noun",vars:["What's the deal?","What's the point?"],ex:"Free vacation? What's the catch?"},
+{cat:"Informal & Slang",lv:"B1",ch:"You nailed it.",tr:"Tam tutturdum. / Harika yaptın.",pat:"You + past verb + it",vars:["You killed it.","You crushed it."],ex:"Great presentation! You nailed it."},
+{cat:"Informal & Slang",lv:"A2",ch:"I'm broke.",tr:"Meteliğim yok. / Beş kuruşum yok.",pat:"I'm + adj",vars:["I'm loaded.","I'm exhausted."],ex:"Can't go out tonight, I'm broke."},
+{cat:"Informal & Slang",lv:"B1",ch:"Cut to the chase.",tr:"Sadede gel. / Konuya gir.",pat:"Fixed expression",vars:["Get to the point.","Long story short."],ex:"Stop rambling and cut to the chase."},
+{cat:"Informal & Slang",lv:"A2",ch:"My bad.",tr:"Benim hatam. / Kusura bakma.",pat:"Fixed expression",vars:["My fault.","My mistake."],ex:"Oh, I sent it to the wrong person. My bad."},
+{cat:"Informal & Slang",lv:"B1",ch:"I've got your back.",tr:"Arkandayım. / Seni desteklerim.",pat:"I've got your + noun",vars:["I've got your six."],ex:"Don't worry, I've got your back."},
+{cat:"Informal & Slang",lv:"A2",ch:"It's a piece of cake.",tr:"Çocuk oyuncağı. / Çok kolay.",pat:"It's a piece of + noun",vars:["It's a walk in the park.","It's a breeze."],ex:"The test? It's a piece of cake."},
+{cat:"Informal & Slang",lv:"B1",ch:"Stay out of trouble.",tr:"Beladan uzak dur.",pat:"Stay out of + noun",vars:["Stay out of my way.","Stay out of it."],ex:"Be careful out there. Stay out of trouble."},
+{cat:"Informal & Slang",lv:"B1",ch:"We're good to go.",tr:"Hazırız. / Her şey tamam.",pat:"We're good to + verb",vars:["We're ready to roll.","We're all set."],ex:"Everything's loaded. We're good to go."},
+{cat:"Informal & Slang",lv:"A2",ch:"That's so cool.",tr:"Çok havalı. / Çok iyi.",pat:"That's so + adj",vars:["That's awesome.","That's sick."],ex:"You met the band? That's so cool!"},
+{cat:"Informal & Slang",lv:"B1",ch:"Don't blow it.",tr:"Berbat etme. / Mahvetme.",pat:"Don't + verb + it",vars:["Don't screw it up.","Don't mess it up."],ex:"This is your big chance. Don't blow it."},
+{cat:"Informal & Slang",lv:"B1",ch:"I'm pulling your leg.",tr:"Seni kandırıyorum. / Şaka yapıyorum.",pat:"I'm + verb-ing + your + noun",vars:["I'm just messing with you.","I'm just kidding."],ex:"Relax, I'm pulling your leg."},
+{cat:"Informal & Slang",lv:"A2",ch:"Guess what!",tr:"Bil bakalım ne oldu!",pat:"Fixed expression",vars:["You won't believe this!"],ex:"Guess what! I got the job!"},
+{cat:"Informal & Slang",lv:"B1",ch:"It's now or never.",tr:"Ya şimdi ya hiç.",pat:"It's + noun + or + noun",vars:["It's do or die.","It's all or nothing."],ex:"Come on, it's now or never!"},
+{cat:"Informal & Slang",lv:"B1",ch:"Keep your eyes peeled.",tr:"Gözünü dört aç.",pat:"Keep your + noun + adj",vars:["Keep your head down.","Keep your cool."],ex:"Keep your eyes peeled for the exit."},
+{cat:"Informal & Slang",lv:"A2",ch:"What's up?",tr:"Naber? / Ne var ne yok?",pat:"What's + adverb",vars:["What's going on?","What's new?"],ex:"Hey man, what's up?"},
+{cat:"Informal & Slang",lv:"B1",ch:"Spill the beans.",tr:"Ağzından kaçır. / Her şeyi anlat.",pat:"Fixed expression",vars:["Spill it.","Let it out."],ex:"Come on, spill the beans! What happened?"},
+{cat:"Informal & Slang",lv:"B1",ch:"That's a rip-off.",tr:"Kazık! / Çok pahalı.",pat:"That's a + noun",vars:["That's a scam.","That's a steal."],ex:"Fifty dollars for that? That's a rip-off."},
+{cat:"Informal & Slang",lv:"A2",ch:"Chill out.",tr:"Sakin ol. / Rahatla.",pat:"Verb + particle",vars:["Calm down.","Take it easy.","Relax."],ex:"Chill out, it's not that serious."},
+{cat:"Informal & Slang",lv:"B1",ch:"Hit the road.",tr:"Yola çık. / Haydi gidelim.",pat:"Hit the + noun",vars:["Hit the hay.","Hit the brakes."],ex:"It's getting late, let's hit the road."},
+{cat:"Informal & Slang",lv:"B1",ch:"Beats me.",tr:"Hiç bilmiyorum. / Bana sorma.",pat:"Fixed expression",vars:["No clue.","Search me."],ex:"Why did he leave? Beats me."},
+{cat:"Informal & Slang",lv:"A2",ch:"I'm in.",tr:"Ben varım. / Katılıyorum.",pat:"I'm + preposition",vars:["Count me in.","I'm out."],ex:"Pizza tonight? I'm in."},
+{cat:"Informal & Slang",lv:"B1",ch:"Get out of here!",tr:"Yok artık! / Hadi canım!",pat:"Get out of + noun",vars:["Shut up!","You're kidding!"],ex:"You met the president? Get out of here!"},
+{cat:"Informal & Slang",lv:"B1",ch:"Sleep on it.",tr:"Bir gece düşün. / Aceleden karar verme.",pat:"Verb + on + it",vars:["Think it over.","Sit on it."],ex:"Don't decide now, sleep on it."},
+{cat:"Informal & Slang",lv:"A2",ch:"Sounds good.",tr:"İyi geldi. / Olur.",pat:"Sounds + adj",vars:["Sounds great.","Sounds like a plan."],ex:"Meet at six? Sounds good."},
+{cat:"Everyday Life",lv:"A2",ch:"I'm stuck in traffic.",tr:"Trafikte sıkıştım.",pat:"I'm stuck in + noun",vars:["I'm stuck at work.","I'm stuck in a meeting."],ex:"Sorry I'm late, I'm stuck in traffic."},
+{cat:"Everyday Life",lv:"B1",ch:"I need a break.",tr:"Bir molaya ihtiyacım var.",pat:"I need a + noun",vars:["I need a nap.","I need a vacation."],ex:"I've been working all day. I need a break."},
+{cat:"Work",lv:"B1",ch:"Let's wrap this up.",tr:"Bunu bitirelim. / Toparlanıyalım.",pat:"Let's wrap + noun + up",vars:["Let's finish up.","Let's call it a day."],ex:"It's getting late. Let's wrap this up."},
+{cat:"Work",lv:"B1",ch:"Keep me in the loop.",tr:"Beni bilgilendir. / Gelişmelerden haberdar et.",pat:"Keep me in the + noun",vars:["Keep me posted.","Keep me updated."],ex:"If anything changes, keep me in the loop."},
+{cat:"Feelings",lv:"B1",ch:"I'm over the moon.",tr:"Dünyalar benim. / Çok mutluyum.",pat:"I'm over the + noun",vars:["I'm thrilled.","I'm on cloud nine."],ex:"I got promoted! I'm over the moon."},
+{cat:"Feelings",lv:"A2",ch:"I'm freaking out.",tr:"Çıldırıyorum. / Panik yapıyorum.",pat:"I'm + verb-ing + out",vars:["I'm losing it.","I'm panicking."],ex:"The exam is tomorrow and I'm freaking out."},
+{cat:"High Frequency",lv:"A2",ch:"By the way...",tr:"Bu arada...",pat:"Fixed expression",vars:["Speaking of which...","Oh, and..."],ex:"By the way, did you call your mom?"},
+{cat:"High Frequency",lv:"B1",ch:"As far as I know.",tr:"Bildiğim kadarıyla.",pat:"As far as + clause",vars:["As far as I can tell.","As far as I'm concerned."],ex:"As far as I know, the meeting is still on."},
+{cat:"High Frequency",lv:"A2",ch:"Long time no see.",tr:"Uzun zamandır görüşmüyorduk.",pat:"Fixed expression",vars:["It's been a while.","It's been ages."],ex:"Hey! Long time no see! How are you?"},
+{cat:"Problem Solving",lv:"B1",ch:"Let's start from scratch.",tr:"Sıfırdan başlayalım.",pat:"Let's start from + noun",vars:["Let's go back to basics.","Let's redo this."],ex:"This plan isn't working. Let's start from scratch."}
+];
+const CATS=[...new Set(CHUNKS.map(c=>c.cat))];
+const WHEEL_SND="data:audio/mp4;base64,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";
+let wheelAudioBuf=null;
+
+
+let ckCur=null, ckSlots=[], ckSpin=false, ckHintsUsed=0, ckStreak=0, ckCorrectWords=[];
+const CK_COLORS=['#e74c3c','#e67e22','#f1c40f','#2ecc71','#1abc9c','#3498db','#9b59b6','#e84393','#00b894','#6c5ce7','#fd79a8','#00cec9','#d63031','#e17055','#fdcb6e','#55a3e8','#a29bfe','#fab1a0','#81ecec','#ff7675','#74b9ff','#b2bec3','#dfe6e9','#636e72','#2d3436','#c7ecee','#ffeaa7','#dcdde1','#7f8fa6','#40407a'];
+
+/* ===== SLOT MAKİNESİ ===== */
+let slotRunning=false,slotRAF=null,slotSpeed=0,slotPos=0;
+function buildSlotReel(){
+  const reel=$('slotReel');reel.innerHTML='';
+  const items=[...CATS,...CATS,...CATS,...CATS].sort(()=>Math.random()-0.5);
+  items.forEach(cat=>{
+    const el=document.createElement('div');el.className='slotItem';el.dataset.cat=cat;
+    el.textContent=(CAT_ICONS[cat]||'🎯')+' '+cat;
+    reel.appendChild(el);
+  });
+  slotPos=0;reel.style.transform='translateY(0)';
+}
+function startSlot(){
+  if(slotRunning) return;
+  slotRunning=true;buildSlotReel();
+  $('slotStartBtn').style.display='none';$('slotStopBtn').style.display='flex';
+  slotSpeed=5;let lastTick=0;
+  function tick(){
+    if(!slotRunning&&slotSpeed<=0) return;
+    slotPos-=slotSpeed;
+    if(slotPos<-48*CATS.length*2) slotPos-=(-48*CATS.length*2);
+    $('slotReel').style.transform='translateY('+slotPos+'px)';
+    const curIdx=Math.floor(Math.abs(slotPos)/48);
+    if(curIdx!==lastTick){lastTick=curIdx;tone(200,.008,'square',.08);}
+    if(!slotRunning){slotSpeed*=0.96;if(slotSpeed<0.5){slotSpeed=0;snapToCenter();return;}}
+    slotRAF=requestAnimationFrame(tick);
+  }
+  slotRAF=requestAnimationFrame(tick);
+}
+function stopSlot(){
+  if(!slotRunning) return;slotRunning=false;
+  $('slotStartBtn').style.display='flex';$('slotStopBtn').style.display='none';
+}
+function snapToCenter(){
+  const reel=$('slotReel'),items=[...reel.querySelectorAll('.slotItem')];
+  const centerY=110;let bestIdx=0,bestDist=9999;
+  items.forEach((el,i)=>{const d=Math.abs(i*48+slotPos+24-centerY);if(d<bestDist){bestDist=d;bestIdx=i;}});
+  slotPos=-(bestIdx*48-centerY+24);
+  reel.style.transform='translateY('+slotPos+'px)';
+  items.forEach(el=>el.classList.remove('active'));
+  items[bestIdx].classList.add('active');
+  sfx.correct();
+  setTimeout(()=>showCatAnnounce(items[bestIdx].dataset.cat),600);
+}
+const CAT_ICONS={Greetings:'👋',Introductions:'🤝',Farewells:'👋',Politeness:'🎩',Thanks:'🙏',
+  Apologies:'😔',Requests:'🙋',['Asking Questions']:'❓',['Giving Opinions']:'💬',Agreeing:'👍',
+  Disagreeing:'👎',['Small Talk']:'☕',Feelings:'💖',['Everyday Life']:'🏠',Time:'⏰',
+  Directions:'🧭',Shopping:'🛍',Restaurant:'🍽',Travel:'✈️',Hotel:'🏨',
+  Transportation:'🚌',Phone:'📱',Work:'💼',Meetings:'📋',['Problem Solving']:'🔧',
+  Emergencies:'🚨',['Conversation Fillers']:'💭',['Phrasal Chunks']:'🧩',Collocations:'🔗',['High Frequency']:'⚡'};
+function showCatAnnounce(cat){
+  $('catIcon').textContent=CAT_ICONS[cat]||'🎯';
+  $('catName').textContent=cat;
+  $('wheelOverlay').classList.remove('show');
+  $('catOverlay').classList.add('show');
+  setTimeout(()=>{
+    $('catOverlay').classList.remove('show');
+    startChunk(cat);
+  },1400);
+}
+function startChunk(cat){
+  const pool=CHUNKS.filter(c=>c.cat===cat);
+  ckCur=pool[Math.floor(Math.random()*pool.length)];
+  ckHintsUsed=0;
+  ckCorrectWords=ckCur.ch.replace(/[.!?,]/g,'').split(/\s+/);
+  $('chunkCat').textContent=ckCur.cat;
+  $('chunkLv').textContent=ckCur.lv;
+  $('chunkTR').textContent=ckCur.tr;
+  const shuffled=[...ckCorrectWords];
+  for(let i=shuffled.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];}
+  ckSlots=[];
+  $('chunkSlots').innerHTML='';
+  $('chunkPool').innerHTML='';
+  shuffled.forEach((w,i)=>{
+    const el=document.createElement('div'); el.className='cword'; el.textContent=w; el.dataset.w=w; el.dataset.idx=i;
+    el.onclick=()=>moveToSlot(el);
+    $('chunkPool').appendChild(el);
+  });
+  $('chunkResult').style.display='none';
+  $('chunkCheck').style.display='flex';
+  $('chunkSkip').style.display='flex';
+  $('chunkClear').style.display='flex';
+  $('chunkHint').style.display='flex';
+  $('chunkNext').style.display='none';
+  $('wheelOverlay').classList.remove('show');
+  $('chunkOverlay').classList.add('show');
+}
+function moveToSlot(el){
+  if(el.parentNode===$('chunkPool')){
+    $('chunkSlots').appendChild(el); ckSlots.push(el.dataset.w);
+    sfx.pick(ckSlots.length);
+  } else {
+    $('chunkPool').appendChild(el);
+    ckSlots=[...$('chunkSlots').querySelectorAll('.cword')].map(e=>e.dataset.w);
+  }
+}
+function clearChunkSlots(){
+  [...$('chunkSlots').querySelectorAll('.cword')].forEach(el=>$('chunkPool').appendChild(el));
+  ckSlots=[];
+}
+function checkChunk(){
+  const answer=ckSlots.join(' ');
+  const correct=ckCorrectWords.join(' ');
+  if(answer.toLowerCase()===correct.toLowerCase()){
+    ckStreak++;
+    const bonus=ckStreak>=5?3:ckStreak>=3?2:1;
+    const pts=ckHintsUsed>0?5*bonus:10*bonus;
+    S.coins+=pts;
+    sfx.correct();
+    $('coins').textContent=S.coins; persist();
+    toast('+'+(pts)+' jeton'+(bonus>1?' (×'+bonus+' seri!)':''));
+    showChunkResult(true);
+  } else {
+    ckStreak=0;
+    sfx.wrong();
+    $('chunkSlots').querySelectorAll('.cword').forEach(e=>{ e.classList.add('wrong'); setTimeout(()=>e.classList.remove('wrong'),500); });
+  }
+}
+function chunkHint(){
+  if(S.coins<10){ toast('Yeterli jeton yok (10 gerekli)'); return; }
+  // doğru sırada bir sonraki kelimeyi yerleştir
+  const placed=ckSlots.length;
+  if(placed>=ckCorrectWords.length) return;
+  const nextWord=ckCorrectWords[placed];
+  // havuzdaki o kelimeyi bul
+  const poolWords=[...$('chunkPool').querySelectorAll('.cword')];
+  const match=poolWords.find(el=>el.dataset.w===nextWord);
+  if(match){
+    match.style.background='var(--gold)'; match.style.color='#3a2607';
+    moveToSlot(match);
+    S.coins-=10; ckHintsUsed++;
+    $('coins').textContent=S.coins; sfx.hint(); persist();
+  }
+}
+function showChunkResult(correct){
+  $('chunkCorrect').textContent=(correct?'✅ ':'❌ ')+ckCur.ch;
+  if(!correct) ckStreak=0;
+  $('chunkPat').textContent=ckCur.pat;
+  $('chunkVars').textContent=ckCur.vars.length?ckCur.vars.join(' · '):'—';
+  $('chunkEx').textContent=ckCur.ex;
+  $('chunkResult').style.display='block';
+  $('chunkCheck').style.display='none';
+  $('chunkSkip').style.display='none';
+  $('chunkClear').style.display='none';
+  $('chunkHint').style.display='none';
+  $('chunkNext').style.display='flex';
+  speak(ckCur.ch);
+}
+$('chunksBtn').onclick=()=>{
+  $('menuOverlay').classList.remove('show');
+  $('wheelOverlay').classList.add('show');
+  audio(); buildSlotReel();
+};
+$('slotStartBtn').onclick=startSlot;
+$('slotStopBtn').onclick=stopSlot;
+$('wheelX').onclick=()=>{ slotRunning=false;cancelAnimationFrame(slotRAF);$('wheelOverlay').classList.remove('show');$('menuOverlay').classList.add('show'); };
+$('chunkCheck').onclick=checkChunk;
+$('chunkClear').onclick=clearChunkSlots;
+$('chunkHint').onclick=chunkHint;
+$('chunkSkip').onclick=()=>{ showChunkResult(false); };
+$('chunkX').onclick=()=>{ $('chunkOverlay').classList.remove('show'); $('wheelOverlay').classList.add('show'); buildSlotReel(); };
+$('chunkNext').onclick=()=>{ $('chunkOverlay').classList.remove('show'); $('wheelOverlay').classList.add('show'); buildSlotReel(); };
+
+/* ===== WORDLE v2 — Zamanlayıcı + Kelime Bulutu ===== */
+let wLen=5;
+function makeWPool(n){
+  const all=new Set();
+  Object.values(LIB).forEach(s=>s.split(' ').forEach(w=>{if(w&&w.length===n) all.add(w);}));
+  return [...all];
+}
+let WPOOL=makeWPool(5);
+let wSecret='',wRow=0,wCol=0,wOver=false,wGrid=[],wKeyStates={};
+let wTimer=180,wTimerID=null,wScore=0,wPaused=false;
+const WROWS=6;
+const WKEYS=[['Q','W','E','R','T','Y','U','I','O','P'],['A','S','D','F','G','H','J','K','L'],['ENTER','Z','X','C','V','B','N','M','⌫']];
+
+function startWordCrackWith(n){
+  wLen=n; WPOOL=makeWPool(n);
+  if(WPOOL.length<5){toast('Bu uzunlukta yeterli kelime yok');return;}
+  $('wPickOverlay').classList.remove('show');
+  $('wordleOverlay').classList.add('show');
+  initWordCrack();
+}
+function initWordCrack(){
+  wSecret=WPOOL[Math.floor(Math.random()*WPOOL.length)];
+  wRow=0;wCol=0;wOver=false;wKeyStates={};wGrid=[];wTimer=180;wScore=0;wPaused=false;
+  clearInterval(wTimerID);
+  $('wEndPanel').style.display='none';
+  $('wMsg').textContent='';$('wMsg').style.color='var(--text)';
+  const g=$('wGrid');g.innerHTML='';
+  for(let r=0;r<WROWS;r++){
+    const row=[];const rd=document.createElement('div');rd.className='wRow';
+    for(let c=0;c<wLen;c++){
+      const cell=document.createElement('div');cell.className='wCell';
+      cell.style.width=(wLen>5?56:72)+'px';cell.style.height=(wLen>5?56:72)+'px';
+      cell.style.fontSize=(wLen>5?24:32)+'px';
+      const ci=c;cell.onclick=()=>wCellTap(ci);
+      rd.appendChild(cell);row.push(cell);
+    }
+    g.appendChild(rd);wGrid.push(row);
+  }
+  const kb=$('wKeyboard');kb.innerHTML='';
+  WKEYS.forEach(row=>{
+    const kr=document.createElement('div');kr.className='wKeyRow';
+    row.forEach(k=>{
+      const btn=document.createElement('button');
+      btn.className='wKey'+(k.length>1?' wide':'');
+      btn.textContent=k;btn.dataset.k=k;btn.onclick=()=>wInput(k);
+      kr.appendChild(btn);
+    });
+    if(row.includes('ENTER')){
+      const lb=document.createElement('button');lb.className='wKey';lb.textContent='◀';lb.style.background='rgba(255,194,75,.2)';lb.onclick=()=>wMoveCell(-1);kr.insertBefore(lb,kr.firstChild);
+      const rb=document.createElement('button');rb.className='wKey';rb.textContent='▶';rb.style.background='rgba(255,194,75,.2)';rb.onclick=()=>wMoveCell(1);kr.appendChild(rb);
+    }
+    kb.appendChild(kr);
+  });
+  fillCloud();wSelCell=-1;updateTimerUI();highlightRow();
+  wTimerID=setInterval(()=>{
+    if(wPaused||wOver) return;
+    wTimer--;updateTimerUI();
+    if(wTimer<=0){wTimer=0;updateTimerUI();wGameOver(false);}
+  },1000);
+}
+function updateTimerUI(){
+  const m=Math.floor(wTimer/60),s=wTimer%60;
+  $('wTimerEl').textContent='⏱ '+m+':'+(s<10?'0':'')+s;
+  $('wTimerEl').classList.toggle('low',wTimer<=30);
+  $('wScoreEl').textContent='Skor: '+wScore;
+}
+// === KELIME BULUTU — çakışmasız yerleşim ===
+function fillCloud(){
+  const cloud=$('wCloud');cloud.innerHTML='';
+  const pool=makeWPool(wLen).filter(w=>w!==wSecret);
+  const picks=[];
+  while(picks.length<15&&pool.length){
+    const i=Math.random()*pool.length|0;
+    if(!picks.includes(pool[i])) picks.push(pool.splice(i,1)[0]);
+  }
+  picks.forEach(w=>{
+    const el=document.createElement('span');el.className='cloudWord';el.textContent=w;
+    el.onclick=()=>{wPaused=true;openDetail(w);};
+    cloud.appendChild(el);
+  });
+}
+$('wShuffle').onclick=()=>{ fillCloud(); tone(600,.08,'triangle',.15); };
+$('wCloudToggle').onclick=()=>{
+  const c=$('wCloud');
+  c.style.display=c.style.display==='none'?'block':'none';
+};
+// === GİRİŞ ===
+function wInput(k){
+  if(wOver||wPaused) return;
+  if(k==='⌫'){
+    wDeselectCell();
+    if(wCol>0){wCol--;wGrid[wRow][wCol].textContent='';wGrid[wRow][wCol].classList.remove('active');}
+    return;
+  }
+  if(k==='ENTER'){wDeselectCell();wSubmit();return;}
+  if(wCol>=wLen) return;
+  wDeselectCell();
+  const cell=wGrid[wRow][wCol];
+  cell.textContent=k;cell.classList.add('active','pop');
+  tone(400+wCol*100,.04,'sine',.08);
+  setTimeout(()=>{try{cell.classList.remove('pop')}catch(e){}},200);
+  wCol++;
+}
+function wSubmit(){
+  if(wCol<wLen){$('wMsg').textContent=wLen+' harf gir!';return;}
+  const guess=wGrid[wRow].map(c=>c.textContent.toLowerCase()).join('');
+  if(!WPOOL.includes(guess)&&!LIBSET.has(guess)){
+    $('wMsg').textContent='Geçersiz kelime — tekrar dene!';
+    wGrid[wRow].forEach(c=>c.classList.add('invalid'));
+    sfx.wrong();
+    setTimeout(()=>{
+      try{wGrid[wRow].forEach(c=>{c.classList.remove('invalid');c.textContent='';c.classList.remove('active');});}catch(e){}
+      wCol=0;
+    },600);
+    return;
+  }
+  $('wMsg').textContent='';
+  const secret=wSecret.split('');
+  const result=Array(wLen).fill('absent');
+  const used=Array(wLen).fill(false);
+  for(let i=0;i<wLen;i++){if(guess[i]===secret[i]){result[i]='correct';used[i]=true;}}
+  for(let i=0;i<wLen;i++){
+    if(result[i]==='correct') continue;
+    for(let j=0;j<wLen;j++){if(!used[j]&&guess[i]===secret[j]){result[i]='present';used[j]=true;break;}}
+  }
+  // zaman bonusu/cezası
+  let greens=result.filter(r=>r==='correct').length;
+  let yellows=result.filter(r=>r==='present').length;
+  let allGray=greens===0&&yellows===0;
+  let timeChange=greens*5+yellows*3+(allGray?-5:0);
+  wTimer=Math.max(0,wTimer+timeChange);
+  if(timeChange>0) $('wMsg').innerHTML='<span style="color:var(--mint)">+'+timeChange+'s ⏱</span>';
+  else if(timeChange<0) $('wMsg').innerHTML='<span style="color:var(--coral)">'+timeChange+'s ⏱</span>';
+  // flip animasyonu + renklendirme
+  const thisRow=wRow;
+  for(let i=0;i<wLen;i++){
+    const cell=wGrid[thisRow][i],cls=result[i],letter=guess[i].toUpperCase();
+    setTimeout(()=>{
+      cell.classList.remove('active');cell.classList.add('flip');
+      setTimeout(()=>{
+        cell.classList.add(cls);
+        const prev=wKeyStates[letter]||'';
+        if(cls==='correct') wKeyStates[letter]='correct';
+        else if(cls==='present'&&prev!=='correct') wKeyStates[letter]='present';
+        else if(!prev) wKeyStates[letter]='absent';
+        const kb=$('wKeyboard').querySelector('[data-k="'+letter+'"]');
+        if(kb) kb.className='wKey'+(letter.length>1?' wide':'')+' '+wKeyStates[letter];
+      },250);
+    },i*200);
+  }
+  setTimeout(()=>{
+    wGrid[thisRow].forEach(c=>{
+      c.style.cursor='pointer';
+      c.onclick=()=>{wPaused=true;openDetail(guess);};
+    });
+  },wLen*200+300);
+  setTimeout(()=>{
+    if(guess===wSecret){
+      wScore=(wTimer*10)+((WROWS-thisRow)*50);
+      updateTimerUI();
+      wGrid[thisRow][0].parentNode.classList.add('win');
+      sfx.win();
+      wGameOver(true);
+    } else if(thisRow>=WROWS-1){
+      wGameOver(false);
+    } else {
+      wRow++;wCol=0;highlightRow();
+    }
+  },wLen*200+350);
+}
+function wGameOver(won){
+  wOver=true;clearInterval(wTimerID);
+  const e=entry(wSecret);
+  if(won){
+    S.coins+=Math.max(10,Math.round(wScore/50));persist();
+    $('coins').textContent=S.coins;
+    setTimeout(()=>{
+      wPaused=true;openDetail(wSecret);
+      $('wEndMsg').innerHTML='🎉 Tebrikler! Skor: <span style="color:var(--gold)">'+wScore+'</span>';
+      $('wEndMsg').style.color='var(--mint)';
+      $('wEndPanel').style.display='block';
+    },1800);
+  } else {
+    sfx.wrong();
+    setTimeout(()=>{
+      wPaused=true;openDetail(wSecret);
+      const reason=wTimer<=0?'⏱ Süre Bitti!':'Haklarınız Tükendi!';
+      $('wEndMsg').innerHTML=reason+' Kelime: <b style="color:var(--coral)">'+wSecret.toUpperCase()+'</b>'+(e?' = '+e.tr:'');
+      $('wEndMsg').style.color='var(--coral)';
+      $('wEndPanel').style.display='block';
+    },800);
+  }
+}
+// detay kapatılınca süre devam etsin
+const _origDetailClose=$('detailClose').onclick;
+$('detailClose').onclick=()=>{$('detailOverlay').classList.remove('show');wPaused=false;};
+// fiziksel klavye
+// === HÜCRE SEÇİM + KAYDIRMA ===
+let wSelCell=-1;
+function wCellTap(idx){
+  if(wOver||wPaused) return;
+  const row=wGrid[wRow]; if(!row||!row[idx]||!row[idx].textContent) return;
+  if(wSelCell===idx){row[idx].classList.remove('wSel');wSelCell=-1;return;}
+  row.forEach(c=>c.classList.remove('wSel'));
+  row[idx].classList.add('wSel');wSelCell=idx;
+}
+function wMoveCell(dir){
+  if(wSelCell<0||!wGrid[wRow]) return;
+  const row=wGrid[wRow], t=wSelCell+dir;
+  if(t<0||t>=wLen||!row[t]) return;
+  const a=row[wSelCell],b=row[t];
+  const tmp=a.textContent;a.textContent=b.textContent;b.textContent=tmp;
+  a.classList.remove('wSel');b.classList.add('wSel');
+  wSelCell=t; tone(500,.04,'sine',.08);
+}
+function wDeselectCell(){if(wSelCell>=0&&wGrid[wRow]){wGrid[wRow].forEach(c=>c.classList.remove('wSel'));wSelCell=-1;}}
+function highlightRow(){
+  const rows=$('wGrid').querySelectorAll('.wRow');
+  rows.forEach((r,i)=>{r.classList.toggle('wActive',i===wRow);});
+}
+
+document.addEventListener('keydown',e=>{
+  if(!$('wordleOverlay').classList.contains('show')) return;
+  if(wOver||wPaused) return;
+  if(e.key==='ArrowLeft'){wMoveCell(-1);e.preventDefault();return;}
+  if(e.key==='ArrowRight'){wMoveCell(1);e.preventDefault();return;}
+  if(e.key==='Enter') wInput('ENTER');
+  else if(e.key==='Backspace') wInput('⌫');
+  else if(/^[a-zA-Z]$/.test(e.key)) wInput(e.key.toUpperCase());
+});
+$('wordleBtn').onclick=()=>{$('menuOverlay').classList.remove('show');audio();$('wPickOverlay').classList.add('show');};
+$('wordleX').onclick=()=>{clearInterval(wTimerID);wOver=true;$('wordleOverlay').classList.remove('show');$('menuOverlay').classList.add('show');};
+$('wNewGame').onclick=()=>{$('wEndPanel').style.display='none';$('wordleOverlay').classList.remove('show');$('wPickOverlay').classList.add('show');};
+$('wExit').onclick=()=>{clearInterval(wTimerID);wOver=true;$('wordleOverlay').classList.remove('show');$('menuOverlay').classList.add('show');};
+
 function refreshMenu(){
-  $('contBtn').style.display=(hasSave()&&(S.levelIdx>0||(S.foundByLevel[0]||[]).length))?'flex':'none';
   $('soundTog').classList.toggle('on',S.sound); $('musicTog').classList.toggle('on',S.music);
-  $('logoutBtn').textContent='🔄 '+currentUser+' — Kullanıcı Değiştir';
+  $('logoutBtn').textContent='🔄 '+currentUser+' — Change User';
 }
 $('logoutBtn').onclick=()=>{
   persist(); musicStop(); currentUser='';
@@ -4014,6 +4970,51 @@ window.addEventListener('resize',()=>renderWheel());
 
 /* ===== BAŞLAT — login ekranı göster, save login sonrası yüklenir ===== */
 
+/* ===== KALIP DEFTERİ ===== */
+let cbFilter='';
+function openChunkBook(){
+  $('menuOverlay').classList.remove('show');
+  $('chunkBookOverlay').classList.add('show');
+  cbFilter='';
+  renderChunkBook();
+}
+function renderChunkBook(){
+  const search=($('chunkBookSearch').value||'').toLowerCase();
+  const catDiv=$('chunkBookCats');catDiv.innerHTML='';
+  const allBtn=document.createElement('button');allBtn.className='cbCat'+(cbFilter===''?' active':'');
+  allBtn.textContent='Tümü ('+CHUNKS.length+')';allBtn.onclick=()=>{cbFilter='';renderChunkBook();};
+  catDiv.appendChild(allBtn);
+  CATS.forEach(cat=>{
+    const cnt=CHUNKS.filter(c=>c.cat===cat).length;
+    const btn=document.createElement('button');btn.className='cbCat'+(cbFilter===cat?' active':'');
+    btn.textContent=(CAT_ICONS[cat]||'')+' '+cat+' ('+cnt+')';
+    btn.onclick=()=>{cbFilter=cat;renderChunkBook();};
+    catDiv.appendChild(btn);
+  });
+  const list=$('chunkBookList');list.innerHTML='';
+  let filtered=CHUNKS;
+  if(cbFilter) filtered=filtered.filter(c=>c.cat===cbFilter);
+  if(search) filtered=filtered.filter(c=>c.ch.toLowerCase().includes(search)||c.tr.toLowerCase().includes(search)||c.cat.toLowerCase().includes(search));
+  if(!filtered.length){list.innerHTML='<p style="text-align:center;color:var(--text-dim)">Sonuç yok</p>';return;}
+  filtered.forEach(c=>{
+    const item=document.createElement('div');item.className='cbItem';
+    item.innerHTML='<div class="cbChunk">'+(CAT_ICONS[c.cat]||'')+' '+c.ch+'</div>'
+      +'<div class="cbTr">'+c.tr+'</div>'
+      +'<div class="cbMeta">'+c.cat+' · '+c.lv+'</div>'
+      +'<div class="cbPat">📐 '+c.pat+'</div>'
+      +'<div class="cbVars">'+(c.vars.length?'🔄 '+c.vars.join(' · '):'')+'</div>'
+      +'<div class="cbEx">💬 '+c.ex+'</div>';
+    item.onclick=()=>{item.classList.toggle('open');if(item.classList.contains('open'))speak(c.ch);};
+    list.appendChild(item);
+  });
+}
+$('chunkBookBtn').onclick=openChunkBook;
+$('chunkBookX').onclick=()=>{$('chunkBookOverlay').classList.remove('show');$('menuOverlay').classList.add('show');};
+$('chunkBookSearch').oninput=renderChunkBook;
+
+// Otomatik giriş
+const savedUsers=getUsers();
+if(savedUsers.length>0){ loginAs(savedUsers[0]); } else { showLoginUsers(); }
 </script>
 </body>
 </html>
