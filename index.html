@@ -2,6 +2,14 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkxleGlQbGF5IiwgInNob3J0X25hbWUiOiAiTGV4aVBsYXkiLCAiZGVzY3JpcHRpb24iOiAiRW5nbGlzaCBMZWFybmluZyBQbGF0Zm9ybSAtIExlYXJuLCBQbGF5LCBNYXN0ZXIiLCAic3RhcnRfdXJsIjogIi4iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiIzFjMGQzMyIsICJ0aGVtZV9jb2xvciI6ICIjMWMwZDMzIiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbCw8c3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDEwMCAxMDAnPjx0ZXh0IHk9Jy45ZW0nIGZvbnQtc2l6ZT0nOTAnPlx1ZDgzZVx1ZGRlMDwvdGV4dD48L3N2Zz4iLCAic2l6ZXMiOiAiYW55IiwgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="LexiPlay">
+<meta name="theme-color" content="#1c0d33">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>LexiPlay — English Learning Platform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +22,43 @@
     --cyan:#7ef0ff;--cyan-deep:#33b9d6;--mint:#47e0a1;--coral:#ff5d73;--pink:#ff5ea8;
     --text:#f7eefc;--text-dim:#cbb3e6;
   }
+  
+  body.light{background:#f0f0f5;}
+  body.light .sky{display:none;}
+  body.light :root,body.light{
+    --panel:rgba(255,255,255,.85);--panel-line:rgba(0,0,0,.1);
+    --text:#1a1a2e;--text-dim:#555577;
+  }
+  body.light .card{background:linear-gradient(180deg,#ffffff,#f4f2f8);border-color:rgba(0,0,0,.1);color:#1a1a2e;}
+  body.light header{background:rgba(255,255,255,.9);border-bottom:1px solid rgba(0,0,0,.08);}
+  body.light .pill{background:rgba(255,255,255,.9);border-color:rgba(0,0,0,.1);color:#1a1a2e;}
+  body.light .btn{background:rgba(0,0,0,.06);color:#1a1a2e;border-color:rgba(0,0,0,.1);}
+  body.light .btn.gold{background:linear-gradient(135deg,#ffc24b,#e8a420);color:#3a2607;}
+  body.light .gameCard{background:rgba(255,255,255,.7);border-color:rgba(0,0,0,.08);color:#1a1a2e;}
+  body.light .gameCard:hover{border-color:rgba(255,194,75,.5);box-shadow:0 2px 12px rgba(0,0,0,.08);}
+  body.light .gcSub{color:#777;}
+  body.light .overlay{background:rgba(0,0,0,.3);}
+  body.light .wCell{border-color:rgba(0,0,0,.15);color:#1a1a2e;}
+  body.light .wKey{background:rgba(0,0,0,.07);color:#1a1a2e;}
+  body.light .wKey.enter{background:linear-gradient(135deg,#47e0a1,#2bb87a);color:#0c3a2a;}
+  body.light .wKey.absent{background:rgba(0,0,0,.15);}
+  body.light .slotFrame{background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.02),rgba(0,0,0,.06));}
+  body.light .slotItem{color:rgba(0,0,0,.3);}
+  body.light .slotItem.active{color:#d99a22;}
+  body.light .slotFade.top{background:linear-gradient(180deg,rgba(244,242,248,.97) 10%,transparent);}
+  body.light .slotFade.bot{background:linear-gradient(0deg,rgba(244,242,248,.97) 10%,transparent);}
+  body.light .cloudWord{color:#555;border-color:rgba(0,0,0,.1);background:rgba(0,0,0,.04);}
+  body.light .cbItem{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.06);}
+  body.light .cbChunk{color:#2563eb;}
+  body.light .cbCat{color:#555;border-color:rgba(0,0,0,.15);}
+  body.light .cbCat.active{background:var(--gold);color:#3a2607;}
+  body.light .switch b{background:rgba(0,0,0,.2);}
+  body.light .switch b.on{background:var(--mint);}
+  body.light .nb-search{background:rgba(0,0,0,.05);color:#1a1a2e;border-color:rgba(0,0,0,.1);}
+  body.light .xbtn{color:#555;border-color:rgba(0,0,0,.1);}
+  body.light .guide{color:#555;}
+  body.light .wordRow .cell.found{background:#47e0a1;color:#0c3a2a;}
+  body.light .cword{background:rgba(0,0,0,.06);color:#1a1a2e;border-color:rgba(0,0,0,.1);}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{margin:0;height:100%;}
   body{font-family:'Nunito',system-ui,sans-serif;color:var(--text);
@@ -193,14 +238,14 @@
   .catName{font-family:'Fredoka';font-size:32px;font-weight:700;color:var(--gold);text-shadow:0 0 30px rgba(255,194,75,.7),0 0 60px rgba(255,194,75,.4);letter-spacing:1px;}
   @keyframes catPop{0%{transform:scale(.3);opacity:0;}50%{transform:scale(1.15);}100%{transform:scale(1);opacity:1;}}
   /* oyun kartları */
-  .gameCards{display:flex;flex-direction:column;gap:10px;margin-bottom:8px;}
-  .gameCard{display:flex;align-items:center;gap:10px;padding:16px 18px;flex-direction:column;align-items:center;border-radius:18px;border:1.5px solid rgba(255,255,255,.08);
+  .gameCards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
+  .gameCard{display:flex;align-items:center;gap:6px;padding:12px 8px;flex-direction:column;align-items:center;border-radius:18px;border:1.5px solid rgba(255,255,255,.08);
     background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.02));cursor:pointer;text-align:center;justify-content:center;
     color:var(--text);transition:transform .12s,border-color .2s,box-shadow .2s;backdrop-filter:blur(4px);}
   .gameCard:active{transform:scale(.97);}
   .gameCard:hover{border-color:rgba(255,194,75,.3);box-shadow:0 0 20px rgba(255,194,75,.1),inset 0 0 30px rgba(255,194,75,.03);}
-  .gcIcon{font-size:42px;flex:0 0 54px;text-align:center;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));}
-  .gcTitle{font-family:'Fredoka';font-weight:700;font-size:19px;display:block;letter-spacing:.3px;}
+  .gcIcon{font-size:32px;flex:0 0 36px;text-align:center;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3));}
+  .gcTitle{font-family:'Fredoka';font-weight:700;font-size:14px;display:block;letter-spacing:.3px;}
   .gcSub{font-size:13px;color:rgba(255,255,255,.45);display:block;margin-top:3px;letter-spacing:.2px;}
   /* wordle */
   .wTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
@@ -235,11 +280,14 @@
   .wKey{min-width:42px;height:56px;padding:0 6px;border-radius:8px;border:none;
     background:rgba(255,255,255,.12);color:#fff;font-family:'Fredoka';font-weight:600;font-size:18px;cursor:pointer;
     display:flex;align-items:center;justify-content:center;transition:background .2s,transform .1s;}
-  .wKey:active{transform:scale(.9);}
+  .wKey:active{transform:scale(.9);box-shadow:0 0 14px rgba(126,240,255,.5);background:rgba(126,240,255,.2)!important;}
+  .wKey.flash{animation:keyFlash .2s ease;}
+  @keyframes keyFlash{0%{box-shadow:0 0 0 transparent;}50%{box-shadow:0 0 16px rgba(126,240,255,.5);}100%{box-shadow:0 0 0 transparent;}}
   .wKey.wide{min-width:65px;font-size:15px;}
   .wKey.correct{background:#47e0a1;color:#0c3a2a;}
   .wKey.present{background:#ffc24b;color:#3a2607;}
   .wKey.absent{background:#2a2d4e;}
+  .wKey.enter{background:linear-gradient(135deg,#47e0a1,#2bb87a);color:#0c3a2a;font-weight:700;box-shadow:0 0 12px rgba(71,224,161,.3);}
   .wMsg{text-align:center;font-family:'Fredoka';font-size:14px;min-height:20px;margin:4px 0;}
   /* kalıp defteri */
   .cbCat{padding:4px 10px;border-radius:8px;border:1px solid rgba(255,255,255,.15);font-size:11px;cursor:pointer;
@@ -264,6 +312,59 @@
     transition:transform .15s,box-shadow .2s;white-space:nowrap;cursor:pointer;}
   .cloudWord:hover,.cloudWord:active{box-shadow:0 0 14px rgba(57,255,20,.3);transform:scale(1.1);border-color:var(--cyan);}
   @keyframes cloudFloat{0%{transform:translateY(0);}50%{transform:translateY(-8px);}100%{transform:translateY(0);}}
+
+  /* ===== MOBİL UYUM ===== */
+  @media(max-width:600px){
+    header{padding:6px 8px 4px;gap:4px;}
+    .brand h1{font-size:18px;}
+    .brand small{font-size:10px;}
+    .pill{padding:4px 7px;font-size:11px;gap:3px;}
+    .guide{padding:3px 0;font-size:11px;gap:4px;}
+    .card{padding:18px 14px;border-radius:16px;max-width:95vw;}
+    .gameCards{gap:6px;}
+    .gameCard{padding:10px 8px;border-radius:14px;gap:4px;}
+    .gcIcon{font-size:26px;flex:0 0 30px;}
+    .gcTitle{font-size:13px;}
+    .overlay>.card{max-height:95vh;overflow-y:auto;}
+    /* SpellSpin çember */
+    .wheelzone{padding:0 0 8px;}
+    .wheel .letter{width:34px!important;height:34px!important;font-size:15px!important;margin:-17px 0 0 -17px!important;}
+    .forming{min-height:28px;font-size:20px;letter-spacing:3px;}
+    .wordRow{gap:3px;margin-bottom:4px;}
+    .wordRow .cell{width:28px;height:28px;font-size:13px;border-radius:5px;}
+    .hint-label{font-size:10px;}
+    .controls{padding:6px 0;gap:6px;position:relative;z-index:10;}
+    .controls .btn{padding:8px 16px;font-size:13px;}
+    /* WordCrack */
+    .wCell{width:42px!important;height:42px!important;font-size:20px!important;border-radius:7px!important;}
+    .wKey{min-width:32px!important;height:44px!important;font-size:15px!important;border-radius:6px!important;}
+    .wKey.wide{min-width:52px!important;font-size:13px!important;}
+    .wGrid{gap:3px;}
+    .wRow{gap:3px;}
+    .wKeyboard{gap:3px;}
+    .wKeyRow{gap:2px;}
+    .wKeyRow{gap:2px;}
+    .wTop{margin-bottom:4px;}
+    .wTimer{font-size:18px;}
+    .wScore{font-size:12px;}
+    .wMsg{font-size:12px;}
+    .cloudWord{padding:3px 8px;font-size:11px;margin:2px;}
+    /* ChunkDrop */
+    .slotFrame{height:180px;border-radius:14px;}
+    .slotItem{height:40px;font-size:13px;}
+    .slotHighlight{height:40px;}
+    .slotFade{height:60px;}
+    /* ChunkBook */
+    .cbCat{padding:3px 8px;font-size:10px;}
+    .cbChunk{font-size:13px;}
+    .cbItem{padding:8px;}
+    /* Chunk meydan okuma */
+    .cword{padding:6px 10px;font-size:13px;}
+    /* Login */
+    .big{font-size:44px!important;}
+    h2{font-size:24px!important;}
+    .switch{font-size:13px!important;}
+  }
 </style>
 </head>
 <body>
@@ -386,12 +487,14 @@
   </div>
   <div class="wMsg" id="wMsg"></div>
   <div class="wBody">
-    <div class="wGrid" id="wGrid"></div>
+      <div class="wGrid" id="wGrid"></div>
       <div class="wKeyboard" id="wKeyboard"></div>
     </div>
   <div style="display:flex;gap:6px;justify-content:center;margin-top:6px">
+    <button class="btn" id="wMoveL" style="font-size:14px;padding:4px 10px;background:rgba(255,194,75,.15);color:var(--gold)" onclick="wMoveCell(-1)">◀</button>
     <button class="btn" id="wCloudToggle" style="font-size:11px;padding:4px 12px">💡 Gizle</button>
     <button class="btn" id="wShuffle" style="font-size:11px;padding:4px 12px">🔀 Yenile</button>
+    <button class="btn" id="wMoveR" style="font-size:14px;padding:4px 10px;background:rgba(255,194,75,.15);color:var(--gold)" onclick="wMoveCell(1)">▶</button>
   </div>
   <div class="wCloud" id="wCloud"></div>
   <div id="wEndPanel" style="display:none;text-align:center;margin-top:10px">
@@ -424,7 +527,7 @@
 <!-- MENÜ / BAŞLANGIÇ -->
 <div class="overlay" id="menuOverlay"><div class="card" style="max-width:400px;position:relative">
   <button class="xbtn" id="menuX" style="display:none">✕</button>
-  <div style="font-size:72px;margin-bottom:8px;filter:drop-shadow(0 6px 20px rgba(255,194,75,.5))">🧠</div><h2 style="font-size:38px;margin:0;letter-spacing:-1px">Lexi<span style="color:var(--gold)">Play</span></h2>
+  <div style="font-size:52px;margin-bottom:4px;filter:drop-shadow(0 6px 20px rgba(255,194,75,.5))">🧠</div><h2 style="font-size:28px;margin:0;letter-spacing:-1px">Lexi<span style="color:var(--gold)">Play</span></h2>
   <p style="font-size:12px;margin-bottom:14px">3 Games · 2890 Words · 284 Chunks · Offline Ready</p>
   <div class="gameCards">
     <button class="gameCard" id="contBtn"><span class="gcIcon">🔤</span><span class="gcTitle">SpellSpin</span></button>
@@ -432,10 +535,11 @@
     <button class="gameCard" id="chunkBookBtn"><span class="gcIcon">📚</span><span class="gcTitle">ChunkBook</span></button>
     <button class="gameCard" id="wordleBtn"><span class="gcIcon">🟩</span><span class="gcTitle">WordCrack</span></button>
   </div>
-  <div style="display:flex;gap:8px;margin-top:8px">
-    <div class="switch" style="flex:1;font-size:15px;font-weight:600">Sound <b id="soundTog" class="on"></b></div>
-    <div class="switch" style="flex:1;font-size:15px;font-weight:600">Music <b id="musicTog"></b></div>
+  <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+    <div class="switch" style="flex:1;font-size:14px;font-weight:600">Sound <b id="soundTog" class="on"></b></div>
+    <div class="switch" style="flex:1;font-size:14px;font-weight:600">Music <b id="musicTog"></b></div>
   </div>
+  <div style="display:flex;gap:8px;margin-top:6px"><div class="switch" style="flex:1;font-size:14px;font-weight:600">🌙 / ☀️ <b id="themeTog" class="on"></b></div></div>
   <button class="btn ghost full" id="logoutBtn" style="margin-top:8px;color:var(--coral);font-size:14px">🔄 Change User</button>
 </div></div>
 
@@ -3968,7 +4072,7 @@ function renderBoard(){
 }
 
 /* ===== ÇEMBER ===== */
-function wheelSize(){ return Math.max(220, Math.min(window.innerWidth*0.80, window.innerHeight*0.40, 340)); }
+function wheelSize(){ const w=window.innerWidth; return w<600 ? Math.min(w*0.65, 240) : Math.max(220, Math.min(w*0.80, window.innerHeight*0.40, 340)); }
 function renderWheel(){
   const wheel=$('wheel'); [...wheel.querySelectorAll('.letter')].forEach(e=>e.remove());
   const size=wheelSize(); wheel.style.width=size+'px'; wheel.style.height=size+'px';
@@ -4331,7 +4435,6 @@ const CHUNKS=[
 {cat:"High Frequency",lv:"A2",ch:"I'm not sure about that.",tr:"Bundan emin değilim.",pat:"I'm not sure + preposition/clause",vars:["I'm not sure what to do.","I'm not sure if he's coming."],ex:"I'm not sure about that. Let me check."},
 {cat:"High Frequency",lv:"A2",ch:"I guess so.",tr:"Sanırım öyle.",pat:"I guess + clause",vars:["I guess you're right.","I guess we should go."],ex:"Is it true? I guess so."},
 {cat:"High Frequency",lv:"B1",ch:"As far as I know...",tr:"Bildiğim kadarıyla...",pat:"As far as + subject + verb",vars:["As far as I can tell...","As far as I remember..."],ex:"As far as I know, the store closes at nine."},
-,
 // === EK CHUNKLAR ===
 // === GREETINGS ===
 {cat:"Greetings",lv:"A1",ch:"Hello, how are you doing?",tr:"Merhaba, nasıl gidiyor?",pat:"Hello + question",vars:["Hello, how's it going?"],ex:"Hello, how are you doing today?"},
@@ -4763,14 +4866,11 @@ function initWordCrack(){
     const kr=document.createElement('div');kr.className='wKeyRow';
     row.forEach(k=>{
       const btn=document.createElement('button');
-      btn.className='wKey'+(k.length>1?' wide':'');
-      btn.textContent=k;btn.dataset.k=k;btn.onclick=()=>wInput(k);
+      btn.className='wKey'+(k==='ENTER'?' wide enter':k.length>1?' wide':'');
+      btn.textContent=k;btn.dataset.k=k;btn.onclick=()=>{btn.classList.add('flash');setTimeout(()=>btn.classList.remove('flash'),200);wInput(k);};
       kr.appendChild(btn);
     });
-    if(row.includes('ENTER')){
-      const lb=document.createElement('button');lb.className='wKey';lb.textContent='◀';lb.style.background='rgba(255,194,75,.2)';lb.onclick=()=>wMoveCell(-1);kr.insertBefore(lb,kr.firstChild);
-      const rb=document.createElement('button');rb.className='wKey';rb.textContent='▶';rb.style.background='rgba(255,194,75,.2)';rb.onclick=()=>wMoveCell(1);kr.appendChild(rb);
-    }
+
     kb.appendChild(kr);
   });
   fillCloud();wSelCell=-1;updateTimerUI();highlightRow();
@@ -4917,6 +5017,7 @@ function wGameOver(won){
 const _origDetailClose=$('detailClose').onclick;
 $('detailClose').onclick=()=>{$('detailOverlay').classList.remove('show');wPaused=false;};
 // fiziksel klavye
+
 // === HÜCRE SEÇİM + KAYDIRMA ===
 let wSelCell=-1;
 function wCellTap(idx){
@@ -4970,6 +5071,17 @@ window.addEventListener('resize',()=>renderWheel());
 
 /* ===== BAŞLAT — login ekranı göster, save login sonrası yüklenir ===== */
 
+/* ===== TEMA ===== */
+const savedTheme=localStorage.getItem('lexiplay_theme');
+if(savedTheme==='light') document.body.classList.add('light');
+$('themeTog').classList.toggle('on',!document.body.classList.contains('light'));
+$('themeTog').onclick=()=>{
+  document.body.classList.toggle('light');
+  const isLight=document.body.classList.contains('light');
+  $('themeTog').classList.toggle('on',!isLight);
+  localStorage.setItem('lexiplay_theme',isLight?'light':'dark');
+};
+
 /* ===== KALIP DEFTERİ ===== */
 let cbFilter='';
 function openChunkBook(){
@@ -5015,6 +5127,22 @@ $('chunkBookSearch').oninput=renderChunkBook;
 // Otomatik giriş
 const savedUsers=getUsers();
 if(savedUsers.length>0){ loginAs(savedUsers[0]); } else { showLoginUsers(); }
+</script>
+
+<script>
+if('serviceWorker' in navigator){
+  const sw=URL.createObjectURL(new Blob([`
+    self.addEventListener('install',e=>self.skipWaiting());
+    self.addEventListener('activate',e=>e.waitUntil(clients.claim()));
+    self.addEventListener('fetch',e=>e.respondWith(
+      caches.match(e.request).then(r=>r||fetch(e.request).then(res=>{
+        if(res.ok){const c=res.clone();caches.open('lexiplay-v1').then(cache=>cache.put(e.request,c));}
+        return res;
+      }).catch(()=>caches.match(e.request)))
+    ));
+  `],{type:'application/javascript'}));
+  navigator.serviceWorker.register(sw,{scope:'.'});
+}
 </script>
 </body>
 </html>
